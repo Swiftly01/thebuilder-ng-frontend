@@ -444,6 +444,11 @@ export function ArticlePage({ state = "default" }: { state?: PageState }) {
               alt={story.imageAlt || story.title}
               className="aspect-[16/9] w-full rounded-lg object-cover"
             />
+            {story.imageCredit && (
+              <figcaption className="mt-2 text-xs text-[var(--text-meta)]">
+                {story.imageCredit}
+              </figcaption>
+            )}
           </figure>
         )}
         <div className="mx-auto grid max-w-[880px] gap-8 px-4 py-12 md:grid-cols-[52px_1fr] md:px-6 md:py-16">

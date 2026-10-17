@@ -14,6 +14,8 @@ Start the clean API from `.replatform/laravel12-backend` on the port configured 
 
 ## Quality checks
 
+Editorial image slots read media fields from Laravel, including the homepage lead/secondary stories, startup spotlight, directory cards, profiles, search results and video thumbnails. General settings provides image pickers for About and Diaspora page sections. Story and profile editors provide searchable, paginated media selection and upload controls. The API stores media IDs and resolves URLs and descriptions; image files are never embedded in frontend seed arrays. The local demo seed command and asset prompts are documented in `planning/clean-laravel-replatform/19-media-seeding.md` at the workspace root. No fictional video/channel records are seeded.
+
 Run `npm run type-check`, `npm run lint`, `npm run check:theme`, `npm run check:settings`, `npm run check:auth`, `npm run check:editorial`, `npm run check:contract`, `npm run check:release`, `npm run format:check`, and `npm run build`.
 
 `check-local-integration.cjs` and `check-local-release.cjs` require the guarded disposable MySQL preview and running frontend/API. They must never target production. The latter also verifies functional concurrency, real story redirects, legal edition rendering, sitemap and private-key exclusion from browser assets.

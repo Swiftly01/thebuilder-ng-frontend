@@ -22,7 +22,7 @@ export function ConsoleLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div
-      className={`grid min-h-screen min-w-0 grid-cols-1 bg-console-bg font-ui text-ink [color-scheme:light] transition-[grid-template-columns] duration-200 ease-standard ${expanded ? "lg:grid-cols-[248px_minmax(0,1fr)]" : "lg:grid-cols-[72px_minmax(0,1fr)]"}`}
+      className={`grid min-h-screen min-w-0 grid-cols-1 bg-[var(--surface-console)] font-ui text-[var(--text-body)] transition-[grid-template-columns] duration-200 ease-standard ${expanded ? "lg:grid-cols-[248px_minmax(0,1fr)]" : "lg:grid-cols-[72px_minmax(0,1fr)]"}`}
     >
       {mobileOpen && (
         <button

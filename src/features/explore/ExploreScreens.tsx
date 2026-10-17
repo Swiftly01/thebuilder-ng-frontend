@@ -11,6 +11,7 @@ import {
 import { useEdition } from "@/context/EditionContext";
 import { publisherForEdition } from "@/lib/legal-content";
 import { PublicPagination } from "@/components/ui/Pagination";
+import { ContentImage } from "@/components/ui/ContentImage";
 import { publicApi } from "@/lib/api";
 import { errorMessage } from "@/lib/http";
 import { NewsletterForm } from "@/components/brand/NewsletterForm";
@@ -96,21 +97,34 @@ function PageHero({
     <header
       className={
         inverse
-          ? "bg-[var(--surface-inverse)] text-[var(--text-on-inverse)]"
-          : "border-b border-[var(--border)] bg-[var(--surface-card)]"
+          ? "relative overflow-hidden bg-[var(--surface-inverse-deep)] text-[var(--text-on-inverse)]"
+          : "relative overflow-hidden bg-[var(--surface-inverse-deep)] text-[var(--text-on-inverse)]"
       }
     >
-      <div className={`${shell} py-8 md:py-14`}>
+      {/* Dot-grid texture — same as HomeHero gradient layer */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage: "var(--dot-grid)",
+          backgroundSize: "var(--dot-grid-size)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Subtle bottom-edge gradient to blend into page content */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[var(--surface-page)] to-transparent opacity-0 dark:opacity-100"
+        aria-hidden="true"
+      />
+
+      <div className={`${shell} relative z-10 py-10 md:py-16`}>
         <Crumbs items={crumbs} />
         <h1
-          className={`${display} mt-5 text-[40px] leading-[1.04] md:text-7xl ${inverse ? "!text-[var(--text-on-inverse)]" : ""}`}
+          className={`${display} mt-5 text-[40px] leading-[1.04] !text-[var(--text-on-inverse)] md:text-7xl animate-fadeup`}
         >
           {title}
         </h1>
         {children && (
-          <div
-            className={`mt-4 max-w-2xl text-base leading-7 md:text-xl ${inverse ? "text-[var(--text-meta-on-inverse)]" : "text-[var(--text-meta)]"}`}
-          >
+          <div className="mt-4 max-w-2xl text-base leading-7 text-[var(--text-meta-on-inverse)] md:text-xl animate-fadeup [animation-delay:80ms]">
             {children}
           </div>
         )}
@@ -119,9 +133,13 @@ function PageHero({
   );
 }
 function Media({
+  src,
+  alt,
   label = "Portrait",
   ratio = "aspect-[4/5]",
 }: {
+  src?: string | null;
+  alt?: string;
   label?: string;
   ratio?: string;
 }) {
@@ -129,8 +147,7 @@ function Media({
     <div
       className={`${ratio} relative grid w-full place-items-center overflow-hidden bg-gradient-to-br from-[var(--surface-tint)] via-[var(--media-mid)] to-[var(--surface-blush)] text-xs font-semibold uppercase tracking-[.12em] text-[var(--text-meta)]`}
     >
-      <span className="absolute inset-5 rounded-full border border-[color:color-mix(in_srgb,var(--text-on-inverse)_70%,transparent)]" />
-      <span>{label}</span>
+      <ContentImage src={src} alt={alt || label} />
     </div>
   );
 }
@@ -187,7 +204,7 @@ function BuilderTile({
       className="group block min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
     >
       <div className="relative overflow-hidden rounded-xl">
-        <Media />
+        <Media src={b.imageUrl} alt={b.imageAlt || b.name} />
         {badge && (
           <span className="absolute left-3 top-3 rounded-full bg-[var(--accent)] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[var(--text-on-inverse)]">
             {badge}
@@ -218,11 +235,12 @@ function StartupTile({ s }: { s: (typeof startups)[number] }) {
       className="group flex min-h-[230px] flex-col rounded-xl border border-[var(--border)] bg-[var(--surface-card)] p-6 transition hover:-translate-y-1 hover:shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
     >
       <div className="flex items-start justify-between">
-        <span className="grid size-14 place-items-center rounded-xl bg-[var(--surface-inverse)] font-display text-xl font-extrabold text-[var(--text-on-inverse)]">
-          {s.name
-            .split(" ")
-            .map((x) => x[0])
-            .join("")}
+        <span className="relative block size-14 overflow-hidden rounded-xl bg-[var(--surface-tint)]">
+          <ContentImage
+            src={s.imageUrl}
+            alt={s.imageAlt || s.name}
+            sizes="56px"
+          />
         </span>
         <div className="text-right">
           <span className="rounded-full bg-[var(--surface-tint)] px-3 py-1 text-[11px] font-bold uppercase tracking-wider">
@@ -737,11 +755,13 @@ export function StartupProfileScreen() {
           <div className={shell + " py-8 md:py-12"}>
             <Crumbs items={["Startups", x.name]} />
             <div className="mt-6 flex flex-wrap items-start gap-5 md:gap-7">
-              <span className="grid size-[72px] place-items-center rounded-xl bg-[var(--surface-inverse)] font-display text-2xl font-extrabold text-[var(--text-on-inverse)] md:size-24">
-                {x.name
-                  .split(" ")
-                  .map((s) => s[0])
-                  .join("")}
+              <span className="relative block size-[72px] overflow-hidden rounded-xl bg-[var(--surface-tint)] md:size-24">
+                <ContentImage
+                  src={x.imageUrl}
+                  alt={x.imageAlt || x.name}
+                  sizes="96px"
+                  priority
+                />
               </span>
               <div className="min-w-[240px] flex-1">
                 <h1 className={display + " text-4xl md:text-5xl"}>{x.name}</h1>
@@ -835,6 +855,7 @@ export function StartupProfileScreen() {
 }
 
 export function DiasporaScreen() {
+  const pageMedia = useSiteSettings().pageMedia.diaspora;
   const live = usePublicData();
   const builders = live?.builders ?? fixtureBuilders;
   const startups = live?.startups ?? fixtureStartups;
@@ -854,6 +875,12 @@ export function DiasporaScreen() {
               </p>
             </div>
             <div className="relative aspect-[16/10] rounded-xl border border-[color:color-mix(in_srgb,var(--text-on-inverse)_20%,transparent)] bg-[radial-gradient(#3B5BAE_1px,transparent_1.5px)] [background-size:14px_14px]">
+              {pageMedia && (
+                <div className="absolute inset-0 overflow-hidden rounded-xl">
+                  <ContentImage src={pageMedia.url} alt={pageMedia.alt} />
+                  <div className="absolute inset-0 bg-[color:color-mix(in_srgb,var(--surface-inverse-deep)_65%,transparent)]" />
+                </div>
+              )}
               {[
                 ["Australia", "78%", "72%"],
                 ["United Kingdom", "47%", "32%"],
@@ -1622,14 +1649,25 @@ export function NewsletterScreen() {
 }
 
 export function AboutScreen() {
+  const pageMedia = useSiteSettings().pageMedia;
   const { edition } = useEdition();
   const publisher = publisherForEdition(edition);
   return (
     <>
       <Meta title="About" />
       <main>
-        <section className="bg-[var(--surface-inverse)] py-16 text-[var(--text-on-inverse)] md:py-24">
-          <div className={shell}>
+        <section className="relative overflow-hidden bg-[var(--surface-inverse)] py-16 text-[var(--text-on-inverse)] md:py-24">
+          {pageMedia.about && (
+            <>
+              <ContentImage
+                src={pageMedia.about.url}
+                alt={pageMedia.about.alt}
+                priority
+              />
+              <div className="absolute inset-0 bg-[color:color-mix(in_srgb,var(--surface-inverse-deep)_75%,transparent)]" />
+            </>
+          )}
+          <div className={shell + " relative"}>
             <h1 className="max-w-5xl font-display text-5xl font-extrabold leading-[1.04] md:text-7xl">
               We tell the stories of people building the next decade
             </h1>
@@ -1652,8 +1690,15 @@ export function AboutScreen() {
         </section>
         <section className="bg-[var(--surface-tint)] py-16">
           <div className={`${shell} grid items-center gap-10 md:grid-cols-2`}>
-            <div className="grid aspect-video place-items-center rounded-xl bg-[var(--surface-card)] font-display text-3xl font-extrabold text-[var(--text-heading)]">
-              {editionCredit(edition)}
+            <div className="relative grid aspect-video place-items-center overflow-hidden rounded-xl bg-[var(--surface-card)] font-display text-3xl font-extrabold text-[var(--text-heading)]">
+              {pageMedia.partner ? (
+                <ContentImage
+                  src={pageMedia.partner.url}
+                  alt={pageMedia.partner.alt}
+                />
+              ) : (
+                editionCredit(edition)
+              )}
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-[var(--text-accent)]">
@@ -1802,7 +1847,12 @@ function StoryRows() {
           href={"/stories/" + story.slug}
           className="grid grid-cols-[96px_1fr] gap-4 border-t border-[var(--border)] py-5 md:grid-cols-[180px_1fr]"
         >
-          <Media label="Story" ratio="aspect-[4/3]" />
+          <Media
+            src={story.imageUrl || story.image}
+            alt={story.imageAlt || story.title}
+            label="Story"
+            ratio="aspect-[4/3]"
+          />
           <div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-accent)]">
               {story.kicker}

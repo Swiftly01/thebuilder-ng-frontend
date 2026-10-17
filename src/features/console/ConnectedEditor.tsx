@@ -11,6 +11,7 @@ import {
 import { http, errorMessage, type ApiEnvelope } from "@/lib/http";
 import { useToast } from "@/context/ToastContext";
 import { LoadingDots } from "@/components/ui/LoadingDots";
+import { MediaPicker } from "@/components/ui/MediaPicker";
 import { storyCategories, categorySlug } from "@/lib/editorial-policy";
 
 const btn =
@@ -311,35 +312,41 @@ export function ConnectedEditor() {
           <aside className="space-y-4 xl:sticky xl:top-36 xl:self-start">
             <section className="rounded-xl border border-line bg-white p-4">
               <h2 className="font-semibold text-navy-900">Story settings</h2>
-              {[
-                ["Category", "categoryId", categoryOptions],
-                ["Featured image", "mediaId", options.media || []],
-              ].map(([label, key, choices]) => (
-                <label
-                  key={String(key)}
-                  className="mt-4 block text-sm font-semibold"
-                >
-                  {String(label)}
-                  <select
-                    className="mt-2 w-full rounded-lg border border-line p-3"
-                    value={String(settings[String(key)] || "")}
-                    onChange={(e) => {
-                      setSettings({
-                        ...settings,
-                        [String(key)]: e.target.value || null,
-                      });
-                      setDirty(true);
-                    }}
+              {[["Category", "categoryId", categoryOptions]].map(
+                ([label, key, choices]) => (
+                  <label
+                    key={String(key)}
+                    className="mt-4 block text-sm font-semibold"
                   >
-                    <option value="">None</option>
-                    {(choices as ConsoleRecord[]).map((x) => (
-                      <option key={x.id} value={x.id}>
-                        {x.name || String(x.alt)}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              ))}
+                    {String(label)}
+                    <select
+                      className="mt-2 w-full rounded-lg border border-line p-3"
+                      value={String(settings[String(key)] || "")}
+                      onChange={(e) => {
+                        setSettings({
+                          ...settings,
+                          [String(key)]: e.target.value || null,
+                        });
+                        setDirty(true);
+                      }}
+                    >
+                      <option value="">None</option>
+                      {(choices as ConsoleRecord[]).map((x) => (
+                        <option key={x.id} value={x.id}>
+                          {x.name || String(x.alt)}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                ),
+              )}
+              <MediaPicker
+                value={settings.mediaId ? String(settings.mediaId) : null}
+                onChange={(id) => {
+                  setSettings({ ...settings, mediaId: id });
+                  setDirty(true);
+                }}
+              />
               <label className="mt-4 block text-sm font-semibold">
                 Edition
                 <select

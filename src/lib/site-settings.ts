@@ -11,6 +11,13 @@ export interface SiteMenu {
   url: string;
 }
 export interface SiteSettings {
+  pageImages: Partial<Record<"about" | "partner" | "diaspora", string | null>>;
+  pageMedia: Partial<
+    Record<
+      "about" | "partner" | "diaspora",
+      { id: string; url: string; alt: string; credit?: string }
+    >
+  >;
   siteName: string;
   description: string;
   contactEmail: string;
@@ -79,7 +86,30 @@ export function normalizeSiteSettings(value: unknown): SiteSettings {
         )
         .map((item) => ({ label: item.label, url: item.url }))
     : undefined;
+  const pageImages: SiteSettings["pageImages"] = {};
+  const pageMedia: SiteSettings["pageMedia"] = {};
+  const ids = (record.pageImages || {}) as Record<string, unknown>;
+  const media = (record.pageMedia || {}) as Record<string, unknown>;
+  for (const key of ["about", "partner", "diaspora"] as const) {
+    if (typeof ids[key] === "string" || ids[key] === null)
+      pageImages[key] = ids[key] as string | null;
+    const item = media[key] as Record<string, unknown> | null;
+    if (
+      item &&
+      typeof item.id === "string" &&
+      safeNavigationUrl(item.url) &&
+      typeof item.alt === "string"
+    )
+      pageMedia[key] = {
+        id: item.id,
+        url: item.url,
+        alt: item.alt,
+        credit: typeof item.credit === "string" ? item.credit : undefined,
+      };
+  }
   return {
+    pageImages,
+    pageMedia,
     siteName: text("siteName", "The Builder").trim() || "The Builder",
     description: text(
       "description",

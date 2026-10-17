@@ -1,6 +1,7 @@
 import { usePublicData } from "@/context/PublicDataContext";
 import { useRef } from "react";
 import Link from "next/link";
+import { ContentImage } from "../ui/ContentImage";
 
 export default function HomeSpotlight({ loading }: { loading?: boolean }) {
   const rail = useRef<HTMLDivElement>(null);
@@ -11,56 +12,18 @@ export default function HomeSpotlight({ loading }: { loading?: boolean }) {
         ? "auto"
         : "smooth",
     });
-  const startups = usePublicData()?.home?.startups.map((s) => ({
-    id: s.id || s.slug || s.name,
-    slug: s.slug,
-    name: s.name,
-    desc: s.oneLiner,
-    tags: [s.industry, s.stage],
-    loc: s.hq,
-    cc: s.flag,
-  })) || [
-    {
-      id: "KH",
-      name: "Kora Health",
-      desc: "Claims automation for West African Insurers.",
-      tags: ["HealthTech", "Seed"],
-      loc: "Lagos",
-      cc: "NG",
-    },
-    {
-      id: "SC",
-      name: "Shamba Cold",
-      desc: "Solar cold rooms leased to smallholder farmers.",
-      tags: ["AgriTech", "Pre-seed"],
-      loc: "Kano",
-      cc: "NG",
-    },
-    {
-      id: "PB",
-      name: "Pesa Bridge",
-      desc: "Low-fee remittances from Australia to East Africa.",
-      tags: ["Fintech", "Seed"],
-      loc: "Melbourne",
-      cc: "AU",
-    },
-    {
-      id: "LL",
-      name: "Lekki Learn",
-      desc: "Offline-first maths tutoring for secondary schools.",
-      tags: ["EdTech", "Series A+"],
-      loc: "Lagos",
-      cc: "NG",
-    },
-    {
-      id: "VG",
-      name: "Volta Grid",
-      desc: "Pay-as-you-go solar for market clusters.",
-      tags: ["Energy", "Seed"],
-      loc: "Accra",
-      cc: "GH",
-    },
-  ];
+  const startups =
+    usePublicData()?.home?.startups.map((s) => ({
+      id: s.id || s.slug || s.name,
+      slug: s.slug,
+      name: s.name,
+      desc: s.oneLiner,
+      tags: [s.industry, s.stage],
+      loc: s.hq,
+      cc: s.flag,
+      imageUrl: s.imageUrl,
+      imageAlt: s.imageAlt,
+    })) || [];
 
   return (
     <section className="py-section-mobile md:py-section overflow-hidden bg-[var(--surface-inverse)] text-[var(--text-on-inverse)] relative">
@@ -127,8 +90,12 @@ export default function HomeSpotlight({ loading }: { loading?: boolean }) {
               className="min-w-[280px] w-[280px] shrink-0 bg-[var(--surface-inverse-deep)] rounded-lg p-6 snap-start flex flex-col hover:-translate-y-1 transition-transform cursor-pointer border border-[var(--border-inverse)]"
             >
               <div className="flex justify-between items-start mb-6">
-                <div className="w-14 h-14 bg-[var(--surface-inverse)] rounded-xl flex items-center justify-center font-display font-bold text-xl text-[var(--text-on-inverse)]">
-                  {s.id}
+                <div className="relative w-14 h-14 overflow-hidden bg-[var(--surface-inverse)] rounded-xl">
+                  <ContentImage
+                    src={"imageUrl" in s ? s.imageUrl : undefined}
+                    alt={("imageAlt" in s && s.imageAlt) || s.name}
+                    sizes="56px"
+                  />
                 </div>
                 <div className="text-[11px] font-ui font-semibold text-[var(--text-meta-on-inverse)] flex items-center gap-1">
                   <span>{s.cc}</span>

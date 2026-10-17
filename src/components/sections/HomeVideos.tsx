@@ -1,30 +1,10 @@
 import { usePublicData } from "@/context/PublicDataContext";
 import SectionTitle from "../ui/SectionTitle";
 import Link from "next/link";
+import { ContentImage } from "../ui/ContentImage";
 
 export default function HomeVideos() {
-  const videos = usePublicData()?.home?.videos || [
-    {
-      title: "Haftu Strintzos: the long road to Melbourne",
-      duration: "12:40",
-      date: "6 Oct",
-    },
-    {
-      title: "Inside Shamba Cold’s first cold room",
-      duration: "6:05",
-      date: "3 Oct",
-    },
-    {
-      title: "Mohamed Semra on civic leadership",
-      duration: "18:22",
-      date: "30 Sep",
-    },
-    {
-      title: "Explainer: how remittance fees work",
-      duration: "4:51",
-      date: "27 Sep",
-    },
-  ];
+  const videos = usePublicData()?.home?.videos || [];
 
   const mainVideo = videos[0];
   const sideVideos = videos.slice(1);
@@ -52,8 +32,15 @@ export default function HomeVideos() {
             className="group text-left flex flex-col gap-[12px] min-w-0 rounded-[12px]"
           >
             <div className="w-full aspect-video bg-[var(--surface-inverse)] rounded-[12px] overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-[80%] h-[150%] bg-[var(--decoration-royal)] rounded-bl-full opacity-50 translate-x-[10%] -translate-y-[20%]" />
-              <div className="absolute inset-0 tb-dots opacity-20" />
+              <ContentImage
+                src={
+                  "thumbnailUrl" in mainVideo
+                    ? mainVideo.thumbnailUrl
+                    : undefined
+                }
+                alt={mainVideo.title}
+                sizes="(max-width: 1024px) 100vw, 66vw"
+              />
               <div className="absolute inset-0 bg-[color:color-mix(in_srgb,var(--surface-inverse-deep)_20%,transparent)] group-hover:bg-[color:color-mix(in_srgb,var(--surface-inverse-deep)_45%,transparent)] transition-colors duration-250 flex items-center justify-center">
                 <div className="w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-[var(--accent)] rounded-full flex items-center justify-center text-[var(--text-on-inverse)] transition-transform duration-250 group-hover:scale-110 relative">
                   <div className="absolute inset-0 rounded-full border-2 border-[var(--accent)] opacity-0 group-hover:opacity-100 group-hover:animate-[tb-ring_1.2s_ease-out_infinite]" />
@@ -82,8 +69,11 @@ export default function HomeVideos() {
                 className="group text-left grid grid-cols-[136px_1fr] md:grid-cols-1 lg:grid-cols-[168px_1fr] gap-[16px] items-start min-w-0 rounded-[10px]"
               >
                 <div className="w-full aspect-video bg-[var(--surface-inverse)] rounded-[10px] overflow-hidden relative">
-                  <div className="absolute top-0 right-0 w-[80%] h-[150%] bg-[var(--decoration-royal)] rounded-bl-full opacity-50 translate-x-[10%] -translate-y-[20%]" />
-                  <div className="absolute inset-0 tb-dots opacity-20" />
+                  <ContentImage
+                    src={"thumbnailUrl" in vid ? vid.thumbnailUrl : undefined}
+                    alt={vid.title}
+                    sizes="(max-width: 1024px) 50vw, 168px"
+                  />
                   <div className="absolute inset-0 bg-[color:color-mix(in_srgb,var(--surface-inverse-deep)_20%,transparent)] group-hover:bg-[color:color-mix(in_srgb,var(--surface-inverse-deep)_45%,transparent)] transition-colors duration-250 flex items-center justify-center">
                     <div className="w-[44px] h-[44px] bg-[var(--accent)] rounded-full flex items-center justify-center text-[var(--text-on-inverse)] transition-transform duration-250 group-hover:scale-110 relative">
                       <div className="absolute inset-0 rounded-full border-2 border-[var(--accent)] opacity-0 group-hover:opacity-100 group-hover:animate-[tb-ring_1.2s_ease-out_infinite]" />

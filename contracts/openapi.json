@@ -7336,6 +7336,166 @@
             }
         },
         "/console/media/{media}": {
+            "get": {
+                "operationId": "Media_show_GET",
+                "summary": "Show",
+                "tags": [
+                    "Media"
+                ],
+                "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
+                "security": [
+                    {
+                        "SessionCookie": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "media",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "URL slug, ULID or identifier as named by the route."
+                    }
+                ],
+                "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\MediaController@show",
+                "x-middleware": [
+                    "api",
+                    "auth:sanctum",
+                    "active",
+                    "verified",
+                    "mfa",
+                    "permission:media.manage"
+                ],
+                "x-frontend-route": "/console/media",
+                "x-side-effects": "Read only.",
+                "responses": {
+                    "200": {
+                        "description": "Success. Collections use Laravel data/links/meta or native paginator fields.",
+                        "headers": {
+                            "X-Request-ID": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Document"
+                                        },
+                                        "meta": {
+                                            "$ref": "#/components/schemas/PaginationMeta"
+                                        },
+                                        "links": {
+                                            "type": "object",
+                                            "additionalProperties": true
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ],
+                                    "additionalProperties": true
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "patch": {
                 "operationId": "Media_update_PATCH",
                 "summary": "Update",
@@ -19615,6 +19775,15 @@
                         "x-laravel-validation": "sometimes|required|string|max:180",
                         "maxLength": 180
                     },
+                    "pageImages": {
+                        "type": "object",
+                        "x-laravel-validation": "sometimes|array:about,partner,diaspora",
+                        "additionalProperties": {
+                            "type": "string",
+                            "x-laravel-validation": "nullable|string|exists:media,id",
+                            "nullable": true
+                        }
+                    },
                     "description": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|nullable|string|max:500",
@@ -19691,6 +19860,8 @@
                 ],
                 "x-validation-fields": {
                     "siteName": "sometimes|required|string|max:180",
+                    "pageImages": "sometimes|array:about,partner,diaspora",
+                    "pageImages.*": "nullable|string|exists:media,id",
                     "description": "sometimes|nullable|string|max:500",
                     "contactEmail": "sometimes|nullable|email:rfc|max:255",
                     "footer": "sometimes|nullable|string|max:2000",
@@ -19884,6 +20055,10 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "imageCredit": {
+                        "type": "string",
+                        "nullable": true
+                    },
                     "edition": {
                         "type": "string"
                     },
@@ -19984,6 +20159,14 @@
                         "nullable": true
                     },
                     "imageUrl": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "imageAlt": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "imageCredit": {
                         "type": "string",
                         "nullable": true
                     }

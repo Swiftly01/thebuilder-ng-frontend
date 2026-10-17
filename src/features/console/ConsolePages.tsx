@@ -12,6 +12,7 @@ import { useSession } from "@/context/SessionContext";
 import { allowedConsoleNavigation } from "@/lib/console-navigation";
 import { Icon } from "@/components/ui/Icon";
 import { ConsoleSearch } from "./ConsoleSearch";
+import { MediaPicker } from "@/components/ui/MediaPicker";
 
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -1065,7 +1066,6 @@ export function ProfileEditor({
               ["Industry", "industry"],
               ["Website", "website"],
               ["Region", "region"],
-              ["Media ID", "mediaId"],
               ...(kind === "builder"
                 ? [
                     ["Classification", "classification"],
@@ -1106,6 +1106,10 @@ export function ProfileEditor({
           </label>
         </Card>
         <aside>
+          <MediaPicker
+            value={values.mediaId || null}
+            onChange={(id) => setValues({ ...values, mediaId: id || "" })}
+          />
           {kind === "startup" && (
             <Card className="p-4">
               <label className="block text-sm font-semibold">

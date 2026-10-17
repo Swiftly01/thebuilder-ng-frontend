@@ -1,4 +1,6 @@
 export type Builder = {
+  imageUrl?: string;
+  imageAlt?: string;
   slug: string;
   name: string;
   classification: string;
@@ -9,6 +11,8 @@ export type Builder = {
   country: string;
 };
 export type Startup = {
+  imageUrl?: string;
+  imageAlt?: string;
   slug: string;
   name: string;
   oneLiner: string;

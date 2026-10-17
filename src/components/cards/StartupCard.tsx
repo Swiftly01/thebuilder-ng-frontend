@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
+import { ContentImage } from "../ui/ContentImage";
 import { Startup } from "@/data/startups";
 
 interface StartupCardProps {
@@ -17,11 +18,12 @@ const StartupCard = React.memo(({ startup }: StartupCardProps) => {
     >
       <div className="flex items-start justify-between mb-4">
         {/* Logo Placeholder */}
-        <div
-          className="w-16 h-16 rounded-xl bg-[var(--surface-tint)] flex items-center justify-center text-[var(--text-heading)] font-display font-bold text-xl border border-[var(--border)]"
-          aria-hidden="true"
-        >
-          {startup.logo}
+        <div className="relative w-16 h-16 overflow-hidden rounded-xl bg-[var(--surface-tint)] border border-[var(--border)]">
+          <ContentImage
+            src={startup.imageUrl}
+            alt={startup.imageAlt || startup.name}
+            sizes="64px"
+          />
         </div>
 
         {/* Badges */}

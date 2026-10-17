@@ -42,6 +42,7 @@ export interface Article {
   imageUrl?: string;
   image?: string;
   imageAlt?: string;
+  imageCredit?: string;
   category?: string;
   tags?: { id: string; name: string; slug: string }[];
   seo?: { title?: string; description?: string; canonical?: string };
@@ -103,6 +104,8 @@ export interface Builder {
 
 // Startup
 export interface Startup {
+  imageUrl?: string;
+  imageAlt?: string;
   id?: string;
   slug?: string;
   name: string;

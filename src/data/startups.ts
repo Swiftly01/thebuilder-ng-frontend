@@ -1,4 +1,6 @@
 export interface Startup {
+  imageUrl?: string;
+  imageAlt?: string;
   id: string;
   slug: string;
   name: string;

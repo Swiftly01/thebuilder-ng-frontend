@@ -32,6 +32,9 @@ const nextConfig: NextConfig = {
 
   images: {
     // Explicit remote patterns (Next.js 16 — domains is deprecated)
+    // The preview API intentionally runs on loopback. Never enable this for
+    // release builds, where image origins must be public HTTPS endpoints.
+    dangerouslyAllowLocalIP: !build.release,
     remotePatterns: [
       { protocol: "https", hostname: "picsum.photos" },
       { protocol: "https", hostname: "via.placeholder.com" },

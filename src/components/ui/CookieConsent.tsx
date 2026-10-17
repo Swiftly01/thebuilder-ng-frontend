@@ -2,7 +2,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEdition } from "@/context/EditionContext";
 import { editionCredit } from "@/lib/editorial-policy";
-import { useSyncExternalStore, useEffect, useRef, useId, useState } from "react";
+import {
+  useSyncExternalStore,
+  useEffect,
+  useRef,
+  useId,
+  useState,
+} from "react";
 import {
   readCookieChoice,
   saveCookieChoice,
@@ -49,13 +55,15 @@ function Toggle({ id, checked, disabled, onChange, label }: ToggleProps) {
       onClick={() => !disabled && onChange(!checked)}
       className={cn(
         "relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40",
-        checked ? "bg-[var(--surface-inverse)]" : "bg-[var(--surface-skeleton)]",
+        checked
+          ? "bg-[var(--surface-inverse)]"
+          : "bg-[var(--surface-skeleton)]",
       )}
     >
       <span
         aria-hidden="true"
         className={cn(
-          "pointer-events-none inline-block h-4 w-4 rounded-full bg-white shadow-md ring-0 transition-transform duration-200 ease-in-out",
+          "pointer-events-none inline-block h-4 w-4 rounded-full bg-[var(--text-on-inverse)] shadow-md ring-0 transition-transform duration-200 ease-in-out",
           checked ? "translate-x-5" : "translate-x-0.5",
         )}
       />
@@ -74,7 +82,14 @@ interface CategoryProps {
   onChange: (v: boolean) => void;
 }
 
-function CategoryRow({ id, title, description, always, checked, onChange }: CategoryProps) {
+function CategoryRow({
+  id,
+  title,
+  description,
+  always,
+  checked,
+  onChange,
+}: CategoryProps) {
   return (
     <div className="flex items-start gap-4 rounded-lg border border-[var(--border)] bg-[var(--surface-tint)] px-4 py-3.5">
       <div className="min-w-0 flex-1">
@@ -142,7 +157,11 @@ interface ConsentModalProps {
   required?: boolean;
 }
 
-function ConsentModal({ isOpen, onClose, required = false }: ConsentModalProps) {
+function ConsentModal({
+  isOpen,
+  onClose,
+  required = false,
+}: ConsentModalProps) {
   const { edition } = useEdition();
   const dialogRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
@@ -246,7 +265,9 @@ function ConsentModal({ isOpen, onClose, required = false }: ConsentModalProps) 
                 id={titleId}
                 className="font-display text-[22px] font-bold leading-[1.2] text-[var(--text-heading)]"
               >
-                {view === "main" ? "Your privacy, your choice" : "Manage preferences"}
+                {view === "main"
+                  ? "Your privacy, your choice"
+                  : "Manage preferences"}
               </h2>
             </div>
             {/* Close button — only shown when not required (i.e. user already consented once) */}
@@ -257,7 +278,12 @@ function ConsentModal({ isOpen, onClose, required = false }: ConsentModalProps) 
                 aria-label="Close"
                 className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[var(--text-meta)] transition-colors hover:bg-[var(--surface-tint)] hover:text-[var(--text-heading)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
               >
-                <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="h-4 w-4"
+                  aria-hidden="true"
+                >
                   <path d="M4.293 4.293a1 1 0 0 1 1.414 0L10 8.586l4.293-4.293a1 1 0 1 1 1.414 1.414L11.414 10l4.293 4.293a1 1 0 0 1-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L8.586 10 4.293 5.707a1 1 0 0 1 0-1.414Z" />
                 </svg>
               </button>
@@ -271,10 +297,13 @@ function ConsentModal({ isOpen, onClose, required = false }: ConsentModalProps) 
             <>
               <p className="text-[14px] leading-[1.65] text-[var(--text-meta)]">
                 The Builder {edition}, powered by{" "}
-                <span className="font-medium text-[var(--text-body)]">{editionCredit(edition)}</span>,
-                uses cookies to keep the site running, keep you signed in, and remember your edition.
-                We also use optional first-party analytics to improve the experience — they stay off
-                until you say yes.{" "}
+                <span className="font-medium text-[var(--text-body)]">
+                  {editionCredit(edition)}
+                </span>
+                , uses cookies to keep the site running, keep you signed in, and
+                remember your edition. We also use optional first-party
+                analytics to improve the experience — they stay off until you
+                say yes.{" "}
                 <Link
                   href="/cookies"
                   className="font-semibold text-[var(--text-heading)] underline underline-offset-2 hover:no-underline"
@@ -316,8 +345,9 @@ function ConsentModal({ isOpen, onClose, required = false }: ConsentModalProps) 
           ) : (
             <>
               <p className="mb-4 text-[13px] leading-relaxed text-[var(--text-meta)]">
-                Choose which cookie categories you are happy with. Essential cookies cannot be
-                disabled — they are required for the site to function.
+                Choose which cookie categories you are happy with. Essential
+                cookies cannot be disabled — they are required for the site to
+                function.
               </p>
 
               <div className="space-y-2.5">
@@ -362,11 +392,17 @@ function ConsentModal({ isOpen, onClose, required = false }: ConsentModalProps) 
         {/* Footer strip */}
         <div className="border-t border-[var(--border)] bg-[var(--surface-tint)] px-6 py-3 text-[12px] text-[var(--text-meta)]">
           Your choices are stored locally and apply for 180 days.{" "}
-          <Link href="/cookies" className="underline underline-offset-2 hover:text-[var(--text-body)]">
+          <Link
+            href="/cookies"
+            className="underline underline-offset-2 hover:text-[var(--text-body)]"
+          >
             Cookie notice
           </Link>{" "}
           ·{" "}
-          <Link href="/privacy" className="underline underline-offset-2 hover:text-[var(--text-body)]">
+          <Link
+            href="/privacy"
+            className="underline underline-offset-2 hover:text-[var(--text-body)]"
+          >
             Privacy policy
           </Link>
         </div>

@@ -16,6 +16,7 @@ import {
   type SiteMenu,
 } from "@/lib/site-settings";
 import { LoadingDots } from "@/components/ui/LoadingDots";
+import { MediaPicker } from "@/components/ui/MediaPicker";
 
 const input =
   "mt-2 min-h-10 w-full rounded-md border border-line bg-white px-3 text-sm text-ink focus:border-royal focus:outline-none focus:ring-2 focus:ring-royal/20";
@@ -33,6 +34,7 @@ export function SiteConfigurationForm({ section }: { section: string }) {
     footerAustralia: footerForEdition(initial, "Australia"),
   });
   const [social, setSocial] = useState(initial.socialLinks);
+  const [pageImages, setPageImages] = useState(initial.pageImages);
   const [custom, setCustom] = useState(initial.menus !== undefined);
   const [menus, setMenus] = useState<SiteMenu[]>(
     initial.menus ?? defaultSiteMenus,
@@ -45,7 +47,7 @@ export function SiteConfigurationForm({ section }: { section: string }) {
     setErrors({});
     const body =
       section === "General"
-        ? { ...general, contactEmail: general.contactEmail || null }
+        ? { ...general, pageImages, contactEmail: general.contactEmail || null }
         : section === "Social"
           ? {
               socialLinks: Object.fromEntries(
@@ -126,6 +128,23 @@ export function SiteConfigurationForm({ section }: { section: string }) {
             Footer text is displayed as plain text. Leave support email blank to
             clear it.
           </p>
+          <div className="grid gap-5 lg:grid-cols-3">
+            {(
+              [
+                ["about", "About hero"],
+                ["partner", "About feature image"],
+                ["diaspora", "Diaspora hero"],
+              ] as const
+            ).map(([key, label]) => (
+              <section key={key}>
+                <h3 className="font-semibold">{label}</h3>
+                <MediaPicker
+                  value={pageImages[key] || null}
+                  onChange={(id) => setPageImages({ ...pageImages, [key]: id })}
+                />
+              </section>
+            ))}
+          </div>
         </>
       )}
       {section === "Social" && (
