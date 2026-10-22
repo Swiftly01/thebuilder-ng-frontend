@@ -18,9 +18,11 @@ interface MediaPage {
 export function MediaPicker({
   value,
   onChange,
+  label = "Featured image",
 }: {
   value: string | null;
   onChange: (id: string | null) => void;
+  label?: string;
 }) {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
@@ -32,9 +34,9 @@ export function MediaPicker({
   const [uploadAlt, setUploadAlt] = useState("");
   useEffect(() => {
     const controller = new AbortController();
-    setBusy(true);
-    setError("");
     const timer = window.setTimeout(() => {
+      setBusy(true);
+      setError("");
       void http<MediaPage>("/console/media", {
         query: { q: query, page, per_page: 12 },
         signal: controller.signal,
@@ -54,7 +56,6 @@ export function MediaPicker({
   }, [query, page, refresh]);
   useEffect(() => {
     if (!value) {
-      setSelected(null);
       return;
     }
     const controller = new AbortController();
@@ -69,7 +70,7 @@ export function MediaPicker({
         }
       });
     return () => controller.abort();
-  }, [value]);
+  }, [value, refresh]);
   async function upload(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -102,8 +103,8 @@ export function MediaPicker({
       className="mt-4 space-y-3 rounded-lg border border-[var(--border)] p-3"
       aria-busy={busy}
     >
-      <legend className="px-1 text-sm font-semibold">Featured image</legend>
-      {selected && (
+      <legend className="px-1 text-sm font-semibold">{label}</legend>
+      {selected && selected.id === value && (
         <div>
           <div className="relative aspect-video overflow-hidden rounded-lg">
             <ContentImage src={selected.url} alt={selected.alt} sizes="320px" />

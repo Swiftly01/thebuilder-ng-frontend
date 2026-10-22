@@ -10,6 +10,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "@/components/ui/Icon";
 
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+
 export function ConsoleLayout({ children }: { children: React.ReactNode }) {
   const { user } = useSession();
   const { edition, setEdition } = useEdition();
@@ -106,23 +108,23 @@ export function ConsoleLayout({ children }: { children: React.ReactNode }) {
       {/* Main Content */}
       <div className="min-w-0 flex flex-col">
         {/* Header */}
-        <header className="sticky top-0 z-20 flex h-16 min-w-0 items-center gap-2 border-b border-line bg-white px-3 sm:gap-3 sm:px-4 md:px-6">
+        <header className="sticky top-0 z-20 flex h-16 min-w-0 items-center gap-2 border-b border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-body)] px-3 sm:gap-3 sm:px-4 md:px-6 transition-colors">
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
             aria-label="Open navigation"
             aria-expanded={mobileOpen}
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-lg text-navy-900 hover:bg-navy-50 lg:hidden"
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-lg text-[var(--text-heading)] hover:bg-[var(--surface-hover)] lg:hidden transition-colors"
           >
             <Icon name="menu" className="h-5 w-5" />
           </button>
-          <ConsoleSearch className="hidden h-[38px] max-w-[420px] flex-1 items-center gap-2 rounded-lg border border-line bg-white px-3 text-left text-sm font-normal text-slate lg:flex" />
+          <ConsoleSearch className="hidden h-[38px] max-w-[420px] flex-1 items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--surface-page)] px-3 text-left text-sm font-normal text-[var(--text-meta)] lg:flex" />
 
           <div className="ml-auto flex min-w-0 items-center gap-1.5 sm:gap-2.5">
             <div className="relative flex">
               <Link
                 href="/console/editor"
-                className="inline-flex items-center justify-center h-[36px] px-3 bg-navy-900 text-white text-sm font-medium rounded-l-lg hover:bg-navy-700 transition-colors"
+                className="inline-flex items-center justify-center h-[36px] px-3 bg-navy-900 dark:bg-[var(--surface-inverse)] text-white text-sm font-medium rounded-l-lg hover:bg-navy-700 dark:hover:bg-[var(--surface-inverse)]/80 transition-colors"
               >
                 <Icon name="plus" className="w-4 h-4 mr-2" />
                 <span className="hidden sm:inline">New story</span>
@@ -132,7 +134,7 @@ export function ConsoleLayout({ children }: { children: React.ReactNode }) {
                 onClick={() => setNewOpen(!newOpen)}
                 aria-label="More new options"
                 aria-expanded={newOpen}
-                className="h-[36px] px-2.5 border-0 border-l border-white/20 rounded-r-lg bg-navy-900 text-white cursor-pointer flex items-center hover:bg-navy-700 transition-colors"
+                className="h-[36px] px-2.5 border-0 border-l border-white/20 rounded-r-lg bg-navy-900 dark:bg-[var(--surface-inverse)] text-white cursor-pointer flex items-center hover:bg-navy-700 dark:hover:bg-[var(--surface-inverse)]/80 transition-colors"
               >
                 <Icon name="chevron-down" className="w-4 h-4" />
               </button>
@@ -140,7 +142,7 @@ export function ConsoleLayout({ children }: { children: React.ReactNode }) {
               {newOpen && (
                 <div
                   role="menu"
-                  className="absolute right-0 top-[42px] w-[200px] bg-white border border-line rounded-xl shadow-[0_16px_40px_rgba(7,22,49,0.14)] p-1.5 z-30"
+                  className="absolute right-0 top-[42px] w-[200px] bg-[var(--surface-card)] text-[var(--text-body)] border border-[var(--border)] rounded-xl shadow-overlay p-1.5 z-30"
                 >
                   {[
                     ["Story", "file-text", "/console/editor"],
@@ -152,9 +154,9 @@ export function ConsoleLayout({ children }: { children: React.ReactNode }) {
                       key={label}
                       role="menuitem"
                       href={href as string}
-                      className="flex items-center gap-2.5 h-[38px] px-2.5 rounded-md text-sm text-ink no-underline hover:bg-navy-50 transition-colors"
+                      className="flex items-center gap-2.5 h-[38px] px-2.5 rounded-md text-sm text-[var(--text-body)] no-underline hover:bg-[var(--surface-hover)] hover:text-[var(--text-heading)] transition-colors"
                     >
-                      <Icon name={icon as any} className="w-4 h-4 text-slate" />
+                      <Icon name={icon as any} className="w-4 h-4 text-[var(--text-meta)]" />
                       {label}
                     </Link>
                   ))}
@@ -168,24 +170,29 @@ export function ConsoleLayout({ children }: { children: React.ReactNode }) {
               onChange={(event) =>
                 setEdition(event.target.value as "Nigeria" | "Australia")
               }
-              className="hidden h-[36px] rounded-lg border border-line bg-white px-2.5 font-ui text-[13px] font-semibold text-navy-900 outline-none transition-colors hover:bg-navy-50 md:block"
+              className="hidden h-[36px] rounded-lg border border-[var(--border)] bg-[var(--surface-page)] px-2.5 font-ui text-[13px] font-semibold text-[var(--text-heading)] outline-none transition-colors hover:bg-[var(--surface-hover)] md:block"
             >
-              <option value="Nigeria">🇳🇬 Nigeria</option>
-              <option value="Australia">🇦🇺 Australia</option>
+              <option value="Nigeria" className="bg-[var(--surface-card)] text-[var(--text-body)]">🇳🇬 Nigeria</option>
+              <option value="Australia" className="bg-[var(--surface-card)] text-[var(--text-body)]">🇦🇺 Australia</option>
             </select>
+
+            {/* Console Dedicated Theme Toggle */}
+            <div className="flex items-center">
+              <ThemeToggle size="sm" />
+            </div>
 
             <Link
               href="/console/audit"
               aria-label="Open activity log"
-              className="relative w-10 h-10 border-0 rounded-lg bg-transparent text-navy-900 cursor-pointer flex items-center justify-center hover:bg-navy-50 transition-colors"
+              className="relative w-9 h-9 border-0 rounded-lg bg-transparent text-[var(--text-heading)] cursor-pointer flex items-center justify-center hover:bg-[var(--surface-hover)] transition-colors"
             >
               <Icon name="bell" className="w-5 h-5" />
             </Link>
 
-            <div className="flex items-center gap-2.5 pl-2.5 border-l border-line">
+            <div className="flex items-center gap-2.5 pl-2.5 border-l border-[var(--border)]">
               <span
                 aria-hidden="true"
-                className="w-[34px] h-[34px] rounded-full bg-navy-900 text-white flex items-center justify-center font-bold text-[13px] font-ui"
+                className="w-[34px] h-[34px] rounded-full bg-[var(--surface-inverse)] text-[var(--text-on-inverse)] flex items-center justify-center font-bold text-[13px] font-ui"
               >
                 {user?.name
                   .split(" ")
@@ -194,10 +201,10 @@ export function ConsoleLayout({ children }: { children: React.ReactNode }) {
                   .join("")}
               </span>
               <div className="hidden leading-[1.2] md:block">
-                <div className="text-[13px] font-semibold text-navy-900">
+                <div className="text-[13px] font-semibold text-[var(--text-heading)]">
                   {user?.name || "Editor"}
                 </div>
-                <div className="text-[11px] text-slate">
+                <div className="text-[11px] text-[var(--text-meta)]">
                   {user?.roles.join(", ").replaceAll("_", " ")}
                 </div>
               </div>

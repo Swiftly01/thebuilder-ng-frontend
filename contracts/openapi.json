@@ -5345,6 +5345,390 @@
                 }
             }
         },
+        "/console/content-import": {
+            "post": {
+                "operationId": "Editorial_import_POST",
+                "summary": "Import",
+                "tags": [
+                    "Editorial"
+                ],
+                "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
+                "security": [
+                    {
+                        "SessionCookie": []
+                    }
+                ],
+                "parameters": [],
+                "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\EditorialController@import",
+                "x-middleware": [
+                    "api",
+                    "auth:sanctum",
+                    "active",
+                    "verified",
+                    "mfa",
+                    "permission:content.create"
+                ],
+                "x-frontend-route": "/console/content, /console/editor",
+                "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
+                "responses": {
+                    "200": {
+                        "description": "Success. Collections use Laravel data/links/meta or native paginator fields.",
+                        "headers": {
+                            "X-Request-ID": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Article"
+                                        },
+                                        "meta": {
+                                            "$ref": "#/components/schemas/PaginationMeta"
+                                        },
+                                        "links": {
+                                            "type": "object",
+                                            "additionalProperties": true
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ],
+                                    "additionalProperties": true
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "419": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "412": {
+                        "description": "Precondition Failed",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "428": {
+                        "description": "Precondition Required",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Editorial_import_POSTInput"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/console/content-preview": {
+            "post": {
+                "operationId": "Editorial_preview_POST",
+                "summary": "Preview",
+                "tags": [
+                    "Editorial"
+                ],
+                "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
+                "security": [
+                    {
+                        "SessionCookie": []
+                    }
+                ],
+                "parameters": [],
+                "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\EditorialController@preview",
+                "x-middleware": [
+                    "api",
+                    "auth:sanctum",
+                    "active",
+                    "verified",
+                    "mfa",
+                    "permission:content.create"
+                ],
+                "x-frontend-route": "/console/content, /console/editor",
+                "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
+                "responses": {
+                    "200": {
+                        "description": "Success. Collections use Laravel data/links/meta or native paginator fields.",
+                        "headers": {
+                            "X-Request-ID": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Article"
+                                        },
+                                        "meta": {
+                                            "$ref": "#/components/schemas/PaginationMeta"
+                                        },
+                                        "links": {
+                                            "type": "object",
+                                            "additionalProperties": true
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ],
+                                    "additionalProperties": true
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "419": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "412": {
+                        "description": "Precondition Failed",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    },
+                    "428": {
+                        "description": "Precondition Required",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                }
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Editorial_preview_POSTInput"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/console/content/{article}": {
             "get": {
                 "operationId": "Editorial_show_GET",
@@ -20027,6 +20411,15 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "bodySchemaVersion": {
+                        "type": "integer"
+                    },
+                    "bodyDocument": {
+                        "type": "object",
+                        "nullable": true,
+                        "additionalProperties": true,
+                        "description": "Version 1 rich document; returned in console responses. Image delivery URLs are response-only."
+                    },
                     "type": {
                         "type": "string"
                     },
@@ -20816,9 +21209,63 @@
                 "additionalProperties": true,
                 "description": "Endpoint-specific relational record or dashboard document. Validation declarations and resource classes define its allowed mutation fields."
             },
+            "Editorial_import_POSTInput": {
+                "type": "object",
+                "properties": {
+                    "body": {
+                        "type": "string",
+                        "x-laravel-validation": "required|string|max:100000",
+                        "maxLength": 100000
+                    }
+                },
+                "required": [
+                    "body"
+                ],
+                "x-validation-fields": {
+                    "body": "required|string|max:100000"
+                }
+            },
+            "Editorial_preview_POSTInput": {
+                "type": "object",
+                "properties": {
+                    "bodyDocument": {
+                        "type": "object",
+                        "x-laravel-validation": "required|array:type,content",
+                        "description": "Version 1 bounded rich-text document (doc/content). Supports paragraphs, H2-H4, lists, quotes, tables, code, dividers and mediaFigure nodes containing library mediaId, alt, caption, credit and layout. Text marks support fonts, sizes, hex colours, links and emphasis. Maximum 500 KB, 5000 nodes and 24 nesting levels. Do not submit body with bodyDocument."
+                    }
+                },
+                "required": [
+                    "bodyDocument"
+                ],
+                "x-validation-fields": {
+                    "bodyDocument": "required|array:type,content"
+                }
+            },
             "Editorial_store_POSTInput": {
                 "type": "object",
                 "properties": {
+                    "bodyDocument": {
+                        "type": "object",
+                        "x-laravel-validation": "sometimes|array:type,content",
+                        "description": "Version 1 bounded rich-text document (doc/content). Supports paragraphs, H2-H4, lists, quotes, tables, code, dividers and mediaFigure nodes containing library mediaId, alt, caption, credit and layout. Text marks support fonts, sizes, hex colours, links and emphasis. Maximum 500 KB, 5000 nodes and 24 nesting levels. Do not submit body with bodyDocument.",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "x-laravel-validation": "required_with:bodyDocument|in:doc",
+                                "enum": [
+                                    "doc"
+                                ]
+                            },
+                            "content": {
+                                "type": "array",
+                                "x-laravel-validation": "present_with:bodyDocument|array",
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": true
+                                }
+                            }
+                        }
+                    },
                     "title": {
                         "type": "string",
                         "x-laravel-validation": "required|string|max:180",
@@ -20964,6 +21411,9 @@
                     "title"
                 ],
                 "x-validation-fields": {
+                    "bodyDocument": "sometimes|array:type,content",
+                    "bodyDocument.type": "required_with:bodyDocument|in:doc",
+                    "bodyDocument.content": "present_with:bodyDocument|array",
                     "title": "required|string|max:180",
                     "slug": "sometimes|string|alpha_dash|max:180",
                     "type": "sometimes|in:article,founder_story,interview,opinion,analysis,business,diaspora,sponsored,press_release",
@@ -21041,6 +21491,28 @@
             "Editorial_update_PATCHInput": {
                 "type": "object",
                 "properties": {
+                    "bodyDocument": {
+                        "type": "object",
+                        "x-laravel-validation": "sometimes|array:type,content",
+                        "description": "Version 1 bounded rich-text document (doc/content). Supports paragraphs, H2-H4, lists, quotes, tables, code, dividers and mediaFigure nodes containing library mediaId, alt, caption, credit and layout. Text marks support fonts, sizes, hex colours, links and emphasis. Maximum 500 KB, 5000 nodes and 24 nesting levels. Do not submit body with bodyDocument.",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "x-laravel-validation": "required_with:bodyDocument|in:doc",
+                                "enum": [
+                                    "doc"
+                                ]
+                            },
+                            "content": {
+                                "type": "array",
+                                "x-laravel-validation": "present_with:bodyDocument|array",
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": true
+                                }
+                            }
+                        }
+                    },
                     "title": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|string|max:180",
@@ -21183,6 +21655,9 @@
                     }
                 },
                 "x-validation-fields": {
+                    "bodyDocument": "sometimes|array:type,content",
+                    "bodyDocument.type": "required_with:bodyDocument|in:doc",
+                    "bodyDocument.content": "present_with:bodyDocument|array",
                     "title": "sometimes|string|max:180",
                     "slug": "sometimes|string|alpha_dash|max:180",
                     "type": "sometimes|in:article,founder_story,interview,opinion,analysis,business,diaspora,sponsored,press_release",

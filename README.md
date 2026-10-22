@@ -12,7 +12,11 @@ SSR reads use signed anonymous requests on an explicit public-path allowlist, a 
 
 Start the clean API from `.replatform/laravel12-backend` on the port configured in `.env.local` (currently `8012`). Starting the preserved legacy `backend` on another port does not satisfy that connection. The local preview also requires its configured database on port `3307`; XAMPP on `3306` is a separate database server.
 
+Run one frontend server per port. Stop development mode before starting the built preview, including any IPv6 listener: separate Node processes bound to `127.0.0.1:3000` and `[::]:3000` can make `localhost:3000` reach different builds. For a built preview, the HTML's `__NEXT_DATA__.buildId` should match `.next/BUILD_ID` and should not be `development`.
+
 ## Quality checks
+
+The article console uses a client-only Tiptap rich-text editor with font/size/colour controls, tables and inline media-library images. Laravel validates the structured document, renders the public HTML and tracks media across revisions. Existing supported HTML is imported without changing the saved article until an actual edit/save. See `planning/clean-laravel-replatform/21-rich-cms-implementation.md` at the workspace root for the feature contract and additive migration/deployment notes.
 
 Editorial image slots read media fields from Laravel, including the homepage lead/secondary stories, startup spotlight, directory cards, profiles, search results and video thumbnails. General settings provides image pickers for About and Diaspora page sections. Story and profile editors provide searchable, paginated media selection and upload controls. The API stores media IDs and resolves URLs and descriptions; image files are never embedded in frontend seed arrays. The local demo seed command and asset prompts are documented in `planning/clean-laravel-replatform/19-media-seeding.md` at the workspace root. No fictional video/channel records are seeded.
 

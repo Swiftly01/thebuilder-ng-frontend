@@ -36,6 +36,7 @@ import {
   X,
 } from "lucide-react";
 import { useToast } from "@/context/ToastContext";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 type State = string | string[] | undefined;
 const cx = (...v: (string | false | undefined)[]) =>
@@ -46,7 +47,7 @@ export function ConsoleFrame({ children }: { children: React.ReactNode }) {
     [open, setOpen] = useState(false);
   const { user } = useSession();
   return (
-    <div className="min-h-screen bg-console-bg font-ui text-ink [color-scheme:light] lg:grid lg:grid-cols-[248px_minmax(0,1fr)]">
+    <div className="min-h-screen bg-[var(--surface-console)] font-ui text-[var(--text-body)] lg:grid lg:grid-cols-[248px_minmax(0,1fr)]">
       {open && (
         <button
           aria-label="Close navigation"
@@ -111,33 +112,36 @@ export function ConsoleFrame({ children }: { children: React.ReactNode }) {
         </p>
       </aside>
       <div className="min-w-0">
-        <header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b border-line bg-white px-4 md:px-6">
+        <header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-body)] px-4 md:px-6 transition-colors">
           <button
-            className="grid size-10 place-items-center lg:hidden"
+            className="grid size-10 place-items-center rounded-lg text-[var(--text-heading)] hover:bg-[var(--surface-hover)] lg:hidden transition-colors"
             onClick={() => setOpen(true)}
             aria-label="Open navigation"
           >
             <Menu />
           </button>
-          <ConsoleSearch className="hidden h-10 max-w-[420px] flex-1 items-center gap-2 rounded-lg border border-line px-3 text-left text-sm text-slate sm:flex" />
+          <ConsoleSearch className="hidden h-10 max-w-[420px] flex-1 items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--surface-page)] px-3 text-left text-sm text-[var(--text-meta)] sm:flex" />
           <Link
             href="/console/editor"
-            className="ml-auto inline-flex h-9 items-center gap-2 rounded-lg bg-navy-900 px-3 text-sm font-semibold text-white"
+            className="ml-auto inline-flex h-9 items-center gap-2 rounded-lg bg-navy-900 dark:bg-[var(--surface-inverse)] text-white hover:bg-navy-700 dark:hover:bg-[var(--surface-inverse)]/80 px-3 text-sm font-semibold transition-colors"
           >
             <Plus size={16} />{" "}
             <span className="hidden sm:inline">New story</span>
           </Link>
+          <div className="flex items-center">
+            <ThemeToggle size="sm" />
+          </div>
           <Link
             href="/console/audit"
             aria-label="Activity log"
-            className="relative grid size-10 place-items-center"
+            className="relative grid size-10 place-items-center rounded-lg text-[var(--text-heading)] hover:bg-[var(--surface-hover)] transition-colors"
           >
             <Bell size={19} />
           </Link>
           <Link
             href="/account"
             aria-label="Account settings"
-            className="grid size-9 place-items-center rounded-full bg-navy-900 text-xs font-bold text-white"
+            className="grid size-9 place-items-center rounded-full bg-[var(--surface-inverse)] text-xs font-bold text-[var(--text-on-inverse)]"
           >
             {user?.name
               .split(" ")
@@ -166,10 +170,10 @@ function Heading({
   return (
     <header className="mb-5 flex flex-wrap items-end justify-between gap-3">
       <div>
-        <h1 className="font-display text-[26px] font-bold text-navy-900">
+        <h1 className="font-display text-[26px] font-bold text-[var(--text-heading)]">
           {title}
         </h1>
-        {copy && <p className="mt-1 text-sm text-slate">{copy}</p>}
+        {copy && <p className="mt-1 text-sm text-[var(--text-meta)]">{copy}</p>}
       </div>
       {action}
     </header>
@@ -182,7 +186,7 @@ const Card = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <section className={cx("rounded-xl border border-line bg-white", className)}>
+  <section className={cx("rounded-xl border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-body)] transition-colors", className)}>
     {children}
   </section>
 );
@@ -196,10 +200,10 @@ const Pill = ({
   <span
     className={cx(
       "inline-flex rounded-full px-2.5 py-1 text-[11px] font-bold capitalize",
-      tone === "navy" && "bg-navy-50 text-navy-900",
-      tone === "red" && "bg-red-50 text-red-700",
-      tone === "green" && "bg-emerald-50 text-emerald-700",
-      tone === "amber" && "bg-amber-50 text-amber-800",
+      tone === "navy" && "bg-[var(--surface-tint)] text-[var(--text-heading)]",
+      tone === "red" && "bg-[var(--surface-accent-soft)] text-[var(--text-error)]",
+      tone === "green" && "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+      tone === "amber" && "bg-amber-500/10 text-amber-700 dark:text-amber-400",
     )}
   >
     {children}
@@ -220,10 +224,10 @@ const Btn = ({
     disabled={disabled}
     onClick={onClick}
     className={cx(
-      "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-4 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-40",
-      kind === "navy" && "bg-navy-900 text-white",
-      kind === "red" && "bg-brand-red text-white",
-      kind === "ghost" && "border border-line bg-white text-navy-900",
+      "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-4 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-40 transition-colors",
+      kind === "navy" && "bg-navy-900 dark:bg-[var(--surface-inverse)] text-white hover:bg-navy-700 dark:hover:bg-[var(--surface-inverse)]/80",
+      kind === "red" && "bg-brand-red text-white hover:bg-red-700",
+      kind === "ghost" && "border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-heading)] hover:bg-[var(--surface-hover)]",
     )}
   >
     {children}
@@ -259,8 +263,8 @@ export function Dashboard({ state }: { state?: State }) {
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
           {kpis.map(([label, value]) => (
             <Card key={label} className="p-4">
-              <p className="text-xs text-slate">{label}</p>
-              <p className="mt-2 font-display text-[28px] font-extrabold text-navy-900">
+              <p className="text-xs text-[var(--text-meta)]">{label}</p>
+              <p className="mt-2 font-display text-[28px] font-extrabold text-[var(--text-heading)]">
                 {value}
               </p>
             </Card>
@@ -275,11 +279,11 @@ export function Dashboard({ state }: { state?: State }) {
                 : []
               ).map((x: Record<string, unknown>) => (
                 <p
-                  className="border-t border-line py-3 text-sm"
+                  className="border-t border-[var(--border)] py-3 text-sm text-[var(--text-body)]"
                   key={String(x.id)}
                 >
                   {String(x.event)}{" "}
-                  <span className="ml-3 text-xs text-slate">
+                  <span className="ml-3 text-xs text-[var(--text-meta)]">
                     {String(x.created_at)}
                   </span>
                 </p>
@@ -288,12 +292,12 @@ export function Dashboard({ state }: { state?: State }) {
           </Card>
           <Card>
             <PanelHead title="Publishing queue" />
-            <p className="p-4 text-sm text-slate">
+            <p className="p-4 text-sm text-[var(--text-meta)]">
               {String(live.document.review)} stories await review.
             </p>
             <Link
               href="/console/content"
-              className="inline-flex min-h-11 px-4 font-semibold"
+              className="inline-flex min-h-11 px-4 font-semibold text-[var(--text-heading)] hover:text-[var(--text-accent)]"
             >
               Open content queue →
             </Link>
@@ -306,23 +310,23 @@ export function Dashboard({ state }: { state?: State }) {
       <Heading
         title={"Welcome, " + (user?.name || "Editor")}
         copy="Workspace overview"
-        action={<span className="text-xs text-slate">Live workspace data</span>}
+        action={<span className="text-xs text-[var(--text-meta)]">Live workspace data</span>}
       />
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
         {kpis.map(([a, b, c], i) => (
-          <Card key={a} className={cx("p-4", i === 3 && "border-brand-red")}>
+          <Card key={a} className={cx("p-4", i === 3 && "border-[var(--accent)]")}>
             {loading ? (
               <>
-                <div className="h-3 w-2/3 animate-pulse rounded bg-navy-50" />
-                <div className="mt-4 h-8 w-1/2 animate-pulse rounded bg-navy-50" />
+                <div className="h-3 w-2/3 animate-pulse rounded bg-[var(--surface-skeleton)]" />
+                <div className="mt-4 h-8 w-1/2 animate-pulse rounded bg-[var(--surface-skeleton)]" />
               </>
             ) : (
               <>
-                <p className="text-xs text-slate">{a}</p>
-                <p className="mt-2 font-display text-[28px] font-extrabold text-navy-900">
+                <p className="text-xs text-[var(--text-meta)]">{a}</p>
+                <p className="mt-2 font-display text-[28px] font-extrabold text-[var(--text-heading)]">
                   {b}
                 </p>
-                <p className="mt-1 text-xs text-slate">{c}</p>
+                <p className="mt-1 text-xs text-[var(--text-meta)]">{c}</p>
               </>
             )}
           </Card>
@@ -345,13 +349,15 @@ export function Dashboard({ state }: { state?: State }) {
               >
                 <path
                   d="M0 160 L70 135 L130 145 L190 112 L250 125 L310 92 L370 104 L430 55 L490 76 L550 40 L600 48 L600 180 L0 180Z"
-                  fill="#EEF1F7"
+                  fill="currentColor"
+                  className="text-[var(--surface-tint)]"
                 />
                 <path
                   d="M0 160 L70 135 L130 145 L190 112 L250 125 L310 92 L370 104 L430 55 L490 76 L550 40 L600 48"
                   fill="none"
-                  stroke="#0B2046"
+                  stroke="currentColor"
                   strokeWidth="3"
+                  className="text-[var(--text-royal)]"
                 />
               </svg>
             </div>
@@ -367,7 +373,7 @@ export function Dashboard({ state }: { state?: State }) {
                 "Fri 9 · The Builder Newsletter",
                 "Mon 12 · Builder of the Month",
               ].map((x) => (
-                <p className="rounded-lg bg-navy-50 p-3 text-sm" key={x}>
+                <p className="rounded-lg bg-[var(--surface-tint)] text-[var(--text-body)] p-3 text-sm" key={x}>
                   {x}
                 </p>
               ))}
@@ -383,10 +389,10 @@ export function Dashboard({ state }: { state?: State }) {
             ].map((x, i) => (
               <div
                 key={x}
-                className="flex justify-between border-t border-line px-4 py-3 text-sm"
+                className="flex justify-between border-t border-[var(--border)] px-4 py-3 text-sm text-[var(--text-body)]"
               >
                 <b>{x}</b>
-                <span className="text-slate">{i ? `${i * 4} h` : "1 h"}</span>
+                <span className="text-[var(--text-meta)]">{i ? `${i * 4} h` : "1 h"}</span>
               </div>
             ))}
           </Card>
@@ -397,11 +403,11 @@ export function Dashboard({ state }: { state?: State }) {
 }
 function PanelHead({ title, link }: { title: string; link?: string }) {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-4 py-3">
-      <h2 className="min-w-0 font-semibold text-navy-900">{title}</h2>
+    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border)] px-4 py-3">
+      <h2 className="min-w-0 font-semibold text-[var(--text-heading)]">{title}</h2>
       {link && (
         <Link
-          className="text-sm font-semibold underline decoration-brand-red decoration-2 underline-offset-4"
+          className="text-sm font-semibold underline decoration-brand-red decoration-2 underline-offset-4 text-[var(--text-heading)]"
           href="/console/content"
         >
           {link}
@@ -457,16 +463,16 @@ function Rows({ records }: { records?: ConsoleRecord[] }) {
               : "/console/editor"
           }
           key={s[0]}
-          className="grid min-w-0 gap-2 border-t border-line px-4 py-3 first:border-0 sm:grid-cols-[minmax(0,1fr)_auto_70px] sm:items-center"
+          className="grid min-w-0 gap-2 border-t border-[var(--border)] px-4 py-3 first:border-0 sm:grid-cols-[minmax(0,1fr)_auto_70px] sm:items-center hover:bg-[var(--surface-hover)] transition-colors"
         >
           <span className="min-w-0">
-            <b className="block truncate text-sm text-navy-900">{s[0]}</b>
-            <small className="text-slate">
+            <b className="block truncate text-sm text-[var(--text-heading)]">{s[0]}</b>
+            <small className="text-[var(--text-meta)]">
               {s[1]} · {s[2]}
             </small>
           </span>
           <Pill tone={s[3] === "changes" ? "red" : "amber"}>{s[3]}</Pill>
-          <span className="text-right text-xs text-slate">
+          <span className="text-right text-xs text-[var(--text-meta)]">
             {source?.[i]?.updatedAt
               ? new Date(String(source[i]!.updatedAt)).toLocaleDateString(
                   "en-GB",
@@ -525,7 +531,7 @@ export function ContentPage({ state }: { state?: State }) {
         action={
           <Link
             href="/console/editor"
-            className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-brand-red px-4 text-sm font-semibold text-white"
+            className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-brand-red px-4 text-sm font-semibold text-white hover:bg-red-700 transition-colors"
           >
             <Plus size={16} />
             New story
@@ -535,26 +541,26 @@ export function ContentPage({ state }: { state?: State }) {
       {empty ? (
         <Card className="grid min-h-[420px] place-items-center p-6 text-center">
           <div>
-            <span className="mx-auto grid size-14 place-items-center rounded-full bg-navy-50">
+            <span className="mx-auto grid size-14 place-items-center rounded-full bg-[var(--surface-tint)] text-[var(--text-meta)]">
               <FileText />
             </span>
-            <h2 className="mt-4 font-display text-xl font-bold text-navy-900">
+            <h2 className="mt-4 font-display text-xl font-bold text-[var(--text-heading)]">
               No content yet
             </h2>
-            <p className="mx-auto mt-2 max-w-md text-sm text-slate">
+            <p className="mx-auto mt-2 max-w-md text-sm text-[var(--text-meta)]">
               Start with a story, or import Builder profiles from your
               nominations. Everything you create starts as a draft.
             </p>
             <div className="mt-6 flex justify-center gap-2">
               <Link
                 href="/console/editor"
-                className="rounded-lg border border-line p-3"
+                className="rounded-lg border border-[var(--border)] p-3 text-[var(--text-heading)] hover:bg-[var(--surface-hover)] transition-colors"
               >
                 Write a story
               </Link>
               <Link
                 href="/console/nominations"
-                className="rounded-lg border border-line p-3"
+                className="rounded-lg border border-[var(--border)] p-3 text-[var(--text-heading)] hover:bg-[var(--surface-hover)] transition-colors"
               >
                 Open nominations
               </Link>
@@ -563,7 +569,7 @@ export function ContentPage({ state }: { state?: State }) {
         </Card>
       ) : (
         <>
-          <div className="mb-4 flex gap-2 overflow-x-auto border-b border-line">
+          <div className="mb-4 flex gap-2 overflow-x-auto border-b border-[var(--border)]">
             {[
               ["All content", ""],
               ["Drafts", "draft"],
@@ -575,10 +581,10 @@ export function ContentPage({ state }: { state?: State }) {
                 onClick={() => applyFilters(v!)}
                 aria-pressed={selectedStatus === v}
                 className={cx(
-                  "whitespace-nowrap border-b-2 px-3 py-3 text-sm",
+                  "whitespace-nowrap border-b-2 px-3 py-3 text-sm transition-colors",
                   selectedStatus === v
-                    ? "border-brand-red font-semibold"
-                    : "border-transparent text-slate",
+                    ? "border-brand-red font-semibold text-[var(--text-heading)]"
+                    : "border-transparent text-[var(--text-meta)] hover:text-[var(--text-heading)]",
                 )}
                 key={x}
               >
@@ -593,11 +599,11 @@ export function ContentPage({ state }: { state?: State }) {
               applyFilters();
             }}
           >
-            <label className="flex h-10 min-w-[220px] flex-1 items-center gap-2 rounded-lg border border-line bg-white px-3 text-sm">
-              <Search size={16} />
+            <label className="flex h-10 min-w-[220px] flex-1 items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--surface-card)] px-3 text-sm">
+              <Search size={16} className="text-[var(--text-meta)]" />
               <span className="sr-only">Search content</span>
               <input
-                className="w-full bg-transparent outline-none"
+                className="w-full bg-transparent text-[var(--text-body)] placeholder:text-[var(--text-meta)] outline-none"
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 maxLength={200}
@@ -608,9 +614,9 @@ export function ContentPage({ state }: { state?: State }) {
               aria-label="Status"
               value={selectedStatus}
               onChange={(e) => applyFilters(e.target.value)}
-              className="rounded-lg border border-line bg-white px-3 text-sm"
+              className="rounded-lg border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-body)] px-3 text-sm outline-none"
             >
-              <option value="">All statuses</option>
+              <option value="" className="bg-[var(--surface-card)] text-[var(--text-body)]">All statuses</option>
               {[
                 "draft",
                 "review",
@@ -621,30 +627,30 @@ export function ContentPage({ state }: { state?: State }) {
                 "rejected",
                 "archived",
               ].map((s) => (
-                <option key={s}>{s}</option>
+                <option key={s} className="bg-[var(--surface-card)] text-[var(--text-body)]">{s}</option>
               ))}
             </select>
             <select
               aria-label="Edition"
               value={selectedEdition}
               onChange={(e) => applyFilters(selectedStatus, e.target.value)}
-              className="rounded-lg border border-line bg-white px-3 text-sm"
+              className="rounded-lg border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-body)] px-3 text-sm outline-none"
             >
-              <option value="">All editions</option>
-              <option>Nigeria</option>
-              <option>Australia</option>
-              <option>both</option>
+              <option value="" className="bg-[var(--surface-card)] text-[var(--text-body)]">All editions</option>
+              <option className="bg-[var(--surface-card)] text-[var(--text-body)]">Nigeria</option>
+              <option className="bg-[var(--surface-card)] text-[var(--text-body)]">Australia</option>
+              <option className="bg-[var(--surface-card)] text-[var(--text-body)]">both</option>
             </select>
             <button
               type="submit"
-              className="min-h-10 rounded-lg bg-navy-900 px-4 text-sm font-semibold text-white"
+              className="min-h-10 rounded-lg bg-navy-900 dark:bg-[var(--surface-inverse)] text-white hover:bg-navy-700 dark:hover:bg-[var(--surface-inverse)]/80 px-4 text-sm font-semibold transition-colors"
             >
               Search
             </button>
             {hasFilters && (
               <Link
                 href="/console/content"
-                className="inline-flex min-h-10 items-center px-3 text-sm underline"
+                className="inline-flex min-h-10 items-center px-3 text-sm underline text-[var(--text-heading)]"
               >
                 Clear filters
               </Link>
@@ -652,14 +658,14 @@ export function ContentPage({ state }: { state?: State }) {
           </form>
           <Card className="overflow-hidden">
             {live && live.records.length === 0 ? (
-              <p className="p-6 text-sm text-slate" role="status">
+              <p className="p-6 text-sm text-[var(--text-meta)]" role="status">
                 No content matches these filters.
               </p>
             ) : (
               <Rows records={live?.records} />
             )}
           </Card>
-          <p className="mt-3 text-xs text-slate">
+          <p className="mt-3 text-xs text-[var(--text-meta)]">
             Showing {shown} {shown === 1 ? "item" : "items"}
             {live?.meta
               ? ` of ${live.meta.total} matching ${live.meta.total === 1 ? "story" : "stories"}`
@@ -692,13 +698,13 @@ function Drawer({
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
-        className="absolute inset-y-0 right-0 w-full max-w-[880px] overflow-y-auto bg-white p-5 shadow-overlay"
+        className="absolute inset-y-0 right-0 w-full max-w-[880px] overflow-y-auto bg-[var(--surface-card)] text-[var(--text-body)] border-l border-[var(--border)] p-5 shadow-overlay"
       >
         <div className="mb-8 flex items-center">
-          <h2 className="font-display text-xl font-bold">{title}</h2>
+          <h2 className="font-display text-xl font-bold text-[var(--text-heading)]">{title}</h2>
           <button
             onClick={close}
-            className="ml-auto grid size-11 place-items-center"
+            className="ml-auto grid size-11 place-items-center rounded-lg text-[var(--text-heading)] hover:bg-[var(--surface-hover)] transition-colors"
             aria-label="Close"
           >
             <X />
@@ -723,11 +729,11 @@ function Modal({
       <div
         role="dialog"
         aria-modal="true"
-        className="w-full max-w-lg rounded-xl bg-white p-6 shadow-overlay"
+        className="w-full max-w-lg rounded-xl bg-[var(--surface-card)] text-[var(--text-body)] border border-[var(--border)] p-6 shadow-overlay"
       >
         <div className="flex">
-          <h2 className="font-display text-xl font-bold">{title}</h2>
-          <button onClick={close} className="ml-auto" aria-label="Close">
+          <h2 className="font-display text-xl font-bold text-[var(--text-heading)]">{title}</h2>
+          <button onClick={close} className="ml-auto rounded-lg p-1 text-[var(--text-heading)] hover:bg-[var(--surface-hover)] transition-colors" aria-label="Close">
             <X />
           </button>
         </div>
@@ -886,17 +892,17 @@ export function HomepagePage() {
         </div>
         <Card className="overflow-hidden xl:sticky xl:top-24 xl:self-start">
           <PanelHead title="Live preview" />
-          <div className="space-y-px bg-console-bg p-3">
+          <div className="space-y-px bg-[var(--surface-console)] p-3 rounded-lg">
             {items
               .filter((x) => x[2])
               .map(([x], i) => (
                 <div
                   key={x}
                   className={cx(
-                    "grid place-items-center font-display text-sm font-bold uppercase tracking-wider",
+                    "grid place-items-center font-display text-sm font-bold uppercase tracking-wider rounded-md",
                     i % 3 === 0
-                      ? "h-24 bg-navy-900 text-white"
-                      : "h-16 bg-white text-navy-900",
+                      ? "h-24 bg-navy-900 dark:bg-[var(--surface-inverse)] text-white"
+                      : "h-16 bg-[var(--surface-card)] text-[var(--text-heading)] border border-[var(--border)]",
                   )}
                 >
                   {x}
@@ -1027,7 +1033,7 @@ export function ProfileEditor({
           <div className="flex flex-wrap gap-2">
             <select
               aria-label="Choose profile"
-              className="rounded-lg border border-line bg-white px-3 text-sm"
+              className="rounded-lg border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-body)] px-3 text-sm outline-none"
               value={selected?.id || ""}
               onChange={(e) =>
                 r.replace({
@@ -1036,9 +1042,9 @@ export function ProfileEditor({
                 })
               }
             >
-              <option value="">New profile</option>
+              <option value="" className="bg-[var(--surface-card)] text-[var(--text-body)]">New profile</option>
               {live?.records.map((x) => (
-                <option key={x.id} value={x.id}>
+                <option key={x.id} value={x.id} className="bg-[var(--surface-card)] text-[var(--text-body)]">
                   {text(x, "name")}
                 </option>
               ))}
@@ -1082,10 +1088,10 @@ export function ProfileEditor({
                     ["Team size", "teamSize"],
                   ]),
             ].map(([label, key]) => (
-              <label key={key} className="text-sm font-semibold">
+              <label key={key} className="text-sm font-semibold text-[var(--text-heading)]">
                 {label}
                 <input
-                  className="mt-2 h-11 w-full rounded-lg border border-line px-3 font-normal"
+                  className="mt-2 h-11 w-full rounded-lg border border-[var(--border)] bg-[var(--surface-page)] text-[var(--text-body)] px-3 font-normal outline-none"
                   value={values[key!] || ""}
                   onChange={(e) =>
                     setValues({ ...values, [key!]: e.target.value })
@@ -1094,14 +1100,14 @@ export function ProfileEditor({
               </label>
             ))}
           </div>
-          <label className="mt-5 block text-sm font-semibold">
+          <label className="mt-5 block text-sm font-semibold text-[var(--text-heading)]">
             Biography / company description
             <textarea
               value={values.biography}
               onChange={(e) =>
                 setValues({ ...values, biography: e.target.value })
               }
-              className="mt-2 min-h-64 w-full rounded-lg border border-line p-3 font-serif font-normal"
+              className="mt-2 min-h-64 w-full rounded-lg border border-[var(--border)] bg-[var(--surface-page)] text-[var(--text-body)] p-3 font-serif font-normal outline-none"
             />
           </label>
         </Card>
@@ -1112,7 +1118,7 @@ export function ProfileEditor({
           />
           {kind === "startup" && (
             <Card className="p-4">
-              <label className="block text-sm font-semibold">
+              <label className="block text-sm font-semibold text-[var(--text-heading)]">
                 Founders
                 <select
                   multiple
@@ -1125,10 +1131,10 @@ export function ProfileEditor({
                       ),
                     )
                   }
-                  className="mt-2 w-full rounded-lg border border-line p-3"
+                  className="mt-2 w-full rounded-lg border border-[var(--border)] bg-[var(--surface-page)] text-[var(--text-body)] p-3 outline-none"
                 >
                   {candidates.data?.data.map((builder) => (
-                    <option value={builder.id} key={builder.id}>
+                    <option value={builder.id} key={builder.id} className="bg-[var(--surface-card)] text-[var(--text-body)]">
                       {builder.name}
                     </option>
                   ))}
@@ -1138,12 +1144,12 @@ export function ProfileEditor({
           )}
           {kind === "builder" && (
             <Card className="mb-4 p-4">
-              <label className="block text-sm font-semibold">
+              <label className="block text-sm font-semibold text-[var(--text-heading)]">
                 Achievements
                 <textarea
                   value={achievements}
                   onChange={(event) => setAchievements(event.target.value)}
-                  className="mt-2 min-h-32 w-full rounded-lg border border-line p-3"
+                  className="mt-2 min-h-32 w-full rounded-lg border border-[var(--border)] bg-[var(--surface-page)] text-[var(--text-body)] p-3 outline-none"
                   placeholder="One achievement per line"
                 />
               </label>
@@ -1151,10 +1157,10 @@ export function ProfileEditor({
           )}
           {kind === "builder" && (
             <Card className="p-4">
-              <h2 className="font-semibold">
+              <h2 className="font-semibold text-[var(--text-heading)]">
                 Consent required before publication
               </h2>
-              <label className="mt-4 flex gap-3 text-sm">
+              <label className="mt-4 flex gap-3 text-sm text-[var(--text-body)]">
                 <input
                   type="checkbox"
                   checked={isDiaspora}
@@ -1162,21 +1168,21 @@ export function ProfileEditor({
                 />
                 Include in diaspora discovery
               </label>
-              <label className="mt-4 block text-sm">
+              <label className="mt-4 block text-sm text-[var(--text-heading)]">
                 Consent date
                 <input
                   type="date"
                   value={consentAt.slice(0, 10)}
                   onChange={(e) => setConsentAt(e.target.value)}
-                  className="mt-2 h-11 w-full rounded-lg border border-line px-3"
+                  className="mt-2 h-11 w-full rounded-lg border border-[var(--border)] bg-[var(--surface-page)] text-[var(--text-body)] px-3 outline-none"
                 />
               </label>
-              <label className="mt-4 block text-sm">
+              <label className="mt-4 block text-sm text-[var(--text-heading)]">
                 Consent method
                 <input
                   value={consentMethod}
                   onChange={(e) => setConsentMethod(e.target.value)}
-                  className="mt-2 h-11 w-full rounded-lg border border-line px-3"
+                  className="mt-2 h-11 w-full rounded-lg border border-[var(--border)] bg-[var(--surface-page)] text-[var(--text-body)] px-3 outline-none"
                   placeholder="Written permission"
                 />
               </label>
@@ -1190,11 +1196,11 @@ export function ProfileEditor({
 
 function Field({ label, value }: { label: string; value: string }) {
   return (
-    <label className="text-sm font-semibold">
+    <label className="text-sm font-semibold text-[var(--text-heading)]">
       {label}
       <input
         defaultValue={value}
-        className="mt-2 h-11 w-full rounded-lg border border-line px-3 font-normal"
+        className="mt-2 h-11 w-full rounded-lg border border-[var(--border)] bg-[var(--surface-page)] text-[var(--text-body)] px-3 font-normal outline-none"
       />
     </label>
   );
@@ -1285,11 +1291,16 @@ export function NominationsPage() {
         title="Nominations"
         copy={list.length + " records"}
         action={
-          <div className="flex rounded-lg border border-line bg-white p-1">
+          <div className="flex rounded-lg border border-[var(--border)] bg-[var(--surface-card)] p-1">
             {["Board", "Table"].map((x) => (
               <button
                 key={x}
-                className="px-3 py-1.5 text-sm"
+                className={cx(
+                  "px-3 py-1.5 text-sm rounded-md transition-colors",
+                  mode === x
+                    ? "bg-[var(--surface-inverse)] text-[var(--text-on-inverse)] font-medium"
+                    : "text-[var(--text-meta)] hover:text-[var(--text-heading)]",
+                )}
                 onClick={() => setMode(x)}
               >
                 {x}
@@ -1303,31 +1314,31 @@ export function NominationsPage() {
         value={q}
         onChange={(e) => setQ(e.target.value)}
         placeholder="Search nominee or reference"
-        className="mb-4 h-10 max-w-md rounded-lg border border-line bg-white px-3 text-sm"
+        className="mb-4 h-10 max-w-md rounded-lg border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-body)] placeholder:text-[var(--text-meta)] px-3 text-sm outline-none"
       />
       {mode === "Board" ? (
         <div className="flex gap-3 overflow-x-auto pb-4">
           {stages.map((stage) => (
             <section
               key={stage}
-              className="w-[260px] flex-none rounded-xl bg-navy-50 p-2"
+              className="w-[260px] flex-none rounded-xl bg-[var(--surface-tint)] p-2"
             >
-              <h2 className="p-2 text-sm font-semibold">{stage}</h2>
+              <h2 className="p-2 text-sm font-semibold text-[var(--text-heading)]">{stage}</h2>
               {list
                 .filter((n) => n.status === stage)
                 .map((n) => (
                   <button
                     key={n.id}
-                    className="mb-2 w-full rounded-lg border border-line bg-white p-3 text-left shadow-sm"
+                    className="mb-2 w-full rounded-lg border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-body)] p-3 text-left shadow-xs hover:border-[var(--border-strong)] transition-colors"
                     onClick={() => {
                       setOpen(n);
                       setArticleId(text(n, "article_id"));
                       setNote("");
                     }}
                   >
-                    <small className="text-slate">{text(n, "reference")}</small>
-                    <b className="mt-1 block text-sm">{n.name}</b>
-                    <span className="mt-2 text-xs text-slate">
+                    <small className="text-[var(--text-meta)]">{text(n, "reference")}</small>
+                    <b className="mt-1 block text-sm text-[var(--text-heading)]">{n.name}</b>
+                    <span className="mt-2 text-xs text-[var(--text-meta)]">
                       {text(n, "type")} · {text(n, "industry")}
                     </span>
                   </button>
@@ -1338,11 +1349,11 @@ export function NominationsPage() {
       ) : (
         <Card>
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[600px] text-left text-sm">
+            <table className="w-full min-w-[600px] text-left text-sm text-[var(--text-body)]">
               <thead>
-                <tr>
+                <tr className="border-b border-[var(--border)] text-[var(--text-heading)]">
                   {["Reference", "Nominee", "Type", "Status"].map((x) => (
-                    <th className="p-3" key={x}>
+                    <th className="p-3 font-semibold" key={x}>
                       {x}
                     </th>
                   ))}
@@ -1350,15 +1361,17 @@ export function NominationsPage() {
               </thead>
               <tbody>
                 {list.map((n) => (
-                  <tr key={n.id} className="border-t border-line">
+                  <tr key={n.id} className="border-t border-[var(--border)] hover:bg-[var(--surface-hover)] transition-colors">
                     <td className="p-3">
-                      <button onClick={() => setOpen(n)}>
+                      <button onClick={() => setOpen(n)} className="text-[var(--text-royal)] hover:underline font-medium">
                         {text(n, "reference")}
                       </button>
                     </td>
-                    <td>{n.name}</td>
-                    <td>{text(n, "type")}</td>
-                    <td>{n.status}</td>
+                    <td className="p-3 text-[var(--text-heading)] font-medium">{n.name}</td>
+                    <td className="p-3 text-[var(--text-meta)]">{text(n, "type")}</td>
+                    <td className="p-3">
+                      <Pill tone="navy">{n.status}</Pill>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -1368,10 +1381,10 @@ export function NominationsPage() {
       )}
       {open && (
         <Drawer title={String(open.name)} close={() => setOpen(null)}>
-          <p className="text-sm text-slate">{String(open.reference)}</p>
+          <p className="text-sm text-[var(--text-meta)]">{String(open.reference)}</p>
           <div className="mt-5 flex gap-3">
             <button
-              className="rounded-lg border border-line px-4 py-3 text-sm font-semibold"
+              className="rounded-lg border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-heading)] hover:bg-[var(--surface-hover)] px-4 py-3 text-sm font-semibold transition-colors"
               disabled={busy}
               onClick={async () => {
                 setBusy(true);
@@ -1391,53 +1404,53 @@ export function NominationsPage() {
               {open.article_id ? "Open linked draft" : "Create editorial draft"}
             </button>
           </div>
-          <label className="mt-5 block text-sm font-semibold">
+          <label className="mt-5 block text-sm font-semibold text-[var(--text-heading)]">
             Linked published story
             <select
               value={articleId || String(open.article_id || "")}
               onChange={(event) => setArticleId(event.target.value)}
-              className="mt-2 h-11 w-full rounded-lg border border-line px-3"
+              className="mt-2 h-11 w-full rounded-lg border border-[var(--border)] bg-[var(--surface-page)] text-[var(--text-body)] px-3 outline-none"
             >
-              <option value="">Choose before marking published</option>
+              <option value="" className="bg-[var(--surface-card)] text-[var(--text-body)]">Choose before marking published</option>
               {stories.data?.data.map((article) => (
-                <option value={article.id} key={article.id}>
+                <option value={article.id} key={article.id} className="bg-[var(--surface-card)] text-[var(--text-body)]">
                   {article.title}
                 </option>
               ))}
             </select>
           </label>
-          <label className="mt-6 block text-sm font-semibold">
+          <label className="mt-6 block text-sm font-semibold text-[var(--text-heading)]">
             Status
             <select
               disabled={busy}
               value={String(open.status)}
               onChange={(e) => move(e.target.value)}
-              className="mt-2 h-11 w-full rounded-lg border border-line px-3"
+              className="mt-2 h-11 w-full rounded-lg border border-[var(--border)] bg-[var(--surface-page)] text-[var(--text-body)] px-3 outline-none"
             >
               {stages.map((c) => (
-                <option key={c}>{c}</option>
+                <option key={c} className="bg-[var(--surface-card)] text-[var(--text-body)]">{c}</option>
               ))}
             </select>
           </label>
-          <label className="mt-4 block text-sm font-semibold">
+          <label className="mt-4 block text-sm font-semibold text-[var(--text-heading)]">
             Review note
             <textarea
-              className="mt-2 min-h-24 w-full rounded-lg border border-line p-3"
+              className="mt-2 min-h-24 w-full rounded-lg border border-[var(--border)] bg-[var(--surface-page)] text-[var(--text-body)] p-3 outline-none"
               value={note}
               onChange={(e) => setNote(e.target.value)}
             />
           </label>
           <section className="mt-7">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--text-meta)]">
               Why we should feature them
             </h3>
-            <p className="mt-2 whitespace-pre-line font-serif leading-7">
+            <p className="mt-2 whitespace-pre-line font-serif leading-7 text-[var(--text-body)]">
               {String(open.reason)}
             </p>
           </section>
-          <section className="mt-7 rounded-lg bg-navy-50 p-4 text-sm">
-            <b>Nominated by</b>
-            <p className="mt-1">
+          <section className="mt-7 rounded-lg bg-[var(--surface-tint)] text-[var(--text-body)] p-4 text-sm">
+            <b className="text-[var(--text-heading)]">Nominated by</b>
+            <p className="mt-1 text-[var(--text-meta)]">
               {String(open.submitter_name)} · {String(open.relationship)}
             </p>
           </section>

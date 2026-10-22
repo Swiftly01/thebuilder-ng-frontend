@@ -474,10 +474,7 @@ export function ArticlePage({ state = "default" }: { state?: PageState }) {
               <Bookmark size={18} />
             </button>
           </aside>
-          <div
-            className="article-copy font-serif text-[19px] leading-8 text-[var(--text-body)]"
-            dangerouslySetInnerHTML={{ __html: story.body || "" }}
-          />
+          <ArticleBody html={story.body || ""} />
         </div>
       </article>
       {(live?.stories.length || 0) > 0 && (
@@ -625,3 +622,4 @@ export function SystemPage({ kind }: { kind: SystemKind }) {
     </main>
   );
 }
+import { ArticleBody } from "./ArticleBody";

@@ -59,15 +59,15 @@ export function ConsoleSearch({ className }: { className: string }) {
         });
       }}
     >
-      <Search size={16} aria-hidden="true" />
+      <Search size={16} aria-hidden="true" className="shrink-0 text-[var(--text-meta)]" />
       <select
         aria-label="Search in"
-        className="min-w-0 bg-transparent text-xs text-ink outline-none"
+        className="min-w-0 bg-transparent text-xs text-[var(--text-body)] outline-none cursor-pointer"
         value={scope}
         onChange={(event) => setScope(event.target.value)}
       >
         {options.map((option) => (
-          <option key={option.path} value={option.path}>
+          <option key={option.path} value={option.path} className="bg-[var(--surface-card)] text-[var(--text-body)]">
             {option.label}
           </option>
         ))}
@@ -77,14 +77,14 @@ export function ConsoleSearch({ className }: { className: string }) {
         aria-label="Search workspace"
         placeholder="Search…"
         maxLength={200}
-        className="min-w-0 flex-1 bg-transparent text-sm text-ink outline-none"
+        className="min-w-0 flex-1 bg-transparent text-sm text-[var(--text-body)] placeholder:text-[var(--text-meta)] outline-none"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
       />
       <button
         type="submit"
         aria-label="Run workspace search"
-        className="grid size-8 shrink-0 place-items-center"
+        className="grid size-8 shrink-0 place-items-center text-[var(--text-meta)] hover:text-[var(--text-heading)] transition-colors"
       >
         <ArrowRight size={15} />
       </button>

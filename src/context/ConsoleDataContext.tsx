@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from "react";
 import { useRouter } from "next/router";
 import { useApiResource } from "@/hooks/useApiResource";
 import { http, HttpError, type ApiEnvelope } from "@/lib/http";
@@ -18,6 +24,7 @@ export interface ConsoleData {
   record?: ConsoleRecord;
   meta?: Record<string, number>;
   retry: () => void;
+  rememberRecord: (record: ConsoleRecord) => void;
 }
 const Context = createContext<ConsoleData | null>(null);
 export const useConsoleData = () => useContext(Context);
@@ -25,6 +32,9 @@ export const text = (record: ConsoleRecord | undefined, key: string) =>
   String(record?.[key] ?? "");
 export function ConsoleDataProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
+  const [createdRecord, setCreatedRecord] = useState<ConsoleRecord | null>(
+    null,
+  );
   const active =
     router.pathname.startsWith("/console") &&
     router.pathname !== "/console/states" &&
@@ -38,22 +48,27 @@ export function ConsoleDataProvider({ children }: { children: ReactNode }) {
         : null
       : "/console/" + section;
   const key = JSON.stringify([path, router.query]);
-  const result = useApiResource(active ? key : null, async (signal) => {
-    if (!path) return { data: null };
-    return http<ApiEnvelope<unknown>>(path, {
-      signal,
-      query: {
-        q: String(router.query.q || ""),
-        page: Number(router.query.page || 1),
-        ...(section === "content"
-          ? {
-              status: String(router.query.status || ""),
-              edition: String(router.query.edition || ""),
-            }
-          : {}),
-      },
-    });
-  });
+  const justCreated =
+    section === "editor" && id !== "" && createdRecord?.id === id;
+  const result = useApiResource(
+    active && !justCreated ? key : null,
+    async (signal) => {
+      if (!path) return { data: null };
+      return http<ApiEnvelope<unknown>>(path, {
+        signal,
+        query: {
+          q: String(router.query.q || ""),
+          page: Number(router.query.page || 1),
+          ...(section === "content"
+            ? {
+                status: String(router.query.status || ""),
+                edition: String(router.query.edition || ""),
+              }
+            : {}),
+        },
+      });
+    },
+  );
   useEffect(() => {
     if (!(result.error instanceof HttpError)) return;
     if (result.error.status === 401)
@@ -62,10 +77,11 @@ export function ConsoleDataProvider({ children }: { children: ReactNode }) {
       void router.replace("/mfa?redirect=" + encodeURIComponent(router.asPath));
   }, [result.error, router]);
   if (!active) return <>{children}</>;
-  if (result.loading) return <PageLoader label="Loading workspace" />;
-  if (result.error)
+  if (result.loading && !justCreated)
+    return <PageLoader label="Loading workspace" />;
+  if (result.error && !justCreated)
     return <ResourceError error={result.error} retry={result.retry} />;
-  const raw = result.data?.data;
+  const raw = justCreated ? createdRecord : result.data?.data;
   const records = Array.isArray(raw) ? (raw as ConsoleRecord[]) : [];
   const document =
     raw && !Array.isArray(raw) && typeof raw === "object"
@@ -88,6 +104,7 @@ export function ConsoleDataProvider({ children }: { children: ReactNode }) {
               }
             : undefined)) as Record<string, number> | undefined,
         retry: result.retry,
+        rememberRecord: setCreatedRecord,
       }}
     >
       {children}

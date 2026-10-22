@@ -19,9 +19,9 @@ import { LoadingDots } from "@/components/ui/LoadingDots";
 import { MediaPicker } from "@/components/ui/MediaPicker";
 
 const input =
-  "mt-2 min-h-10 w-full rounded-md border border-line bg-white px-3 text-sm text-ink focus:border-royal focus:outline-none focus:ring-2 focus:ring-royal/20";
+  "mt-2 min-h-10 w-full rounded-md border border-[var(--border)] bg-[var(--surface-page)] px-3 text-sm text-[var(--text-body)] placeholder:text-[var(--text-meta)] focus:border-[var(--focus-ring)] focus:outline-none focus:ring-2 focus:ring-[var(--focus-ring)]/20";
 const button =
-  "min-h-10 rounded-md border border-line px-4 text-sm font-semibold disabled:opacity-50";
+  "min-h-10 rounded-md border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-heading)] hover:bg-[var(--surface-hover)] px-4 text-sm font-semibold disabled:opacity-50 transition-colors";
 export function SiteConfigurationForm({ section }: { section: string }) {
   const live = useConsoleData();
   const { toast } = useToast();
@@ -192,7 +192,7 @@ export function SiteConfigurationForm({ section }: { section: string }) {
                   <fieldset
                     key={index}
                     disabled={busy}
-                    className="grid gap-3 rounded-lg border border-line p-4 sm:grid-cols-2"
+                    className="grid gap-3 rounded-lg border border-[var(--border)] bg-[var(--surface-tint)] p-4 sm:grid-cols-2"
                   >
                     <legend className="px-1 text-sm font-semibold">
                       Link {index + 1}

@@ -16,11 +16,11 @@ import { ConsoleLayout } from "@/components/layout/ConsoleLayout";
 import { Icon } from "@/components/ui/Icon";
 
 const button =
-  "inline-flex min-h-10 items-center justify-center gap-2 rounded-md px-4 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royal";
-const primary = `${button} bg-navy-900 text-white hover:bg-navy-700`;
-const secondary = `${button} border border-line bg-white text-navy-900 hover:bg-navy-50`;
+  "inline-flex min-h-10 items-center justify-center gap-2 rounded-md px-4 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]";
+const primary = `${button} bg-navy-900 dark:bg-[var(--surface-inverse)] text-white hover:bg-navy-700 dark:hover:bg-[var(--surface-inverse)]/80`;
+const secondary = `${button} border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-heading)] hover:bg-[var(--surface-hover)]`;
 const input =
-  "min-h-10 rounded-md border border-line bg-white px-3 text-sm text-ink outline-none focus:border-royal focus:ring-2 focus:ring-royal/20";
+  "min-h-10 rounded-md border border-[var(--border)] bg-[var(--surface-card)] px-3 text-sm text-[var(--text-body)] outline-none focus:border-[var(--focus-ring)] focus:ring-2 focus:ring-[var(--focus-ring)]/20";
 
 function Shell({
   title,
@@ -36,12 +36,12 @@ function Shell({
   return (
     <ConsoleLayout>
       <div className="mx-auto max-w-[1180px] space-y-6">
-        <header className="flex flex-col gap-4 border-b border-line pb-5 sm:flex-row sm:items-end sm:justify-between">
+        <header className="flex flex-col gap-4 border-b border-[var(--border)] pb-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="mb-1 text-xs font-bold uppercase tracking-[.12em] text-brand-red">
               {eyebrow}
             </p>
-            <h1 className="font-display text-2xl font-extrabold tracking-tight text-navy-900 sm:text-[32px]">
+            <h1 className="font-display text-2xl font-extrabold tracking-tight text-[var(--text-heading)] sm:text-[32px]">
               {title}
             </h1>
           </div>
@@ -60,12 +60,12 @@ const Card = ({
   children: ReactNode;
   className?: string;
 }) => (
-  <section className={`rounded-lg border border-line bg-white ${className}`}>
+  <section className={`rounded-lg border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-body)] transition-colors ${className}`}>
     {children}
   </section>
 );
 const Toolbar = ({ children }: { children: ReactNode }) => (
-  <div className="flex flex-col gap-3 border-b border-line p-4 sm:flex-row sm:items-center">
+  <div className="flex flex-col gap-3 border-b border-[var(--border)] p-4 sm:flex-row sm:items-center">
     {children}
   </div>
 );
@@ -77,11 +77,11 @@ const Pill = ({
   tone?: "slate" | "green" | "red" | "amber" | "blue";
 }) => {
   const tones = {
-    slate: "bg-navy-50 text-slate",
-    green: "bg-emerald-50 text-emerald-700",
-    red: "bg-red-50 text-red-700",
-    amber: "bg-amber-50 text-amber-800",
-    blue: "bg-blue-50 text-blue-700",
+    slate: "bg-[var(--surface-tint)] text-[var(--text-meta)]",
+    green: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+    red: "bg-[var(--surface-accent-soft)] text-[var(--text-error)]",
+    amber: "bg-amber-500/10 text-amber-700 dark:text-amber-400",
+    blue: "bg-blue-500/10 text-blue-700 dark:text-blue-400",
   };
   return (
     <span

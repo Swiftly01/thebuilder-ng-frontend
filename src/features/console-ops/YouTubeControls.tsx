@@ -25,9 +25,9 @@ interface SyncRun {
   finished_at?: string | null;
 }
 const button =
-  "min-h-10 rounded-md border border-line px-4 text-sm font-semibold disabled:opacity-50";
+  "min-h-10 rounded-md border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-heading)] hover:bg-[var(--surface-hover)] px-4 text-sm font-semibold disabled:opacity-50 transition-colors";
 const input =
-  "mt-2 min-h-10 w-full rounded-md border border-line bg-white px-3 text-sm text-ink focus:border-royal focus:outline-none focus:ring-2 focus:ring-royal/20";
+  "mt-2 min-h-10 w-full rounded-md border border-[var(--border)] bg-[var(--surface-page)] px-3 text-sm text-[var(--text-body)] placeholder:text-[var(--text-meta)] focus:border-[var(--focus-ring)] focus:outline-none focus:ring-2 focus:ring-[var(--focus-ring)]/20";
 const date = (value?: string | null) =>
   value
     ? new Date(value).toLocaleString("en-GB", { timeZone: "Africa/Lagos" }) +
@@ -68,10 +68,10 @@ export function YouTubeControls() {
   return (
     <section
       id="youtube-channels"
-      className="scroll-mt-24 space-y-5 rounded-lg border border-line bg-white p-5"
+      className="scroll-mt-24 space-y-5 rounded-lg border border-[var(--border)] bg-[var(--surface-card)] text-[var(--text-body)] p-5"
     >
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h2 className="font-display text-xl font-bold">
+        <h2 className="font-display text-xl font-bold text-[var(--text-heading)]">
           YouTube channel controls
         </h2>
         <div className="flex gap-2">
@@ -100,7 +100,7 @@ export function YouTubeControls() {
           </button>
         </div>
       </div>
-      <p className="text-sm text-slate">
+      <p className="text-sm text-[var(--text-meta)]">
         The private API key stays on the server. Import eligibility and
         publication are checked by the API. Saving a channel does not trigger
         synchronization.
@@ -115,20 +115,20 @@ export function YouTubeControls() {
             channels.data.data.map((channel) => (
               <div
                 key={channel.id}
-                className="flex flex-wrap items-center justify-between gap-4 rounded-lg border border-line p-4"
+                className="flex flex-wrap items-center justify-between gap-4 rounded-lg border border-[var(--border)] bg-[var(--surface-page)] p-4"
               >
                 <div>
-                  <h3 className="font-semibold">
+                  <h3 className="font-semibold text-[var(--text-heading)]">
                     {channel.title || channel.provider_id}
                   </h3>
-                  <p className="text-sm text-slate">
+                  <p className="text-sm text-[var(--text-meta)]">
                     {channel.active ? "Import enabled" : "Import paused"} ·{" "}
                     {channel.auto_publish
                       ? "Automatic publication"
                       : "Editorial review"}{" "}
                     · {channel.edition}
                   </p>
-                  <p className="text-xs text-slate">
+                  <p className="text-xs text-[var(--text-meta)]">
                     Last synchronized: {date(channel.last_synced_at)}
                   </p>
                 </div>
@@ -153,7 +153,7 @@ export function YouTubeControls() {
               </div>
             ))
           ) : (
-            <p className="text-sm text-slate">
+            <p className="text-sm text-[var(--text-meta)]">
               No official channel is configured yet.
             </p>
           )}
@@ -161,7 +161,7 @@ export function YouTubeControls() {
       )}
       {draft && (
         <form
-          className="space-y-4 rounded-lg border border-line p-4"
+          className="space-y-4 rounded-lg border border-[var(--border)] bg-[var(--surface-page)] p-4"
           onSubmit={async (event) => {
             event.preventDefault();
             setBusy("save");
@@ -185,7 +185,7 @@ export function YouTubeControls() {
             }
           }}
         >
-          <label className="block text-sm font-semibold">
+          <label className="block text-sm font-semibold text-[var(--text-heading)]">
             Official channel ID
             <input
               required
@@ -200,7 +200,7 @@ export function YouTubeControls() {
               }
             />
           </label>
-          <label className="flex gap-3 text-sm">
+          <label className="flex gap-3 text-sm text-[var(--text-body)]">
             <input
               type="checkbox"
               checked={Boolean(draft.active)}
@@ -210,7 +210,7 @@ export function YouTubeControls() {
             />
             Import eligible channel uploads automatically
           </label>
-          <label className="flex gap-3 text-sm">
+          <label className="flex gap-3 text-sm text-[var(--text-body)]">
             <input
               type="checkbox"
               checked={Boolean(draft.auto_publish)}
@@ -220,7 +220,7 @@ export function YouTubeControls() {
             />
             Publish eligible imports automatically
           </label>
-          <label className="block text-sm font-semibold">
+          <label className="block text-sm font-semibold text-[var(--text-heading)]">
             Edition
             <select
               className={input}
@@ -236,7 +236,7 @@ export function YouTubeControls() {
           </label>
           <div className="flex gap-3">
             <button
-              className={button + " bg-navy-900 text-white"}
+              className={button + " bg-[var(--text-heading)] text-[var(--surface-card)] hover:opacity-90"}
               disabled={!!busy}
             >
               {busy === "save" ? <LoadingDots /> : "Save channel"}
@@ -253,7 +253,7 @@ export function YouTubeControls() {
         </form>
       )}
       <div className="space-y-3">
-        <h3 className="font-display text-lg font-bold">
+        <h3 className="font-display text-lg font-bold text-[var(--text-heading)]">
           Synchronization history
         </h3>
         {history.loading ? (
@@ -265,7 +265,7 @@ export function YouTubeControls() {
             <div className="overflow-x-auto">
               <table className="w-full min-w-[600px] text-left text-sm">
                 <thead>
-                  <tr>
+                  <tr className="text-[var(--text-heading)]">
                     {[
                       "Started (WAT)",
                       "Channel",
@@ -282,7 +282,7 @@ export function YouTubeControls() {
                 </thead>
                 <tbody>
                   {history.data?.data.map((run) => (
-                    <tr key={run.id} className="border-t border-line">
+                    <tr key={run.id} className="border-t border-[var(--border)]">
                       <td className="p-2">{date(run.started_at)}</td>
                       <td>
                         {channels.data?.data.find(
@@ -299,7 +299,7 @@ export function YouTubeControls() {
               </table>
             </div>
             {!history.data?.data.length && (
-              <p className="text-sm text-slate">
+              <p className="text-sm text-[var(--text-meta)]">
                 No synchronization runs recorded yet.
               </p>
             )}
@@ -312,7 +312,7 @@ export function YouTubeControls() {
               >
                 Previous
               </button>
-              <span className="text-sm">
+              <span className="text-sm text-[var(--text-body)]">
                 Page {page} of {history.data?.last_page || 1}
               </span>
               <button
