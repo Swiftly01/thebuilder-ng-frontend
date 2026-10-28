@@ -20,9 +20,7 @@
             "post": {
                 "operationId": "Metrics_adEvent_POST",
                 "summary": "Ad Event",
-                "tags": [
-                    "Metrics"
-                ],
+                "tags": ["Metrics"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [],
                 "parameters": [
@@ -37,10 +35,7 @@
                     }
                 ],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\MetricsController@adEvent",
-                "x-middleware": [
-                    "api",
-                    "throttle:public"
-                ],
+                "x-middleware": ["api", "throttle:public"],
                 "x-frontend-route": "/console",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -151,9 +146,7 @@
             "get": {
                 "operationId": "Metrics_ad_GET",
                 "summary": "Ad",
-                "tags": [
-                    "Metrics"
-                ],
+                "tags": ["Metrics"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -223,9 +216,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -318,9 +309,7 @@
             "get": {
                 "operationId": "Public_articles_GET",
                 "summary": "Articles",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -352,11 +341,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:interview,podcast,documentary",
                             "nullable": true,
-                            "enum": [
-                                "interview",
-                                "podcast",
-                                "documentary"
-                            ]
+                            "enum": ["interview", "podcast", "documentary"]
                         }
                     },
                     {
@@ -367,11 +352,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:featured,month,year",
                             "nullable": true,
-                            "enum": [
-                                "featured",
-                                "month",
-                                "year"
-                            ]
+                            "enum": ["featured", "month", "year"]
                         }
                     },
                     {
@@ -414,10 +395,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:latest,most_read",
                             "nullable": true,
-                            "enum": [
-                                "latest",
-                                "most_read"
-                            ]
+                            "enum": ["latest", "most_read"]
                         }
                     },
                     {
@@ -496,11 +474,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:Nigeria,Australia,both",
                             "nullable": true,
-                            "enum": [
-                                "Nigeria",
-                                "Australia",
-                                "both"
-                            ]
+                            "enum": ["Nigeria", "Australia", "both"]
                         }
                     },
                     {
@@ -629,9 +603,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -724,9 +696,7 @@
             "get": {
                 "operationId": "Public_article_GET",
                 "summary": "Article",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -794,9 +764,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -892,17 +860,12 @@
             "post": {
                 "operationId": "Identity_resend_POST",
                 "summary": "Resend",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@resend",
-                "x-middleware": [
-                    "api",
-                    "throttle:auth"
-                ],
+                "x-middleware": ["api", "throttle:auth"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -1013,9 +976,7 @@
             "get": {
                 "operationId": "Identity_verify_GET",
                 "summary": "Verify",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -1055,11 +1016,7 @@
                     }
                 ],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@verify",
-                "x-middleware": [
-                    "api",
-                    "throttle:auth",
-                    "signed"
-                ],
+                "x-middleware": ["api", "throttle:auth", "signed"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "Read only.",
                 "responses": {
@@ -1143,17 +1100,12 @@
             "post": {
                 "operationId": "Identity_forgotPassword_POST",
                 "summary": "Forgot Password",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@forgotPassword",
-                "x-middleware": [
-                    "api",
-                    "throttle:auth"
-                ],
+                "x-middleware": ["api", "throttle:auth"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -1264,17 +1216,12 @@
             "post": {
                 "operationId": "Identity_login_POST",
                 "summary": "Login",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@login",
-                "x-middleware": [
-                    "api",
-                    "throttle:auth"
-                ],
+                "x-middleware": ["api", "throttle:auth"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -1303,9 +1250,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -1408,9 +1353,7 @@
             "post": {
                 "operationId": "Identity_logout_POST",
                 "summary": "Logout",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -1419,10 +1362,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@logout",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum"
-                ],
+                "x-middleware": ["api", "auth:sanctum"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -1543,9 +1483,7 @@
             "post": {
                 "operationId": "Mfa_challenge_POST",
                 "summary": "Challenge",
-                "tags": [
-                    "Mfa"
-                ],
+                "tags": ["Mfa"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -1691,9 +1629,7 @@
             "post": {
                 "operationId": "Mfa_confirm_POST",
                 "summary": "Confirm",
-                "tags": [
-                    "Mfa"
-                ],
+                "tags": ["Mfa"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -1737,9 +1673,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -1862,9 +1796,7 @@
             "post": {
                 "operationId": "Mfa_setup_POST",
                 "summary": "Setup",
-                "tags": [
-                    "Mfa"
-                ],
+                "tags": ["Mfa"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -1908,9 +1840,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -2023,9 +1953,7 @@
             "post": {
                 "operationId": "Identity_register_POST",
                 "summary": "Register",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [],
                 "parameters": [],
@@ -2063,9 +1991,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -2168,17 +2094,12 @@
             "post": {
                 "operationId": "Identity_resetPassword_POST",
                 "summary": "Reset Password",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@resetPassword",
-                "x-middleware": [
-                    "api",
-                    "throttle:auth"
-                ],
+                "x-middleware": ["api", "throttle:auth"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -2289,9 +2210,7 @@
             "get": {
                 "operationId": "Public_builders_GET",
                 "summary": "Builders",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -2323,11 +2242,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:interview,podcast,documentary",
                             "nullable": true,
-                            "enum": [
-                                "interview",
-                                "podcast",
-                                "documentary"
-                            ]
+                            "enum": ["interview", "podcast", "documentary"]
                         }
                     },
                     {
@@ -2338,11 +2253,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:featured,month,year",
                             "nullable": true,
-                            "enum": [
-                                "featured",
-                                "month",
-                                "year"
-                            ]
+                            "enum": ["featured", "month", "year"]
                         }
                     },
                     {
@@ -2385,10 +2296,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:latest,most_read",
                             "nullable": true,
-                            "enum": [
-                                "latest",
-                                "most_read"
-                            ]
+                            "enum": ["latest", "most_read"]
                         }
                     },
                     {
@@ -2467,11 +2375,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:Nigeria,Australia,both",
                             "nullable": true,
-                            "enum": [
-                                "Nigeria",
-                                "Australia",
-                                "both"
-                            ]
+                            "enum": ["Nigeria", "Australia", "both"]
                         }
                     },
                     {
@@ -2600,9 +2504,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -2695,9 +2597,7 @@
             "get": {
                 "operationId": "Public_builder_GET",
                 "summary": "Builder",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -2765,9 +2665,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -2860,9 +2758,7 @@
             "get": {
                 "operationId": "Public_categories_GET",
                 "summary": "Categories",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -2894,11 +2790,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:interview,podcast,documentary",
                             "nullable": true,
-                            "enum": [
-                                "interview",
-                                "podcast",
-                                "documentary"
-                            ]
+                            "enum": ["interview", "podcast", "documentary"]
                         }
                     },
                     {
@@ -2909,11 +2801,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:featured,month,year",
                             "nullable": true,
-                            "enum": [
-                                "featured",
-                                "month",
-                                "year"
-                            ]
+                            "enum": ["featured", "month", "year"]
                         }
                     },
                     {
@@ -2956,10 +2844,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:latest,most_read",
                             "nullable": true,
-                            "enum": [
-                                "latest",
-                                "most_read"
-                            ]
+                            "enum": ["latest", "most_read"]
                         }
                     },
                     {
@@ -3038,11 +2923,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:Nigeria,Australia,both",
                             "nullable": true,
-                            "enum": [
-                                "Nigeria",
-                                "Australia",
-                                "both"
-                            ]
+                            "enum": ["Nigeria", "Australia", "both"]
                         }
                     },
                     {
@@ -3171,9 +3052,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -3266,9 +3145,7 @@
             "get": {
                 "operationId": "Public_category_GET",
                 "summary": "Category",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -3336,9 +3213,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -3431,9 +3306,7 @@
             "get": {
                 "operationId": "Metrics_campaigns_GET",
                 "summary": "Campaigns",
-                "tags": [
-                    "Metrics"
-                ],
+                "tags": ["Metrics"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -3481,9 +3354,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -3584,9 +3455,7 @@
             "put": {
                 "operationId": "Metrics_saveCampaign_PUT",
                 "summary": "Save Campaign",
-                "tags": [
-                    "Metrics"
-                ],
+                "tags": ["Metrics"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -3631,9 +3500,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -3756,9 +3623,7 @@
             "get": {
                 "operationId": "Metrics_analytics_GET",
                 "summary": "Analytics",
-                "tags": [
-                    "Metrics"
-                ],
+                "tags": ["Metrics"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -3803,9 +3668,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -3908,9 +3771,7 @@
             "get": {
                 "operationId": "Administration_audit_GET",
                 "summary": "Audit",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -3971,9 +3832,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -4076,9 +3935,7 @@
             "get": {
                 "operationId": "Directory_index_builders_GET",
                 "summary": "Index",
-                "tags": [
-                    "Directory"
-                ],
+                "tags": ["Directory"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -4150,9 +4007,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -4253,9 +4108,7 @@
             "post": {
                 "operationId": "Directory_store_builders_POST",
                 "summary": "Store",
-                "tags": [
-                    "Directory"
-                ],
+                "tags": ["Directory"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -4300,9 +4153,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -4425,9 +4276,7 @@
             "get": {
                 "operationId": "Directory_show_builders_GET",
                 "summary": "Show",
-                "tags": [
-                    "Directory"
-                ],
+                "tags": ["Directory"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -4482,9 +4331,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -4585,9 +4432,7 @@
             "put": {
                 "operationId": "Directory_update_builders_PUT",
                 "summary": "Update",
-                "tags": [
-                    "Directory"
-                ],
+                "tags": ["Directory"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -4642,9 +4487,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -4765,9 +4608,7 @@
             "delete": {
                 "operationId": "Directory_destroy_builders_DELETE",
                 "summary": "Destroy",
-                "tags": [
-                    "Directory"
-                ],
+                "tags": ["Directory"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -4914,9 +4755,7 @@
             "get": {
                 "operationId": "Editorial_index_GET",
                 "summary": "Index",
-                "tags": [
-                    "Editorial"
-                ],
+                "tags": ["Editorial"],
                 "description": "Searches titles and author names, then applies exact workflow status and edition filters before pagination. Editors without content.publish permission only list their own stories. Ordered by newest creation time, with ID as a stable tie-breaker. Edition both matches records explicitly assigned both.",
                 "security": [
                     {
@@ -4963,11 +4802,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:Nigeria,Australia,both",
                             "nullable": true,
-                            "enum": [
-                                "Nigeria",
-                                "Australia",
-                                "both"
-                            ]
+                            "enum": ["Nigeria", "Australia", "both"]
                         }
                     },
                     {
@@ -5034,9 +4869,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -5157,9 +4990,7 @@
             "post": {
                 "operationId": "Editorial_store_POST",
                 "summary": "Store",
-                "tags": [
-                    "Editorial"
-                ],
+                "tags": ["Editorial"],
                 "description": "Validates approved article fields, sanitizes rich HTML, synchronizes approved relations, increments version and saves a revision. Published slug changes create redirects. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -5204,9 +5035,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -5349,9 +5178,7 @@
             "post": {
                 "operationId": "Editorial_import_POST",
                 "summary": "Import",
-                "tags": [
-                    "Editorial"
-                ],
+                "tags": ["Editorial"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -5396,9 +5223,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -5541,9 +5366,7 @@
             "post": {
                 "operationId": "Editorial_preview_POST",
                 "summary": "Preview",
-                "tags": [
-                    "Editorial"
-                ],
+                "tags": ["Editorial"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -5588,9 +5411,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -5733,9 +5554,7 @@
             "get": {
                 "operationId": "Editorial_show_GET",
                 "summary": "Show",
-                "tags": [
-                    "Editorial"
-                ],
+                "tags": ["Editorial"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -5790,9 +5609,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -5913,9 +5730,7 @@
             "patch": {
                 "operationId": "Editorial_update_PATCH",
                 "summary": "Update",
-                "tags": [
-                    "Editorial"
-                ],
+                "tags": ["Editorial"],
                 "description": "Validates approved article fields, sanitizes rich HTML, synchronizes approved relations, increments version and saves a revision. Published slug changes create redirects. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -5979,9 +5794,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -6122,9 +5935,7 @@
             "delete": {
                 "operationId": "Editorial_destroy_DELETE",
                 "summary": "Destroy",
-                "tags": [
-                    "Editorial"
-                ],
+                "tags": ["Editorial"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -6291,9 +6102,7 @@
             "post": {
                 "operationId": "Editorial_transition_POST",
                 "summary": "Transition",
-                "tags": [
-                    "Editorial"
-                ],
+                "tags": ["Editorial"],
                 "description": "Enforces draft/review/changes/approved/scheduled/published/rejected/archived state transitions, permissions, notes and optimistic version checks. Saves a revision and immutable audit event. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -6357,9 +6166,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -6502,9 +6309,7 @@
             "get": {
                 "operationId": "Editorial_versions_GET",
                 "summary": "Versions",
-                "tags": [
-                    "Editorial"
-                ],
+                "tags": ["Editorial"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -6562,9 +6367,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -6687,9 +6490,7 @@
             "post": {
                 "operationId": "Editorial_restore_POST",
                 "summary": "Restore",
-                "tags": [
-                    "Editorial"
-                ],
+                "tags": ["Editorial"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -6762,9 +6563,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -6897,9 +6696,7 @@
             "get": {
                 "operationId": "Administration_dashboard_GET",
                 "summary": "Dashboard",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -6944,9 +6741,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -7049,9 +6844,7 @@
             "get": {
                 "operationId": "Administration_homepage_GET",
                 "summary": "Homepage",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -7099,9 +6892,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -7202,9 +6993,7 @@
             "put": {
                 "operationId": "Administration_saveHomepage_PUT",
                 "summary": "Save Homepage",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -7249,9 +7038,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -7374,9 +7161,7 @@
             "get": {
                 "operationId": "Media_index_GET",
                 "summary": "Index",
-                "tags": [
-                    "Media"
-                ],
+                "tags": ["Media"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -7448,9 +7233,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -7551,9 +7334,7 @@
             "post": {
                 "operationId": "Media_store_POST",
                 "summary": "Store",
-                "tags": [
-                    "Media"
-                ],
+                "tags": ["Media"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -7598,9 +7379,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -7723,9 +7502,7 @@
             "get": {
                 "operationId": "Media_show_GET",
                 "summary": "Show",
-                "tags": [
-                    "Media"
-                ],
+                "tags": ["Media"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -7780,9 +7557,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -7883,9 +7658,7 @@
             "patch": {
                 "operationId": "Media_update_PATCH",
                 "summary": "Update",
-                "tags": [
-                    "Media"
-                ],
+                "tags": ["Media"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -7940,9 +7713,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -8063,9 +7834,7 @@
             "delete": {
                 "operationId": "Media_destroy_DELETE",
                 "summary": "Destroy",
-                "tags": [
-                    "Media"
-                ],
+                "tags": ["Media"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -8212,9 +7981,7 @@
             "get": {
                 "operationId": "Review_nominations_GET",
                 "summary": "Nominations",
-                "tags": [
-                    "Review"
-                ],
+                "tags": ["Review"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -8297,9 +8064,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -8402,9 +8167,7 @@
             "patch": {
                 "operationId": "Review_moveNomination_PATCH",
                 "summary": "Move Nomination",
-                "tags": [
-                    "Review"
-                ],
+                "tags": ["Review"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -8459,9 +8222,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -8584,9 +8345,7 @@
             "post": {
                 "operationId": "Review_draftNomination_POST",
                 "summary": "Draft Nomination",
-                "tags": [
-                    "Review"
-                ],
+                "tags": ["Review"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -8642,9 +8401,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -8675,9 +8432,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -8790,9 +8545,7 @@
             "get": {
                 "operationId": "Opportunity_index_GET",
                 "summary": "Index",
-                "tags": [
-                    "Opportunity"
-                ],
+                "tags": ["Opportunity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -8819,11 +8572,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:draft,published,archived",
                             "nullable": true,
-                            "enum": [
-                                "draft",
-                                "published",
-                                "archived"
-                            ]
+                            "enum": ["draft", "published", "archived"]
                         }
                     },
                     {
@@ -8879,9 +8628,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -8982,9 +8729,7 @@
             "post": {
                 "operationId": "Opportunity_save_POST",
                 "summary": "Save",
-                "tags": [
-                    "Opportunity"
-                ],
+                "tags": ["Opportunity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -9029,9 +8774,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -9154,9 +8897,7 @@
             "put": {
                 "operationId": "Opportunity_save_PUT",
                 "summary": "Save",
-                "tags": [
-                    "Opportunity"
-                ],
+                "tags": ["Opportunity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -9211,9 +8952,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -9334,9 +9073,7 @@
             "delete": {
                 "operationId": "Opportunity_destroy_DELETE",
                 "summary": "Destroy",
-                "tags": [
-                    "Opportunity"
-                ],
+                "tags": ["Opportunity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -9483,9 +9220,7 @@
             "get": {
                 "operationId": "Administration_roles_GET",
                 "summary": "Roles",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -9533,9 +9268,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -9638,9 +9371,7 @@
             "get": {
                 "operationId": "Administration_settings_GET",
                 "summary": "Settings",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -9685,9 +9416,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -9788,9 +9517,7 @@
             "put": {
                 "operationId": "Administration_saveSettings_PUT",
                 "summary": "Save Settings",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -9835,9 +9562,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -9960,9 +9685,7 @@
             "get": {
                 "operationId": "Directory_index_startups_GET",
                 "summary": "Index",
-                "tags": [
-                    "Directory"
-                ],
+                "tags": ["Directory"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -10034,9 +9757,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -10137,9 +9858,7 @@
             "post": {
                 "operationId": "Directory_store_startups_POST",
                 "summary": "Store",
-                "tags": [
-                    "Directory"
-                ],
+                "tags": ["Directory"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -10184,9 +9903,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -10309,9 +10026,7 @@
             "get": {
                 "operationId": "Directory_show_startups_GET",
                 "summary": "Show",
-                "tags": [
-                    "Directory"
-                ],
+                "tags": ["Directory"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -10366,9 +10081,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -10469,9 +10182,7 @@
             "put": {
                 "operationId": "Directory_update_startups_PUT",
                 "summary": "Update",
-                "tags": [
-                    "Directory"
-                ],
+                "tags": ["Directory"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -10526,9 +10237,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -10649,9 +10358,7 @@
             "delete": {
                 "operationId": "Directory_destroy_startups_DELETE",
                 "summary": "Destroy",
-                "tags": [
-                    "Directory"
-                ],
+                "tags": ["Directory"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -10798,9 +10505,7 @@
             "get": {
                 "operationId": "Review_submissions_GET",
                 "summary": "Submissions",
-                "tags": [
-                    "Review"
-                ],
+                "tags": ["Review"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -10848,9 +10553,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -10953,9 +10656,7 @@
             "patch": {
                 "operationId": "Review_moveSubmission_PATCH",
                 "summary": "Move Submission",
-                "tags": [
-                    "Review"
-                ],
+                "tags": ["Review"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -11010,9 +10711,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -11135,9 +10834,7 @@
             "get": {
                 "operationId": "Administration_taxonomy_GET",
                 "summary": "Taxonomy",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -11182,9 +10879,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -11287,9 +10982,7 @@
             "put": {
                 "operationId": "Administration_saveTaxonomy_builders_PUT",
                 "summary": "Save Taxonomy",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -11334,9 +11027,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -11459,9 +11150,7 @@
             "put": {
                 "operationId": "Administration_saveTaxonomy_startups_PUT",
                 "summary": "Save Taxonomy",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -11506,9 +11195,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -11631,9 +11318,7 @@
             "get": {
                 "operationId": "Administration_users_GET",
                 "summary": "Users",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -11705,9 +11390,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -11810,9 +11493,7 @@
             "patch": {
                 "operationId": "Administration_updateUser_PATCH",
                 "summary": "Update User",
-                "tags": [
-                    "Administration"
-                ],
+                "tags": ["Administration"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -11867,9 +11548,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -11992,9 +11671,7 @@
             "get": {
                 "operationId": "Youtube_videos_GET",
                 "summary": "Videos",
-                "tags": [
-                    "Youtube"
-                ],
+                "tags": ["Youtube"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -12042,9 +11719,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -12147,9 +11822,7 @@
             "patch": {
                 "operationId": "Youtube_updateVideo_PATCH",
                 "summary": "Update Video",
-                "tags": [
-                    "Youtube"
-                ],
+                "tags": ["Youtube"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -12204,9 +11877,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -12329,9 +12000,7 @@
             "get": {
                 "operationId": "Youtube_channels_GET",
                 "summary": "Channels",
-                "tags": [
-                    "Youtube"
-                ],
+                "tags": ["Youtube"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -12379,9 +12048,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -12482,9 +12149,7 @@
             "put": {
                 "operationId": "Youtube_saveChannel_PUT",
                 "summary": "Save Channel",
-                "tags": [
-                    "Youtube"
-                ],
+                "tags": ["Youtube"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -12529,9 +12194,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -12654,9 +12317,7 @@
             "post": {
                 "operationId": "Youtube_sync_POST",
                 "summary": "Sync",
-                "tags": [
-                    "Youtube"
-                ],
+                "tags": ["Youtube"],
                 "description": "Queues bounded official-channel synchronization. Requires a private server API key; provider metadata never overwrites editorial title or description. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -12712,9 +12373,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -12827,9 +12486,7 @@
             "get": {
                 "operationId": "Youtube_history_GET",
                 "summary": "History",
-                "tags": [
-                    "Youtube"
-                ],
+                "tags": ["Youtube"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -12877,9 +12534,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -12982,9 +12637,7 @@
             "get": {
                 "operationId": "Public_events_GET",
                 "summary": "Events",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "Optional editorial listing only. Returns 404 while the launch feature flag is disabled; no event registration or ticketing.",
                 "security": [],
                 "parameters": [
@@ -13016,11 +12669,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:interview,podcast,documentary",
                             "nullable": true,
-                            "enum": [
-                                "interview",
-                                "podcast",
-                                "documentary"
-                            ]
+                            "enum": ["interview", "podcast", "documentary"]
                         }
                     },
                     {
@@ -13031,11 +12680,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:featured,month,year",
                             "nullable": true,
-                            "enum": [
-                                "featured",
-                                "month",
-                                "year"
-                            ]
+                            "enum": ["featured", "month", "year"]
                         }
                     },
                     {
@@ -13078,10 +12723,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:latest,most_read",
                             "nullable": true,
-                            "enum": [
-                                "latest",
-                                "most_read"
-                            ]
+                            "enum": ["latest", "most_read"]
                         }
                     },
                     {
@@ -13160,11 +12802,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:Nigeria,Australia,both",
                             "nullable": true,
-                            "enum": [
-                                "Nigeria",
-                                "Australia",
-                                "both"
-                            ]
+                            "enum": ["Nigeria", "Australia", "both"]
                         }
                     },
                     {
@@ -13293,9 +12931,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -13388,9 +13024,7 @@
             "get": {
                 "operationId": "Public_home_GET",
                 "summary": "Home",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -13422,11 +13056,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:interview,podcast,documentary",
                             "nullable": true,
-                            "enum": [
-                                "interview",
-                                "podcast",
-                                "documentary"
-                            ]
+                            "enum": ["interview", "podcast", "documentary"]
                         }
                     },
                     {
@@ -13437,11 +13067,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:featured,month,year",
                             "nullable": true,
-                            "enum": [
-                                "featured",
-                                "month",
-                                "year"
-                            ]
+                            "enum": ["featured", "month", "year"]
                         }
                     },
                     {
@@ -13484,10 +13110,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:latest,most_read",
                             "nullable": true,
-                            "enum": [
-                                "latest",
-                                "most_read"
-                            ]
+                            "enum": ["latest", "most_read"]
                         }
                     },
                     {
@@ -13566,11 +13189,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:Nigeria,Australia,both",
                             "nullable": true,
-                            "enum": [
-                                "Nigeria",
-                                "Australia",
-                                "both"
-                            ]
+                            "enum": ["Nigeria", "Australia", "both"]
                         }
                     },
                     {
@@ -13696,9 +13315,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -13791,9 +13408,7 @@
             "get": {
                 "operationId": "Identity_me_GET",
                 "summary": "Me",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -13802,11 +13417,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@me",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "Read only.",
                 "responses": {
@@ -13835,9 +13446,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -13938,9 +13547,7 @@
             "delete": {
                 "operationId": "Identity_deleteAccount_DELETE",
                 "summary": "Delete Account",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "Requires the current password, deactivates the account and revokes sessions. Daily purge after 30 days removes reader data and anonymizes retained editorial attribution. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -13949,12 +13556,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@deleteAccount",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "Requires the current password, deactivates the account and revokes sessions. Daily purge after 30 days removes reader data and anonymizes retained editorial attribution.",
                 "responses": {
@@ -14085,9 +13687,7 @@
             "get": {
                 "operationId": "Reader_bookmarks_GET",
                 "summary": "Bookmarks",
-                "tags": [
-                    "Reader"
-                ],
+                "tags": ["Reader"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -14096,12 +13696,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\ReaderController@bookmarks",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/account, /stories/[slug]",
                 "x-side-effects": "Read only.",
                 "responses": {
@@ -14133,9 +13728,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -14238,9 +13831,7 @@
             "get": {
                 "operationId": "Reader_bookmark_GET",
                 "summary": "Bookmark",
-                "tags": [
-                    "Reader"
-                ],
+                "tags": ["Reader"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -14259,12 +13850,7 @@
                     }
                 ],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\ReaderController@bookmark",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/account, /stories/[slug]",
                 "x-side-effects": "Read only.",
                 "responses": {
@@ -14293,9 +13879,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -14396,9 +13980,7 @@
             "put": {
                 "operationId": "Reader_save_PUT",
                 "summary": "Save",
-                "tags": [
-                    "Reader"
-                ],
+                "tags": ["Reader"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -14417,12 +13999,7 @@
                     }
                 ],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\ReaderController@save",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/account, /stories/[slug]",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -14541,9 +14118,7 @@
             "delete": {
                 "operationId": "Reader_remove_DELETE",
                 "summary": "Remove",
-                "tags": [
-                    "Reader"
-                ],
+                "tags": ["Reader"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -14562,12 +14137,7 @@
                     }
                 ],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\ReaderController@remove",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/account, /stories/[slug]",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -14688,9 +14258,7 @@
             "get": {
                 "operationId": "Reader_feed_GET",
                 "summary": "Feed",
-                "tags": [
-                    "Reader"
-                ],
+                "tags": ["Reader"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -14699,12 +14267,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\ReaderController@feed",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/account, /stories/[slug]",
                 "x-side-effects": "Read only.",
                 "responses": {
@@ -14736,9 +14299,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -14841,9 +14402,7 @@
             "put": {
                 "operationId": "Identity_interests_PUT",
                 "summary": "Interests",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -14852,12 +14411,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@interests",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -14886,9 +14440,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -15011,9 +14563,7 @@
             "put": {
                 "operationId": "Identity_onboarding_PUT",
                 "summary": "Onboarding",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -15022,12 +14572,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@onboarding",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -15056,9 +14601,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -15181,9 +14724,7 @@
             "put": {
                 "operationId": "Identity_changePassword_PUT",
                 "summary": "Change Password",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -15192,12 +14733,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@changePassword",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -15328,9 +14864,7 @@
             "get": {
                 "operationId": "Identity_profile_GET",
                 "summary": "Profile",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -15339,12 +14873,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@profile",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "Read only.",
                 "responses": {
@@ -15373,9 +14902,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -15476,9 +15003,7 @@
             "patch": {
                 "operationId": "Identity_updateProfile_PATCH",
                 "summary": "Update Profile",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -15487,12 +15012,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@updateProfile",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -15521,9 +15041,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -15646,9 +15164,7 @@
             "get": {
                 "operationId": "Reader_recent_GET",
                 "summary": "Recent",
-                "tags": [
-                    "Reader"
-                ],
+                "tags": ["Reader"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -15657,12 +15173,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\ReaderController@recent",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/account, /stories/[slug]",
                 "x-side-effects": "Read only.",
                 "responses": {
@@ -15694,9 +15205,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -15799,9 +15308,7 @@
             "put": {
                 "operationId": "Reader_view_PUT",
                 "summary": "View",
-                "tags": [
-                    "Reader"
-                ],
+                "tags": ["Reader"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -15820,12 +15327,7 @@
                     }
                 ],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\ReaderController@view",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/account, /stories/[slug]",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -15946,9 +15448,7 @@
             "get": {
                 "operationId": "Identity_sessions_GET",
                 "summary": "Sessions",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [
                     {
@@ -15957,12 +15457,7 @@
                 ],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@sessions",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "Read only.",
                 "responses": {
@@ -15994,9 +15489,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -16099,9 +15592,7 @@
             "delete": {
                 "operationId": "Identity_revokeSession_DELETE",
                 "summary": "Revoke Session",
-                "tags": [
-                    "Identity"
-                ],
+                "tags": ["Identity"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -16120,12 +15611,7 @@
                     }
                 ],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IdentityController@revokeSession",
-                "x-middleware": [
-                    "api",
-                    "auth:sanctum",
-                    "active",
-                    "verified"
-                ],
+                "x-middleware": ["api", "auth:sanctum", "active", "verified"],
                 "x-frontend-route": "/signin, /register, /verify-email, /forgot-password, /reset-password, /account, /onboarding",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -16246,9 +15732,7 @@
             "post": {
                 "operationId": "Intake_submit_POST",
                 "summary": "Submit",
-                "tags": [
-                    "Intake"
-                ],
+                "tags": ["Intake"],
                 "description": "Creates one reference under a transaction, persists an intake record, and queues acknowledgment mail after commit. Idempotent retries return the original response. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [
                     {
@@ -16304,9 +15788,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -16429,17 +15911,12 @@
             "post": {
                 "operationId": "Intake_confirm_POST",
                 "summary": "Confirm",
-                "tags": [
-                    "Intake"
-                ],
+                "tags": ["Intake"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IntakeController@confirm",
-                "x-middleware": [
-                    "api",
-                    "throttle:auth"
-                ],
+                "x-middleware": ["api", "throttle:auth"],
                 "x-frontend-route": "/nominate, /newsletter, /account?state=submit",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -16468,9 +15945,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -16573,9 +16048,7 @@
             "post": {
                 "operationId": "Intake_subscribe_POST",
                 "summary": "Subscribe",
-                "tags": [
-                    "Intake"
-                ],
+                "tags": ["Intake"],
                 "description": "Queues a double-opt-in email. Stores only a hash of the expiring token. Production intake requires verified Turnstile. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [],
                 "parameters": [
@@ -16707,17 +16180,12 @@
             "post": {
                 "operationId": "Intake_unsubscribe_POST",
                 "summary": "Unsubscribe",
-                "tags": [
-                    "Intake"
-                ],
+                "tags": ["Intake"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\IntakeController@unsubscribe",
-                "x-middleware": [
-                    "api",
-                    "throttle:auth"
-                ],
+                "x-middleware": ["api", "throttle:auth"],
                 "x-frontend-route": "/nominate, /newsletter, /account?state=submit",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -16828,9 +16296,7 @@
             "post": {
                 "operationId": "Intake_nominate_POST",
                 "summary": "Nominate",
-                "tags": [
-                    "Intake"
-                ],
+                "tags": ["Intake"],
                 "description": "Creates one reference under a transaction, persists an intake record, and queues acknowledgment mail after commit. Idempotent retries return the original response. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [],
                 "parameters": [
@@ -16880,9 +16346,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -16985,9 +16449,7 @@
             "get": {
                 "operationId": "Public_opportunities_GET",
                 "summary": "Opportunities",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -17019,11 +16481,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:interview,podcast,documentary",
                             "nullable": true,
-                            "enum": [
-                                "interview",
-                                "podcast",
-                                "documentary"
-                            ]
+                            "enum": ["interview", "podcast", "documentary"]
                         }
                     },
                     {
@@ -17034,11 +16492,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:featured,month,year",
                             "nullable": true,
-                            "enum": [
-                                "featured",
-                                "month",
-                                "year"
-                            ]
+                            "enum": ["featured", "month", "year"]
                         }
                     },
                     {
@@ -17081,10 +16535,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:latest,most_read",
                             "nullable": true,
-                            "enum": [
-                                "latest",
-                                "most_read"
-                            ]
+                            "enum": ["latest", "most_read"]
                         }
                     },
                     {
@@ -17163,11 +16614,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:Nigeria,Australia,both",
                             "nullable": true,
-                            "enum": [
-                                "Nigeria",
-                                "Australia",
-                                "both"
-                            ]
+                            "enum": ["Nigeria", "Australia", "both"]
                         }
                     },
                     {
@@ -17296,9 +16743,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -17391,9 +16836,7 @@
             "get": {
                 "operationId": "Public_opportunity_GET",
                 "summary": "Opportunity",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -17461,9 +16904,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -17556,9 +16997,7 @@
             "get": {
                 "operationId": "Public_search_GET",
                 "summary": "Search",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -17590,11 +17029,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:interview,podcast,documentary",
                             "nullable": true,
-                            "enum": [
-                                "interview",
-                                "podcast",
-                                "documentary"
-                            ]
+                            "enum": ["interview", "podcast", "documentary"]
                         }
                     },
                     {
@@ -17605,11 +17040,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:featured,month,year",
                             "nullable": true,
-                            "enum": [
-                                "featured",
-                                "month",
-                                "year"
-                            ]
+                            "enum": ["featured", "month", "year"]
                         }
                     },
                     {
@@ -17652,10 +17083,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:latest,most_read",
                             "nullable": true,
-                            "enum": [
-                                "latest",
-                                "most_read"
-                            ]
+                            "enum": ["latest", "most_read"]
                         }
                     },
                     {
@@ -17734,11 +17162,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:Nigeria,Australia,both",
                             "nullable": true,
-                            "enum": [
-                                "Nigeria",
-                                "Australia",
-                                "both"
-                            ]
+                            "enum": ["Nigeria", "Australia", "both"]
                         }
                     },
                     {
@@ -17864,9 +17288,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -17959,9 +17381,7 @@
             "get": {
                 "operationId": "Public_suggest_GET",
                 "summary": "Suggest",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -17993,11 +17413,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:interview,podcast,documentary",
                             "nullable": true,
-                            "enum": [
-                                "interview",
-                                "podcast",
-                                "documentary"
-                            ]
+                            "enum": ["interview", "podcast", "documentary"]
                         }
                     },
                     {
@@ -18008,11 +17424,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:featured,month,year",
                             "nullable": true,
-                            "enum": [
-                                "featured",
-                                "month",
-                                "year"
-                            ]
+                            "enum": ["featured", "month", "year"]
                         }
                     },
                     {
@@ -18055,10 +17467,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:latest,most_read",
                             "nullable": true,
-                            "enum": [
-                                "latest",
-                                "most_read"
-                            ]
+                            "enum": ["latest", "most_read"]
                         }
                     },
                     {
@@ -18137,11 +17546,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:Nigeria,Australia,both",
                             "nullable": true,
-                            "enum": [
-                                "Nigeria",
-                                "Australia",
-                                "both"
-                            ]
+                            "enum": ["Nigeria", "Australia", "both"]
                         }
                     },
                     {
@@ -18270,9 +17675,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -18365,9 +17768,7 @@
             "get": {
                 "operationId": "Public_settings_GET",
                 "summary": "Settings",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -18426,9 +17827,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -18521,9 +17920,7 @@
             "get": {
                 "operationId": "Public_sitemap_GET",
                 "summary": "Sitemap",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -18661,9 +18058,7 @@
             "get": {
                 "operationId": "Public_startups_GET",
                 "summary": "Startups",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -18695,11 +18090,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:interview,podcast,documentary",
                             "nullable": true,
-                            "enum": [
-                                "interview",
-                                "podcast",
-                                "documentary"
-                            ]
+                            "enum": ["interview", "podcast", "documentary"]
                         }
                     },
                     {
@@ -18710,11 +18101,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:featured,month,year",
                             "nullable": true,
-                            "enum": [
-                                "featured",
-                                "month",
-                                "year"
-                            ]
+                            "enum": ["featured", "month", "year"]
                         }
                     },
                     {
@@ -18757,10 +18144,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:latest,most_read",
                             "nullable": true,
-                            "enum": [
-                                "latest",
-                                "most_read"
-                            ]
+                            "enum": ["latest", "most_read"]
                         }
                     },
                     {
@@ -18839,11 +18223,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:Nigeria,Australia,both",
                             "nullable": true,
-                            "enum": [
-                                "Nigeria",
-                                "Australia",
-                                "both"
-                            ]
+                            "enum": ["Nigeria", "Australia", "both"]
                         }
                     },
                     {
@@ -18972,9 +18352,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -19067,9 +18445,7 @@
             "get": {
                 "operationId": "Public_startup_GET",
                 "summary": "Startup",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -19137,9 +18513,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -19232,9 +18606,7 @@
             "get": {
                 "operationId": "Public_tags_GET",
                 "summary": "Tags",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -19296,9 +18668,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -19391,17 +18761,12 @@
             "post": {
                 "operationId": "Metrics_track_POST",
                 "summary": "Track",
-                "tags": [
-                    "Metrics"
-                ],
+                "tags": ["Metrics"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events. Browser requests must first GET /sanctum/csrf-cookie with credentials, then send the decoded XSRF-TOKEN cookie as X-XSRF-TOKEN. Cookies are HttpOnly for the session; no bearer token is issued.",
                 "security": [],
                 "parameters": [],
                 "x-laravel-action": "App\\Http\\Controllers\\Api\\V1\\MetricsController@track",
-                "x-middleware": [
-                    "api",
-                    "throttle:public"
-                ],
+                "x-middleware": ["api", "throttle:public"],
                 "x-frontend-route": "/console",
                 "x-side-effects": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "responses": {
@@ -19512,9 +18877,7 @@
             "get": {
                 "operationId": "Public_videos_GET",
                 "summary": "Videos",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -19546,11 +18909,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:interview,podcast,documentary",
                             "nullable": true,
-                            "enum": [
-                                "interview",
-                                "podcast",
-                                "documentary"
-                            ]
+                            "enum": ["interview", "podcast", "documentary"]
                         }
                     },
                     {
@@ -19561,11 +18920,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:featured,month,year",
                             "nullable": true,
-                            "enum": [
-                                "featured",
-                                "month",
-                                "year"
-                            ]
+                            "enum": ["featured", "month", "year"]
                         }
                     },
                     {
@@ -19608,10 +18963,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:latest,most_read",
                             "nullable": true,
-                            "enum": [
-                                "latest",
-                                "most_read"
-                            ]
+                            "enum": ["latest", "most_read"]
                         }
                     },
                     {
@@ -19690,11 +19042,7 @@
                             "type": "string",
                             "x-laravel-validation": "nullable|in:Nigeria,Australia,both",
                             "nullable": true,
-                            "enum": [
-                                "Nigeria",
-                                "Australia",
-                                "both"
-                            ]
+                            "enum": ["Nigeria", "Australia", "both"]
                         }
                     },
                     {
@@ -19823,9 +19171,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -19918,9 +19264,7 @@
             "get": {
                 "operationId": "Public_video_GET",
                 "summary": "Video",
-                "tags": [
-                    "Public"
-                ],
+                "tags": ["Public"],
                 "description": "See the declared validation rules, required middleware, response resource and frontend route. Mutations persist to the relational database; privileged mutations record audit events.",
                 "security": [],
                 "parameters": [
@@ -19988,9 +19332,7 @@
                                             "additionalProperties": true
                                         }
                                     },
-                                    "required": [
-                                        "data"
-                                    ],
+                                    "required": ["data"],
                                     "additionalProperties": true
                                 }
                             }
@@ -20130,18 +19472,13 @@
                                     "maxItems": 20
                                 }
                             },
-                            "required": [
-                                "key",
-                                "visible"
-                            ]
+                            "required": ["key", "visible"]
                         },
                         "minItems": 1,
                         "maxItems": 10
                     }
                 },
-                "required": [
-                    "sections"
-                ],
+                "required": ["sections"],
                 "x-validation-fields": {
                     "sections": "required|array|min:1|max:10",
                     "sections.*": "required|array:key,visible,pinnedIds",
@@ -20229,19 +19566,14 @@
                                     "maxLength": 255
                                 }
                             },
-                            "required": [
-                                "label",
-                                "url"
-                            ]
+                            "required": ["label", "url"]
                         },
                         "nullable": true,
                         "minItems": 1,
                         "maxItems": 20
                     }
                 },
-                "required": [
-                    "siteName"
-                ],
+                "required": ["siteName"],
                 "x-validation-fields": {
                     "siteName": "sometimes|required|string|max:180",
                     "pageImages": "sometimes|array:about,partner,diaspora",
@@ -20300,10 +19632,7 @@
                         "maxLength": 2000
                     }
                 },
-                "required": [
-                    "name",
-                    "slug"
-                ],
+                "required": ["name", "slug"],
                 "x-validation-fields": {
                     "id": "nullable|string",
                     "name": "required|string|max:120",
@@ -20342,10 +19671,7 @@
                         "maxLength": 2000
                     }
                 },
-                "required": [
-                    "name",
-                    "slug"
-                ],
+                "required": ["name", "slug"],
                 "x-validation-fields": {
                     "id": "nullable|string",
                     "name": "required|string|max:120",
@@ -20365,11 +19691,7 @@
                     "status": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:active,suspended,deactivated",
-                        "enum": [
-                            "active",
-                            "suspended",
-                            "deactivated"
-                        ]
+                        "enum": ["active", "suspended", "deactivated"]
                     },
                     "roles": {
                         "type": "array",
@@ -20382,9 +19704,7 @@
                         "maxItems": 10
                     }
                 },
-                "required": [
-                    "name"
-                ],
+                "required": ["name"],
                 "x-validation-fields": {
                     "name": "sometimes|required|string|max:180",
                     "status": "sometimes|in:active,suspended,deactivated",
@@ -20496,12 +19816,7 @@
                     }
                 },
                 "additionalProperties": true,
-                "required": [
-                    "id",
-                    "slug",
-                    "title",
-                    "summary"
-                ]
+                "required": ["id", "slug", "title", "summary"]
             },
             "Directory": {
                 "type": "object",
@@ -20565,11 +19880,7 @@
                     }
                 },
                 "additionalProperties": true,
-                "required": [
-                    "id",
-                    "slug",
-                    "name"
-                ]
+                "required": ["id", "slug", "name"]
             },
             "Directory_store_builders_POSTInput": {
                 "type": "object",
@@ -20622,11 +19933,7 @@
                     "status": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:draft,published,archived",
-                        "enum": [
-                            "draft",
-                            "published",
-                            "archived"
-                        ]
+                        "enum": ["draft", "published", "archived"]
                     },
                     "isDiaspora": {
                         "type": "boolean",
@@ -20708,11 +20015,7 @@
                         "type": "string",
                         "x-laravel-validation": "nullable|in:featured,month,year",
                         "nullable": true,
-                        "enum": [
-                            "featured",
-                            "month",
-                            "year"
-                        ]
+                        "enum": ["featured", "month", "year"]
                     },
                     "featureFrom": {
                         "type": "string",
@@ -20727,10 +20030,7 @@
                         "description": "ISO date or date-time accepted by Laravel; returned in UTC."
                     }
                 },
-                "required": [
-                    "name",
-                    "classification"
-                ],
+                "required": ["name", "classification"],
                 "x-validation-fields": {
                     "name": "required|string|max:180",
                     "slug": "sometimes|string|alpha_dash|max:180",
@@ -20809,11 +20109,7 @@
                     "status": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:draft,published,archived",
-                        "enum": [
-                            "draft",
-                            "published",
-                            "archived"
-                        ]
+                        "enum": ["draft", "published", "archived"]
                     },
                     "oneLiner": {
                         "type": "string",
@@ -20868,9 +20164,7 @@
                         "maxItems": 50
                     }
                 },
-                "required": [
-                    "name"
-                ],
+                "required": ["name"],
                 "x-validation-fields": {
                     "name": "required|string|max:180",
                     "slug": "sometimes|string|alpha_dash|max:180",
@@ -20942,11 +20236,7 @@
                     "status": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:draft,published,archived",
-                        "enum": [
-                            "draft",
-                            "published",
-                            "archived"
-                        ]
+                        "enum": ["draft", "published", "archived"]
                     },
                     "isDiaspora": {
                         "type": "boolean",
@@ -21028,11 +20318,7 @@
                         "type": "string",
                         "x-laravel-validation": "nullable|in:featured,month,year",
                         "nullable": true,
-                        "enum": [
-                            "featured",
-                            "month",
-                            "year"
-                        ]
+                        "enum": ["featured", "month", "year"]
                     },
                     "featureFrom": {
                         "type": "string",
@@ -21125,11 +20411,7 @@
                     "status": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:draft,published,archived",
-                        "enum": [
-                            "draft",
-                            "published",
-                            "archived"
-                        ]
+                        "enum": ["draft", "published", "archived"]
                     },
                     "oneLiner": {
                         "type": "string",
@@ -21218,9 +20500,7 @@
                         "maxLength": 100000
                     }
                 },
-                "required": [
-                    "body"
-                ],
+                "required": ["body"],
                 "x-validation-fields": {
                     "body": "required|string|max:100000"
                 }
@@ -21234,9 +20514,7 @@
                         "description": "Version 1 bounded rich-text document (doc/content). Supports paragraphs, H2-H4, lists, quotes, tables, code, dividers and mediaFigure nodes containing library mediaId, alt, caption, credit and layout. Text marks support fonts, sizes, hex colours, links and emphasis. Maximum 500 KB, 5000 nodes and 24 nesting levels. Do not submit body with bodyDocument."
                     }
                 },
-                "required": [
-                    "bodyDocument"
-                ],
+                "required": ["bodyDocument"],
                 "x-validation-fields": {
                     "bodyDocument": "required|array:type,content"
                 }
@@ -21252,9 +20530,7 @@
                             "type": {
                                 "type": "string",
                                 "x-laravel-validation": "required_with:bodyDocument|in:doc",
-                                "enum": [
-                                    "doc"
-                                ]
+                                "enum": ["doc"]
                             },
                             "content": {
                                 "type": "array",
@@ -21320,11 +20596,7 @@
                     "edition": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:Nigeria,Australia,both",
-                        "enum": [
-                            "Nigeria",
-                            "Australia",
-                            "both"
-                        ]
+                        "enum": ["Nigeria", "Australia", "both"]
                     },
                     "industry": {
                         "type": "string",
@@ -21407,9 +20679,7 @@
                         }
                     }
                 },
-                "required": [
-                    "title"
-                ],
+                "required": ["title"],
                 "x-validation-fields": {
                     "bodyDocument": "sometimes|array:type,content",
                     "bodyDocument.type": "required_with:bodyDocument|in:doc",
@@ -21479,9 +20749,7 @@
                         "description": "ISO date or date-time accepted by Laravel; returned in UTC."
                     }
                 },
-                "required": [
-                    "status"
-                ],
+                "required": ["status"],
                 "x-validation-fields": {
                     "status": "required|in:draft,review,changes,approved,scheduled,published,archived,rejected",
                     "note": "nullable|string|max:4000",
@@ -21499,9 +20767,7 @@
                             "type": {
                                 "type": "string",
                                 "x-laravel-validation": "required_with:bodyDocument|in:doc",
-                                "enum": [
-                                    "doc"
-                                ]
+                                "enum": ["doc"]
                             },
                             "content": {
                                 "type": "array",
@@ -21567,11 +20833,7 @@
                     "edition": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:Nigeria,Australia,both",
-                        "enum": [
-                            "Nigeria",
-                            "Australia",
-                            "both"
-                        ]
+                        "enum": ["Nigeria", "Australia", "both"]
                     },
                     "industry": {
                         "type": "string",
@@ -21706,10 +20968,7 @@
                         "minLength": 8
                     }
                 },
-                "required": [
-                    "currentPassword",
-                    "password"
-                ],
+                "required": ["currentPassword", "password"],
                 "x-validation-fields": {
                     "currentPassword": "required|string",
                     "password": [
@@ -21728,9 +20987,7 @@
                         "x-laravel-validation": "required|string"
                     }
                 },
-                "required": [
-                    "password"
-                ],
+                "required": ["password"],
                 "x-validation-fields": {
                     "password": "required|string"
                 }
@@ -21745,9 +21002,7 @@
                         "maxLength": 255
                     }
                 },
-                "required": [
-                    "email"
-                ],
+                "required": ["email"],
                 "x-validation-fields": {
                     "email": "required|email:rfc|max:255"
                 }
@@ -21784,9 +21039,7 @@
                         "maxLength": 150
                     }
                 },
-                "required": [
-                    "interests"
-                ],
+                "required": ["interests"],
                 "x-validation-fields": {
                     "interests": "required|array|min:3|max:15",
                     "interests.*": "required|string|distinct|exists:categories,slug",
@@ -21810,10 +21063,7 @@
                         "maxLength": 1000
                     }
                 },
-                "required": [
-                    "email",
-                    "password"
-                ],
+                "required": ["email", "password"],
                 "x-validation-fields": {
                     "email": "required|email:rfc|max:255",
                     "password": "required|string|max:1000"
@@ -21851,9 +21101,7 @@
                         "maxLength": 150
                     }
                 },
-                "required": [
-                    "interests"
-                ],
+                "required": ["interests"],
                 "x-validation-fields": {
                     "interests": "required|array|min:3|max:15",
                     "interests.*": "required|string|distinct|exists:categories,slug",
@@ -21901,11 +21149,7 @@
                         "maxLength": 150
                     }
                 },
-                "required": [
-                    "name",
-                    "email",
-                    "password"
-                ],
+                "required": ["name", "email", "password"],
                 "x-validation-fields": {
                     "name": "required|string|min:2|max:180",
                     "email": "required|email:rfc|max:255|unique:users,email",
@@ -21929,9 +21173,7 @@
                         "maxLength": 255
                     }
                 },
-                "required": [
-                    "email"
-                ],
+                "required": ["email"],
                 "x-validation-fields": {
                     "email": "required|email:rfc|max:255"
                 }
@@ -21954,11 +21196,7 @@
                         "minLength": 8
                     }
                 },
-                "required": [
-                    "email",
-                    "token",
-                    "password"
-                ],
+                "required": ["email", "token", "password"],
                 "x-validation-fields": {
                     "email": "required|email:rfc",
                     "token": "required|string",
@@ -22038,17 +21276,11 @@
                         "additionalProperties": {
                             "type": "string",
                             "x-laravel-validation": "in:public,members,private",
-                            "enum": [
-                                "public",
-                                "members",
-                                "private"
-                            ]
+                            "enum": ["public", "members", "private"]
                         }
                     }
                 },
-                "required": [
-                    "name"
-                ],
+                "required": ["name"],
                 "x-validation-fields": {
                     "name": "sometimes|required|string|max:180",
                     "country": "nullable|string|max:100",
@@ -22072,9 +21304,7 @@
                         "x-laravel-validation": "required|string|size:64"
                     }
                 },
-                "required": [
-                    "token"
-                ],
+                "required": ["token"],
                 "x-validation-fields": {
                     "token": "required|string|size:64"
                 }
@@ -22085,10 +21315,7 @@
                     "type": {
                         "type": "string",
                         "x-laravel-validation": "required|in:Builder,Startup",
-                        "enum": [
-                            "Builder",
-                            "Startup"
-                        ]
+                        "enum": ["Builder", "Startup"]
                     },
                     "name": {
                         "type": "string",
@@ -22218,10 +21445,7 @@
                         "maxLength": 2000
                     }
                 },
-                "required": [
-                    "title",
-                    "pitch"
-                ],
+                "required": ["title", "pitch"],
                 "x-validation-fields": {
                     "title": "required|string|max:180",
                     "pitch": "required|string|min:40|max:4000",
@@ -22241,15 +21465,10 @@
                     "edition": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:Nigeria,Australia",
-                        "enum": [
-                            "Nigeria",
-                            "Australia"
-                        ]
+                        "enum": ["Nigeria", "Australia"]
                     }
                 },
-                "required": [
-                    "email"
-                ],
+                "required": ["email"],
                 "x-validation-fields": {
                     "email": "required|email:rfc|max:255",
                     "edition": "sometimes|in:Nigeria,Australia"
@@ -22263,9 +21482,7 @@
                         "x-laravel-validation": "required|string|size:64"
                     }
                 },
-                "required": [
-                    "token"
-                ],
+                "required": ["token"],
                 "x-validation-fields": {
                     "token": "required|string|size:64"
                 }
@@ -22291,10 +21508,7 @@
                         "maxLength": 255
                     }
                 },
-                "required": [
-                    "file",
-                    "alt"
-                ],
+                "required": ["file", "alt"],
                 "x-validation-fields": {
                     "file": "required|image|mimes:jpg,jpeg,png,webp|max:10240",
                     "alt": "required|string|max:255",
@@ -22316,9 +21530,7 @@
                         "maxLength": 255
                     }
                 },
-                "required": [
-                    "alt"
-                ],
+                "required": ["alt"],
                 "x-validation-fields": {
                     "alt": "required|string|max:255",
                     "credit": "nullable|string|max:255"
@@ -22330,20 +21542,14 @@
                     "type": {
                         "type": "string",
                         "x-laravel-validation": "required|in:impression,click",
-                        "enum": [
-                            "impression",
-                            "click"
-                        ]
+                        "enum": ["impression", "click"]
                     },
                     "consent": {
                         "type": "boolean",
                         "x-laravel-validation": "required|accepted"
                     }
                 },
-                "required": [
-                    "type",
-                    "consent"
-                ],
+                "required": ["type", "consent"],
                 "x-validation-fields": {
                     "type": "required|in:impression,click",
                     "consent": "required|accepted"
@@ -22401,12 +21607,7 @@
                     "status": {
                         "type": "string",
                         "x-laravel-validation": "required|in:draft,active,paused,ended",
-                        "enum": [
-                            "draft",
-                            "active",
-                            "paused",
-                            "ended"
-                        ]
+                        "enum": ["draft", "active", "paused", "ended"]
                     }
                 },
                 "required": [
@@ -22440,10 +21641,7 @@
                     "type": {
                         "type": "string",
                         "x-laravel-validation": "required|in:view,share",
-                        "enum": [
-                            "view",
-                            "share"
-                        ]
+                        "enum": ["view", "share"]
                     },
                     "sessionId": {
                         "type": "string",
@@ -22462,12 +21660,7 @@
                         "x-laravel-validation": "required|accepted"
                     }
                 },
-                "required": [
-                    "articleId",
-                    "type",
-                    "sessionId",
-                    "consent"
-                ],
+                "required": ["articleId", "type", "sessionId", "consent"],
                 "x-validation-fields": {
                     "articleId": "required|exists:articles,id",
                     "type": "required|in:view,share",
@@ -22504,9 +21697,7 @@
                         "x-laravel-validation": "required|string|regex:/^\\d{6}$/"
                     }
                 },
-                "required": [
-                    "code"
-                ],
+                "required": ["code"],
                 "x-validation-fields": {
                     "code": "required|string|regex:/^\\d{6}$/"
                 }
@@ -22552,11 +21743,7 @@
                     }
                 },
                 "additionalProperties": true,
-                "required": [
-                    "id",
-                    "title",
-                    "organisation"
-                ]
+                "required": ["id", "title", "organisation"]
             },
             "Opportunity_save_POSTInput": {
                 "type": "object",
@@ -22579,12 +21766,7 @@
                     "type": {
                         "type": "string",
                         "x-laravel-validation": "required|in:job,grant,fellowship,accelerator",
-                        "enum": [
-                            "job",
-                            "grant",
-                            "fellowship",
-                            "accelerator"
-                        ]
+                        "enum": ["job", "grant", "fellowship", "accelerator"]
                     },
                     "location": {
                         "type": "string",
@@ -22626,20 +21808,12 @@
                     "edition": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:Nigeria,Australia,both",
-                        "enum": [
-                            "Nigeria",
-                            "Australia",
-                            "both"
-                        ]
+                        "enum": ["Nigeria", "Australia", "both"]
                     },
                     "status": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:draft,published,archived",
-                        "enum": [
-                            "draft",
-                            "published",
-                            "archived"
-                        ]
+                        "enum": ["draft", "published", "archived"]
                     }
                 },
                 "required": [
@@ -22687,12 +21861,7 @@
                     "type": {
                         "type": "string",
                         "x-laravel-validation": "required|in:job,grant,fellowship,accelerator",
-                        "enum": [
-                            "job",
-                            "grant",
-                            "fellowship",
-                            "accelerator"
-                        ]
+                        "enum": ["job", "grant", "fellowship", "accelerator"]
                     },
                     "location": {
                         "type": "string",
@@ -22734,20 +21903,12 @@
                     "edition": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:Nigeria,Australia,both",
-                        "enum": [
-                            "Nigeria",
-                            "Australia",
-                            "both"
-                        ]
+                        "enum": ["Nigeria", "Australia", "both"]
                     },
                     "status": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:draft,published,archived",
-                        "enum": [
-                            "draft",
-                            "published",
-                            "archived"
-                        ]
+                        "enum": ["draft", "published", "archived"]
                     }
                 },
                 "required": [
@@ -22799,12 +21960,7 @@
                     }
                 },
                 "additionalProperties": true,
-                "required": [
-                    "current_page",
-                    "last_page",
-                    "per_page",
-                    "total"
-                ]
+                "required": ["current_page", "last_page", "per_page", "total"]
             },
             "Problem": {
                 "type": "object",
@@ -22839,12 +21995,7 @@
                     }
                 },
                 "additionalProperties": true,
-                "required": [
-                    "type",
-                    "title",
-                    "status",
-                    "detail"
-                ]
+                "required": ["type", "title", "status", "detail"]
             },
             "Review_moveNomination_PATCHInput": {
                 "type": "object",
@@ -22874,9 +22025,7 @@
                         "nullable": true
                     }
                 },
-                "required": [
-                    "status"
-                ],
+                "required": ["status"],
                 "x-validation-fields": {
                     "status": "required|in:review,shortlisted,contacted,interview,development,published,declined",
                     "note": "nullable|string|max:4000",
@@ -22889,11 +22038,7 @@
                     "status": {
                         "type": "string",
                         "x-laravel-validation": "required|in:review,accepted,declined",
-                        "enum": [
-                            "review",
-                            "accepted",
-                            "declined"
-                        ]
+                        "enum": ["review", "accepted", "declined"]
                     },
                     "note": {
                         "type": "string",
@@ -22902,9 +22047,7 @@
                         "maxLength": 4000
                     }
                 },
-                "required": [
-                    "status"
-                ],
+                "required": ["status"],
                 "x-validation-fields": {
                     "status": "required|in:review,accepted,declined",
                     "note": "nullable|string|max:4000"
@@ -22949,11 +22092,7 @@
                     }
                 },
                 "additionalProperties": true,
-                "required": [
-                    "id",
-                    "name",
-                    "email"
-                ]
+                "required": ["id", "name", "email"]
             },
             "Video": {
                 "type": "object",
@@ -22987,11 +22126,7 @@
                     "format": {
                         "type": "string",
                         "nullable": true,
-                        "enum": [
-                            "interview",
-                            "podcast",
-                            "documentary"
-                        ]
+                        "enum": ["interview", "podcast", "documentary"]
                     },
                     "date": {
                         "type": "string",
@@ -22999,11 +22134,7 @@
                     }
                 },
                 "additionalProperties": true,
-                "required": [
-                    "id",
-                    "title",
-                    "embedUrl"
-                ]
+                "required": ["id", "title", "embedUrl"]
             },
             "Youtube_saveChannel_PUTInput": {
                 "type": "object",
@@ -23023,16 +22154,10 @@
                     "edition": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:Nigeria,Australia,both",
-                        "enum": [
-                            "Nigeria",
-                            "Australia",
-                            "both"
-                        ]
+                        "enum": ["Nigeria", "Australia", "both"]
                     }
                 },
-                "required": [
-                    "provider_id"
-                ],
+                "required": ["provider_id"],
                 "x-validation-fields": {
                     "provider_id": "required|string|regex:/^UC[A-Za-z0-9_-]{22}$/",
                     "active": "sometimes|boolean",
@@ -23059,20 +22184,12 @@
                         "type": "string",
                         "x-laravel-validation": "sometimes|nullable|in:interview,podcast,documentary",
                         "nullable": true,
-                        "enum": [
-                            "interview",
-                            "podcast",
-                            "documentary"
-                        ]
+                        "enum": ["interview", "podcast", "documentary"]
                     },
                     "status": {
                         "type": "string",
                         "x-laravel-validation": "sometimes|in:imported,published,archived",
-                        "enum": [
-                            "imported",
-                            "published",
-                            "archived"
-                        ]
+                        "enum": ["imported", "published", "archived"]
                     },
                     "featured": {
                         "type": "boolean",
