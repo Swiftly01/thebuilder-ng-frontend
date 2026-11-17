@@ -3,9 +3,9 @@ import { Article, Builder, Startup, Opportunity, Video } from "../lib/types";
 export const leadStory: Article = {
   id: "lead-1",
   slug: "haftu-strintzos",
-  title: "Haftu Strintzos: From Ethiopian Orphanage to Melbourne Entrepreneur",
+  title: "Haftu Strintzos: From Ethiopian Orphanage to Lagos Entrepreneur",
   summary:
-    "The remarkable journey of a resilient builder who overcame unimaginable odds to build a thriving tech startup in Australia.",
+    "The remarkable journey of a resilient builder who overcame unimaginable odds to build a thriving tech startup in Nigeria.",
   category: "COVER STORY",
   imageUrl: "/images/haftu_strintzos.jpg",
   author: "The Builder",
@@ -53,11 +53,11 @@ export const spotlightBuilder: Builder = {
   imageUrl: "/images/haftu_strintzos.jpg",
   bio: "A visionary leader connecting African tech talent with global opportunities.",
   classification: "Startup Founder",
-  location: "Melbourne, Australia",
-  city: "Melbourne",
-  country: "Australia",
-  countryCode: "AU",
-  flag: "🇦🇺",
+  location: "Lagos, Nigeria",
+  city: "Lagos",
+  country: "Nigeria",
+  countryCode: "NG",
+  flag: "🇳🇬",
   headline: "Connecting African tech talent with global opportunities.",
 };
 
@@ -103,11 +103,11 @@ export const opportunities: Opportunity[] = [
   },
   {
     id: "opp-2",
-    title: "Catalysr Migrant Entrepreneurship Program",
+    title: "Builders Accelerator Migrant Entrepreneurship Program",
     type: "accelerator",
-    organisation: "Catalysr",
+    organisation: "Builders Accelerator",
     deadline: "2026-12-01",
-    location: "Melbourne",
+    location: "Lagos",
     applyUrl: "#",
     daysLeft: 40,
     isUrgent: false,

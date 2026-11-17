@@ -5,10 +5,10 @@ import SectionTitle from "../ui/SectionTitle";
 export default function HomeTrending() {
   const records = usePublicData()?.home?.trending;
   const trending = records?.map((s) => s.title) || [
-    "From the Mountains of Tigray to an Australian Record: The Remarkable Journey of Haftu Strintzos",
-    "From Sudan to the Mayor's Office: Mohamed Semra and a New Generation of African-Australian Leadership",
+    "From the Mountains of Tigray to a National Record: The Remarkable Journey of Haftu Strintzos",
+    "From Sudan to the Mayor's Office: Mohamed Semra and a New Generation of African Diaspora Leadership",
     "Q3 2026: where African venture money went",
-    "Selling More Than Food: How Moses Musioka is Building a Kenyan Brand in Melbourne",
+    "Selling More Than Food: How Moses Musioka is Building a Kenyan Brand in Lagos",
     "Cold rooms, not apps: what Kano’s tomato farmers actually needed",
   ];
 

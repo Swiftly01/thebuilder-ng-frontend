@@ -511,7 +511,7 @@ export function ConnectedEditor() {
                       setDirty(true);
                     }}
                   >
-                    {["both", "Nigeria", "Australia"].map((x) => (
+                    {["both", "Nigeria"].map((x) => (
                       <option key={x}>{x}</option>
                     ))}
                   </select>

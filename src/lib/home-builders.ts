@@ -112,40 +112,6 @@ const profiles: Record<string, Profile[]> = {
       "Product lead at a climate-data firm",
     ],
   ],
-  Australia: [
-    [
-      "Haftu Strintzos",
-      "Professional",
-      "Melbourne",
-      "AU",
-      "🇦🇺",
-      "From Tigray to an Australian marathon record",
-    ],
-    [
-      "Mohamed Semra",
-      "Community Leader",
-      "Melbourne",
-      "AU",
-      "🇦🇺",
-      "From Sudan to the Mayor's Office",
-    ],
-    [
-      "Moses Musioka",
-      "Entrepreneur",
-      "Melbourne",
-      "AU",
-      "🇦🇺",
-      "Building a Kenyan food brand down under",
-    ],
-    [
-      "Selba-Gondoza Luka",
-      "Startup Founder",
-      "Melbourne",
-      "AU",
-      "🇦🇺",
-      "A care network for new arrivals",
-    ],
-  ],
   Europe: [
     [
       "Aisha Bangura",

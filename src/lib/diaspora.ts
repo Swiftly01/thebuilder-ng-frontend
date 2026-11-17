@@ -7,7 +7,6 @@ export const diasporaRegions: Record<
     edition: "Australia" | "Nigeria";
   }
 > = {
-  australia: { label: "Australia", country: "Australia", edition: "Australia" },
   "united-kingdom": {
     label: "United Kingdom",
     country: "United Kingdom",
@@ -23,7 +22,6 @@ export const diasporaRegions: Record<
 };
 
 export const focusRegionPages: Record<string, string> = {
-  Australia: "australia",
   Africa: "africa",
   UK: "united-kingdom",
   US: "united-states",

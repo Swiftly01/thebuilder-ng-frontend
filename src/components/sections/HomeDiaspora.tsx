@@ -26,9 +26,7 @@ export default function HomeDiaspora({
   const activeRegion =
     selection?.edition === edition
       ? selection.region
-      : edition === "Australia"
-        ? "Australia"
-        : "UK";
+      : "UK";
   const content = usePublicData()?.home;
   const location = diasporaRegions[focusRegionPages[activeRegion]!]!;
   const resource = useApiResource(

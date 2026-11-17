@@ -21,13 +21,16 @@ export function EditionProvider({
   useEffect(() => {
     try {
       const saved = localStorage.getItem("tb-edition") as Edition | null;
-      if (saved === "Nigeria" || saved === "Australia") setEditionState(saved);
+      if (saved === "Nigeria") setEditionState(saved);
     } catch {
       /* Keep the server-selected edition when storage is blocked. */
     }
   }, []);
 
-  const setEdition = (e: Edition) => {
+  const setEdition = (requested: Edition) => {
+    // The public site is Nigeria-only; ignore any other edition.
+    const e: Edition = "Nigeria";
+    void requested;
     setEditionState(e);
     try {
       localStorage.setItem("tb-edition", e);

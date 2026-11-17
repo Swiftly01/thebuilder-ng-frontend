@@ -1100,7 +1100,7 @@ export function OpportunitiesEditorScreen() {
             ))}
             {[
               ["Type", "type", ["job", "grant", "fellowship", "accelerator"]],
-              ["Edition", "edition", ["both", "Nigeria", "Australia"]],
+              ["Edition", "edition", ["both", "Nigeria"]],
               ["Status", "status", ["draft", "published", "archived"]],
             ].map(([label, key, choices]) => (
               <label key={String(key)} className="text-sm font-semibold">

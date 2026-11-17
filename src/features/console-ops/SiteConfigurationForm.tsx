@@ -97,7 +97,6 @@ export function SiteConfigurationForm({ section }: { section: string }) {
             ["Support email", "contactEmail"],
             ["Description", "description"],
             ["Nigeria footer attribution", "footerNigeria"],
-            ["Australia footer attribution", "footerAustralia"],
           ].map(([label, key]) => (
             <label key={key} className="block text-sm font-semibold">
               {label}

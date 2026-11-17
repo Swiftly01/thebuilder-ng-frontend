@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 function approvedLegalContent(document) {
   if (document?.version !== 1) return false;
-  return ['Nigeria', 'Australia'].every(edition => {
+  return ['Nigeria'].every(edition => {
     const publisher = document.publishers?.[edition];
     return publisher?.approved === true && typeof publisher.name === 'string' && publisher.name.trim() &&
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(publisher.contactEmail || '') &&

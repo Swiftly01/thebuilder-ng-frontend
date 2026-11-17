@@ -7,7 +7,7 @@ export const SITE_URL =
 export const API_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
 
-export const EDITIONS = ["Nigeria", "Australia"] as const;
+export const EDITIONS = ["Nigeria"] as const;
 export const SCROLL_THRESHOLD = 80; // px before header compacts
 export const TOAST_DURATION = 4000; // ms
 export const DEBOUNCE_DELAY = 300; // ms for search
@@ -42,7 +42,6 @@ export const STORY_CATEGORIES = [
 ] as const;
 
 export const DIASPORA_REGIONS = [
-  "Australia",
   "Africa",
   "UK",
   "US",

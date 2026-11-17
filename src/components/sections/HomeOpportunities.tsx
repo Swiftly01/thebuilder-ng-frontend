@@ -22,10 +22,10 @@ export default function HomeOpportunities({ loading, edition }: any) {
       daysLeft: 4,
     },
     {
-      org: "Catalysr",
-      title: "Migrant Entrepreneurship Program — Melbourne",
+      org: "Builders Accelerator",
+      title: "Migrant Entrepreneurship Program — Lagos",
       type: "Accelerator",
-      location: "Melbourne, AU",
+      location: "Lagos, NG",
       daysLeft: 12,
     },
     {

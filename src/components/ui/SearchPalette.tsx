@@ -42,7 +42,7 @@ export function SearchPalette({ isOpen, onClose }: SearchPaletteProps) {
       setRecent([]);
     }
   }, [isOpen]);
-  const popular = ["Diaspora", "Fintech", "Melbourne", "Grants", "AgriTech"];
+  const popular = ["Diaspora", "Fintech", "Lagos", "Grants", "AgriTech"];
 
   const hasQuery = query.length >= 2;
   const suggestions = useApiResource(
