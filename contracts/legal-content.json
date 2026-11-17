@@ -1,19 +1,490 @@
 {
   "version": 1,
   "publishers": {
-    "Nigeria": { "name": "TechPro Nigeria", "contactEmail": "", "office": "", "approved": false },
-    "Australia": { "name": "TechPro Consulting Pty Ltd", "contactEmail": "editor-in-chief@thebuilderau.com", "office": "Suite 304A, Level 3, 167–169 Queen Street, Melbourne VIC 3000", "approved": false }
+    "Nigeria": {
+      "name": "TechPro Nigeria",
+      "contactEmail": "techproinstitute@gmail.com",
+      "office": "103 Gbongan Ibadan Express Way, Osogbo, Osun State, Nigeria",
+      "approved": true,
+      "managingDirector": "Oladuntoye Mojeed"
+    },
+    "Australia": {
+      "name": "TechPro Consulting Pty Ltd",
+      "contactEmail": "editor-in-chief@thebuilderau.com",
+      "office": "Suite 304A, Level 3, 167–169 Queen Street, Melbourne VIC 3000",
+      "approved": true
+    }
   },
   "policies": {
     "Nigeria": {
-      "terms": { "title": "Terms and Conditions", "status": "pending", "version": "", "approvedBy": "", "approvedAt": "", "sections": [] },
-      "privacy": { "title": "Privacy Policy", "status": "pending", "version": "", "approvedBy": "", "approvedAt": "", "sections": [] },
-      "sponsored": { "title": "Sponsored Content Policy", "status": "pending", "version": "", "approvedBy": "", "approvedAt": "", "sections": [] }
+      "terms": {
+        "title": "Terms and Conditions",
+        "status": "approved",
+        "version": "1.0",
+        "approvedBy": "MD",
+        "approvedAt": "2026-11-17T00:00:00Z",
+        "sections": [
+          {
+            "id": "about-the-builder",
+            "heading": "About The Builder",
+            "paragraphs": [
+              "The Builder is a digital media platform dedicated to identifying, documenting, promoting and connecting entrepreneurs, startups, professionals, innovators, creatives, community changemakers and Nigerians in the diaspora who make meaningful contributions across their industries and communities.",
+              "The Nigeria edition of The Builder is published by TechPro Nigeria, located at 103 Gbongan Ibadan Express Way, Osogbo, Osun State, Nigeria.",
+              "In these Terms and Conditions, \"The Builder\", \"we\", \"us\" or \"our\" refers to the publisher and the platform, while \"you\" refers to visitors, contributors, interviewees, advertisers and other users of the website."
+            ]
+          },
+          {
+            "id": "acceptance-of-these-terms",
+            "heading": "Acceptance of these terms",
+            "paragraphs": [
+              "By accessing or using the website, you agree to comply with these Terms and Conditions and applicable laws. If you do not agree, you should discontinue using the website. Additional terms may apply to specific services, advertising arrangements, submissions, partnerships or other activities. Where applicable, those terms will be provided separately."
+            ]
+          },
+          {
+            "id": "website-content-and-editorial-independence",
+            "heading": "Website content and editorial independence",
+            "paragraphs": [
+              "The Builder publishes articles, interviews, profiles, photographs, videos, commentary and other material about people, organisations, businesses, ideas and community impact. We aim to present information accurately and fairly. Content may contain opinions, personal accounts, estimates or information supplied by third parties. Publication does not necessarily mean that The Builder endorses every statement, organisation, product or service mentioned.",
+              "We may edit, update, correct, remove or decline to publish content where reasonably necessary for accuracy, legal compliance, editorial standards, safety or other legitimate operational reasons. Unless expressly stated otherwise, content is provided for general informational purposes and is not professional, financial, legal, medical or investment advice."
+            ]
+          },
+          {
+            "id": "user-submissions-and-permissions",
+            "heading": "User submissions and permissions",
+            "paragraphs": [
+              "If you submit information, photographs, videos, articles, business details or other material to The Builder, you confirm that you have the right to submit it and that, to the best of your knowledge, it does not unlawfully infringe another person's rights. You must not knowingly submit unlawful, fraudulent, defamatory, misleading, abusive, discriminatory, threatening material or material that violates another person's privacy or intellectual property rights.",
+              "By submitting material, you grant The Builder a non-exclusive, royalty-free licence to review, edit, reproduce, publish, distribute and promote that material in connection with the platform and its legitimate media activities, subject to any separate written agreement and applicable law. You retain ownership of material you own. This licence does not transfer ownership to The Builder. Submission does not guarantee publication; we may request further information, evidence, consent or permissions before publishing material."
+            ]
+          },
+          {
+            "id": "intellectual-property",
+            "heading": "Intellectual property",
+            "paragraphs": [
+              "Unless otherwise indicated, the website's original text, branding, logos, graphics, design and other materials are owned by or licensed to The Builder or its publisher. You may access and share links to publicly available content for lawful, personal and non-commercial purposes, provided appropriate attribution is retained and the material is not misrepresented.",
+              "You must not reproduce, commercially exploit, modify, distribute or republish protected material without permission, except where permitted by law. Third-party names, trademarks, photographs and other materials remain the property of their respective owners."
+            ]
+          },
+          {
+            "id": "third-party-links-and-services",
+            "heading": "Third-party links and services",
+            "paragraphs": [
+              "The website may contain links to external websites, social media platforms, advertisers, sponsors or other services. These are provided for convenience and information. The Builder does not control all third-party websites and is not responsible for their content, availability, privacy practices or terms. Accessing third-party services is at your own discretion and subject to their applicable terms."
+            ]
+          },
+          {
+            "id": "availability-liability-and-changes",
+            "heading": "Availability, liability and changes",
+            "paragraphs": [
+              "We aim to keep the website accessible and secure, but do not guarantee uninterrupted availability, error-free operation or that every item of content will remain available indefinitely. Nothing in these Terms excludes, restricts or modifies a consumer right or remedy that cannot lawfully be excluded under applicable Nigerian law.",
+              "To the extent permitted by law, The Builder is not responsible for losses arising from reliance on general informational content, third-party services or temporary website interruptions. We may update these Terms from time to time. The current version will be published on the website with its applicable version information."
+            ]
+          },
+          {
+            "id": "complaints-and-contact",
+            "heading": "Complaints and contact",
+            "paragraphs": [
+              "Questions, complaints, correction requests or enquiries about these Terms may be sent to techproinstitute@gmail.com, TechPro Nigeria, 103 Gbongan Ibadan Express Way, Osogbo, Osun State, Nigeria. We will review enquiries and respond within a reasonable period.",
+              "Contact: techproinstitute@gmail.com"
+            ]
+          },
+          {
+            "id": "governing-law",
+            "heading": "Governing law",
+            "paragraphs": [
+              "These Terms are subject to applicable Nigerian law. Any determination of governing law, jurisdiction or dispute resolution will be made consistently with applicable law and any non-excludable rights of users."
+            ]
+          }
+        ]
+      },
+      "privacy": {
+        "title": "Privacy Policy",
+        "status": "approved",
+        "version": "1.0",
+        "approvedBy": "MD",
+        "approvedAt": "2026-11-17T00:00:00Z",
+        "sections": [
+          {
+            "id": "purpose-and-scope",
+            "heading": "Purpose and scope",
+            "paragraphs": [
+              "This Privacy Policy explains how The Builder Nigeria collects, uses, stores, discloses and protects personal information when people visit the website, contact us, submit stories, participate in interviews, enquire about partnerships or advertising, or otherwise interact with the platform.",
+              "The Builder Nigeria is published by TechPro Nigeria, 103 Gbongan Ibadan Express Way, Osogbo, Osun State, Nigeria. We aim to handle personal information responsibly and in accordance with applicable data protection laws, including the Nigeria Data Protection Act 2023 where it applies to us."
+            ]
+          },
+          {
+            "id": "information-we-may-collect",
+            "heading": "Information we may collect",
+            "paragraphs": [
+              "Depending on how you interact with the platform, we may collect contact information such as your name, email address, telephone number and organisation; profile and professional information provided for a story, interview, directory listing or business feature; submissions including articles, photographs, videos, biographies and correspondence; enquiries, feedback, complaints and response records; advertising, sponsorship and partnership enquiry information; technical information such as IP address, browser type, device information, website usage and diagnostic logs where collected by the website or service providers; and preferences or consent records where relevant.",
+              "Please do not submit sensitive personal information unless necessary, you are authorised to provide it, and appropriate arrangements have been made. The specific information collected depends on the website's features and the information you choose to provide."
+            ]
+          },
+          {
+            "id": "how-we-collect-information",
+            "heading": "How we collect information",
+            "paragraphs": [
+              "We may collect information directly when you complete a form, send an email, submit a story, participate in an interview, provide feedback or contact us. We may also receive information from publicly available sources, professional or business websites, event organisers, referring organisations and people who recommend a potential story or provide information about a subject.",
+              "Where information is obtained from another source, we will handle it in accordance with applicable law and take reasonable steps to ensure its collection and use are appropriate. Our website or service providers may collect technical information through server logs, cookies or similar technologies if those features are implemented."
+            ]
+          },
+          {
+            "id": "how-we-use-information",
+            "heading": "How we use information",
+            "paragraphs": [
+              "We may use personal information to assess, research, prepare, edit and publish stories, profiles, interviews and other media content; contact people about interviews, submissions, corrections, permissions and publication; respond to enquiries, complaints and requests; operate, maintain, secure and improve the website; manage advertising, sponsored content, partnerships and business enquiries; send updates or promotional communications where permitted and, where required, with consent; and prevent fraud, investigate misuse, protect our rights and comply with legal obligations.",
+              "We will not use personal information for an unrelated purpose unless permitted by applicable law or otherwise appropriately authorised."
+            ]
+          },
+          {
+            "id": "publication-and-disclosure",
+            "heading": "Publication and disclosure",
+            "paragraphs": [
+              "The Builder is a media platform. If you agree to participate in a story or provide material for publication, information you authorise us to publish may become publicly accessible, searchable, shareable and available through third-party search engines or social media platforms. Before publishing identifiable information, photographs, recordings or personal stories, we will consider permissions, notices, consent requirements and other legal obligations relevant to the circumstances.",
+              "We may disclose information to service providers who help operate website hosting, communications, security, analytics or content-management services; professional advisers; and authorities where required or authorised by law. We do not sell personal information as a routine part of operating this platform. Any proposed use or disclosure must be assessed against applicable law and this Policy."
+            ]
+          },
+          {
+            "id": "overseas-disclosure-and-storage",
+            "heading": "Overseas disclosure and storage",
+            "paragraphs": [
+              "The Builder may work with contributors, staff, interviewees and service providers located in Nigeria and other countries, including Australia and other locations where our operations or service providers are based. Personal information may therefore be stored, accessed or disclosed outside Nigeria, depending on the services used and circumstances.",
+              "We will take reasonable steps to handle such information appropriately and meet applicable legal requirements relating to cross-border transfers of personal data. The actual countries involved depend on the platform's hosting and service-provider arrangements."
+            ]
+          },
+          {
+            "id": "security-and-retention",
+            "heading": "Security and retention",
+            "paragraphs": [
+              "We take reasonable steps appropriate to the circumstances to protect personal information against misuse, interference, loss, and unauthorised access, modification or disclosure. No online transmission or storage system can be guaranteed to be completely secure.",
+              "We retain personal information only for as long as reasonably necessary for the purposes for which it was collected, including publication records, legitimate operational needs and legal obligations. When information is no longer required, we will take reasonable steps to delete, destroy or de-identify it where appropriate and lawful."
+            ]
+          },
+          {
+            "id": "access-correction-and-privacy-complaints",
+            "heading": "Access, correction and privacy complaints",
+            "paragraphs": [
+              "You may contact us to request access to personal information we hold about you, ask us to correct information that is inaccurate, out of date, incomplete or misleading, object to certain uses, or withdraw consent where we rely on it. You may also contact us if you believe we have handled your personal information improperly. Please describe your concern and provide enough information for us to investigate.",
+              "We will review requests and complaints and respond within a reasonable period. Some requests may be subject to lawful exceptions or limitations. If dissatisfied with our response and Nigerian data protection law applies to your circumstances, you may be able to complain to the Nigeria Data Protection Commission (NDPC)."
+            ]
+          },
+          {
+            "id": "cookies-and-analytics",
+            "heading": "Cookies and analytics",
+            "paragraphs": [
+              "The website may use cookies or similar technologies to support essential functionality, remember preferences, measure performance or understand how visitors use the platform, if these features are enabled. You can manage cookies through your browser settings, though blocking certain cookies may affect website functionality."
+            ]
+          },
+          {
+            "id": "marketing-communications",
+            "heading": "Marketing communications",
+            "paragraphs": [
+              "We may send updates or promotional communications where permitted by law and where any required consent has been obtained. You can ask to stop receiving marketing communications by following unsubscribe instructions provided or contacting us. Requests will be handled in accordance with applicable requirements."
+            ]
+          },
+          {
+            "id": "changes-to-this-policy",
+            "heading": "Changes to this Policy",
+            "paragraphs": [
+              "We may update this Privacy Policy when our practices, website features or legal obligations change. The latest approved version will be made available on the website with its version information."
+            ]
+          },
+          {
+            "id": "contact-details",
+            "heading": "Contact details",
+            "paragraphs": [
+              "For privacy enquiries, access or correction requests, or complaints, contact TechPro Nigeria, 103 Gbongan Ibadan Express Way, Osogbo, Osun State, Nigeria. Email: techproinstitute@gmail.com.",
+              "Contact: techproinstitute@gmail.com"
+            ]
+          }
+        ]
+      },
+      "sponsored": {
+        "title": "Sponsored Content Policy",
+        "status": "approved",
+        "version": "1.0",
+        "approvedBy": "MD",
+        "approvedAt": "2026-11-17T00:00:00Z",
+        "sections": [
+          {
+            "id": "purpose-and-scope",
+            "heading": "Purpose and scope",
+            "paragraphs": [
+              "This policy explains how The Builder Nigeria identifies and handles sponsored content, advertising, partnerships and other commercially supported material. The Builder Nigeria is published by TechPro Nigeria, 103 Gbongan Ibadan Express Way, Osogbo, Osun State, Nigeria."
+            ]
+          },
+          {
+            "id": "what-counts-as-sponsored-content",
+            "heading": "What counts as sponsored content",
+            "paragraphs": [
+              "Sponsored content is any article, profile, video, listing, placement or promotion that is paid for, supported in kind, or otherwise commercially arranged with a third party. Advertising and partnership placements are also covered by this policy."
+            ]
+          },
+          {
+            "id": "labelling-and-disclosure",
+            "heading": "Labelling and disclosure",
+            "paragraphs": [
+              "Sponsored material will be clearly labelled as sponsored, advertising or partnership content so that readers can distinguish it from independent editorial coverage. Labels will appear where the content is displayed and, where practical, wherever it is shared by The Builder."
+            ]
+          },
+          {
+            "id": "editorial-independence",
+            "heading": "Editorial independence",
+            "paragraphs": [
+              "Payment or sponsorship does not buy editorial coverage, favourable treatment or influence over independent reporting. Editorial decisions on non-sponsored content are made independently of commercial arrangements."
+            ]
+          },
+          {
+            "id": "standards-for-sponsors",
+            "heading": "Standards for sponsors",
+            "paragraphs": [
+              "We may decline, edit, suspend or remove sponsored material that is unlawful, misleading, deceptive, discriminatory, harmful or inconsistent with our editorial standards. Sponsors are responsible for the accuracy of claims they supply and for holding any rights or permissions needed for the material."
+            ]
+          },
+          {
+            "id": "enquiries",
+            "heading": "Enquiries",
+            "paragraphs": [
+              "Questions about sponsored content or advertising may be sent to techproinstitute@gmail.com, TechPro Nigeria, 103 Gbongan Ibadan Express Way, Osogbo, Osun State, Nigeria.",
+              "Contact: techproinstitute@gmail.com"
+            ]
+          }
+        ]
+      }
     },
     "Australia": {
-      "terms": { "title": "Terms and Conditions", "status": "pending", "version": "", "approvedBy": "", "approvedAt": "", "sections": [] },
-      "privacy": { "title": "Privacy Policy", "status": "pending", "version": "", "approvedBy": "", "approvedAt": "", "sections": [] },
-      "sponsored": { "title": "Sponsored Content Policy", "status": "pending", "version": "", "approvedBy": "", "approvedAt": "", "sections": [] }
+      "terms": {
+        "title": "Terms and Conditions",
+        "status": "approved",
+        "version": "1.0",
+        "approvedBy": "MD",
+        "approvedAt": "2026-10-28T00:00:00Z",
+        "sections": [
+          {
+            "id": "about-the-builder",
+            "heading": "About The Builder",
+            "paragraphs": [
+              "The Builder is a digital media platform dedicated to identifying, documenting, promoting and connecting entrepreneurs, startups, professionals, innovators, creatives, community changemakers and Nigerians in the diaspora who make meaningful contributions across their industries and communities.",
+              "The Australia edition of The Builder is published by TechPro Consulting Pty Ltd, located at Suite 304A, Level 3, 167–169 Queen Street, Melbourne VIC 3000, Australia.",
+              "In these Terms and Conditions, \"The Builder\", \"we\", \"us\" or \"our\" refers to the publisher and the platform, while \"you\" refers to visitors, contributors, interviewees, advertisers and other users of the website."
+            ]
+          },
+          {
+            "id": "acceptance-of-these-terms",
+            "heading": "Acceptance of these terms",
+            "paragraphs": [
+              "By accessing or using the website, you agree to comply with these Terms and Conditions and applicable laws. If you do not agree, you should discontinue using the website. Additional terms may apply to specific services, advertising arrangements, submissions, partnerships or other activities. Where applicable, those terms will be provided separately."
+            ]
+          },
+          {
+            "id": "website-content-and-editorial-independence",
+            "heading": "Website content and editorial independence",
+            "paragraphs": [
+              "The Builder publishes articles, interviews, profiles, photographs, videos, commentary and other material about people, organisations, businesses, ideas and community impact. We aim to present information accurately and fairly. Content may contain opinions, personal accounts, estimates or information supplied by third parties. Publication does not necessarily mean that The Builder endorses every statement, organisation, product or service mentioned.",
+              "We may edit, update, correct, remove or decline to publish content where reasonably necessary for accuracy, legal compliance, editorial standards, safety or other legitimate operational reasons. Unless expressly stated otherwise, content is provided for general informational purposes and is not professional, financial, legal, medical or investment advice."
+            ]
+          },
+          {
+            "id": "user-submissions-and-permissions",
+            "heading": "User submissions and permissions",
+            "paragraphs": [
+              "If you submit information, photographs, videos, articles, business details or other material to The Builder, you confirm that you have the right to submit it and that, to the best of your knowledge, it does not unlawfully infringe another person's rights. You must not knowingly submit unlawful, fraudulent, defamatory, misleading, abusive, discriminatory, threatening material or material that violates another person's privacy or intellectual property rights.",
+              "By submitting material, you grant The Builder a non-exclusive, royalty-free licence to review, edit, reproduce, publish, distribute and promote that material in connection with the platform and its legitimate media activities, subject to any separate written agreement and applicable law. You retain ownership of material you own. This licence does not transfer ownership to The Builder. Submission does not guarantee publication; we may request further information, evidence, consent or permissions before publishing material."
+            ]
+          },
+          {
+            "id": "intellectual-property",
+            "heading": "Intellectual property",
+            "paragraphs": [
+              "Unless otherwise indicated, the website's original text, branding, logos, graphics, design and other materials are owned by or licensed to The Builder or its publisher. You may access and share links to publicly available content for lawful, personal and non-commercial purposes, provided appropriate attribution is retained and the material is not misrepresented.",
+              "You must not reproduce, commercially exploit, modify, distribute or republish protected material without permission, except where permitted by law. Third-party names, trademarks, photographs and other materials remain the property of their respective owners."
+            ]
+          },
+          {
+            "id": "third-party-links-and-services",
+            "heading": "Third-party links and services",
+            "paragraphs": [
+              "The website may contain links to external websites, social media platforms, advertisers, sponsors or other services. These are provided for convenience and information. The Builder does not control all third-party websites and is not responsible for their content, availability, privacy practices or terms. Accessing third-party services is at your own discretion and subject to their applicable terms."
+            ]
+          },
+          {
+            "id": "availability-liability-and-changes",
+            "heading": "Availability, liability and changes",
+            "paragraphs": [
+              "We aim to keep the website accessible and secure, but do not guarantee uninterrupted availability, error-free operation or that every item of content will remain available indefinitely. Nothing in these Terms excludes, restricts or modifies a consumer guarantee, right or remedy that cannot lawfully be excluded under applicable law, including the Australian Consumer Law.",
+              "To the extent permitted by law, The Builder is not responsible for losses arising from reliance on general informational content, third-party services or temporary website interruptions. We may update these Terms from time to time. The current version will be published on the website with its applicable version information."
+            ]
+          },
+          {
+            "id": "complaints-and-contact",
+            "heading": "Complaints and contact",
+            "paragraphs": [
+              "Questions, complaints, correction requests or enquiries about these Terms may be sent to editor-in-chief@thebuilderau.com, TechPro Consulting Pty Ltd, Suite 304A, Level 3, 167–169 Queen Street, Melbourne VIC 3000, Australia. We will review enquiries and respond within a reasonable period.",
+              "Contact: editor-in-chief@thebuilderau.com"
+            ]
+          },
+          {
+            "id": "governing-law",
+            "heading": "Governing law",
+            "paragraphs": [
+              "These Terms are subject to applicable Australian law. Any determination of governing law, jurisdiction or dispute resolution will be made consistently with applicable law and any non-excludable rights of users."
+            ]
+          }
+        ]
+      },
+      "privacy": {
+        "title": "Privacy Policy",
+        "status": "approved",
+        "version": "1.0",
+        "approvedBy": "MD",
+        "approvedAt": "2026-10-28T00:00:00Z",
+        "sections": [
+          {
+            "id": "purpose-and-scope",
+            "heading": "Purpose and scope",
+            "paragraphs": [
+              "This Privacy Policy explains how The Builder Australia collects, uses, stores, discloses and protects personal information when people visit the website, contact us, submit stories, participate in interviews, enquire about partnerships or advertising, or otherwise interact with the platform.",
+              "The Builder Australia is published by TechPro Consulting Pty Ltd, Suite 304A, Level 3, 167–169 Queen Street, Melbourne VIC 3000, Australia. We aim to handle personal information responsibly and in accordance with applicable privacy laws, including the Privacy Act 1988 (Cth) and the Australian Privacy Principles where they apply to us."
+            ]
+          },
+          {
+            "id": "information-we-may-collect",
+            "heading": "Information we may collect",
+            "paragraphs": [
+              "Depending on how you interact with the platform, we may collect contact information such as your name, email address, telephone number and organisation; profile and professional information provided for a story, interview, directory listing or business feature; submissions including articles, photographs, videos, biographies and correspondence; enquiries, feedback, complaints and response records; advertising, sponsorship and partnership enquiry information; technical information such as IP address, browser type, device information, website usage and diagnostic logs where collected by the website or service providers; and preferences or consent records where relevant.",
+              "Please do not submit sensitive personal information unless necessary, you are authorised to provide it, and appropriate arrangements have been made. The specific information collected depends on the website's features and the information you choose to provide."
+            ]
+          },
+          {
+            "id": "how-we-collect-information",
+            "heading": "How we collect information",
+            "paragraphs": [
+              "We may collect information directly when you complete a form, send an email, submit a story, participate in an interview, provide feedback or contact us. We may also receive information from publicly available sources, professional or business websites, event organisers, referring organisations and people who recommend a potential story or provide information about a subject.",
+              "Where information is obtained from another source, we will handle it in accordance with applicable law and take reasonable steps to ensure its collection and use are appropriate. Our website or service providers may collect technical information through server logs, cookies or similar technologies if those features are implemented."
+            ]
+          },
+          {
+            "id": "how-we-use-information",
+            "heading": "How we use information",
+            "paragraphs": [
+              "We may use personal information to assess, research, prepare, edit and publish stories, profiles, interviews and other media content; contact people about interviews, submissions, corrections, permissions and publication; respond to enquiries, complaints and requests; operate, maintain, secure and improve the website; manage advertising, sponsored content, partnerships and business enquiries; send updates or promotional communications where permitted and, where required, with consent; and prevent fraud, investigate misuse, protect our rights and comply with legal obligations.",
+              "We will not use personal information for an unrelated purpose unless permitted by applicable law or otherwise appropriately authorised."
+            ]
+          },
+          {
+            "id": "publication-and-disclosure",
+            "heading": "Publication and disclosure",
+            "paragraphs": [
+              "The Builder is a media platform. If you agree to participate in a story or provide material for publication, information you authorise us to publish may become publicly accessible, searchable, shareable and available through third-party search engines or social media platforms. Before publishing identifiable information, photographs, recordings or personal stories, we will consider permissions, notices, consent requirements and other legal obligations relevant to the circumstances.",
+              "We may disclose information to service providers who help operate website hosting, communications, security, analytics or content-management services; professional advisers; and authorities where required or authorised by law. We do not sell personal information as a routine part of operating this platform. Any proposed use or disclosure must be assessed against applicable law and this Policy."
+            ]
+          },
+          {
+            "id": "overseas-disclosure-and-storage",
+            "heading": "Overseas disclosure and storage",
+            "paragraphs": [
+              "The Builder may work with contributors, staff, interviewees and service providers located in Australia and other countries, including Nigeria and other locations where our operations or service providers are based. Personal information may therefore be stored, accessed or disclosed outside Australia, depending on the services used and circumstances.",
+              "We will take reasonable steps to handle such information appropriately and meet applicable legal requirements relating to overseas disclosure. The actual countries involved depend on the platform's hosting and service-provider arrangements."
+            ]
+          },
+          {
+            "id": "security-and-retention",
+            "heading": "Security and retention",
+            "paragraphs": [
+              "We take reasonable steps appropriate to the circumstances to protect personal information against misuse, interference, loss, and unauthorised access, modification or disclosure. No online transmission or storage system can be guaranteed to be completely secure.",
+              "We retain personal information only for as long as reasonably necessary for the purposes for which it was collected, including publication records, legitimate operational needs and legal obligations. When information is no longer required, we will take reasonable steps to delete, destroy or de-identify it where appropriate and lawful."
+            ]
+          },
+          {
+            "id": "access-correction-and-privacy-complaints",
+            "heading": "Access, correction and privacy complaints",
+            "paragraphs": [
+              "You may contact us to request access to personal information we hold about you or ask us to correct information that is inaccurate, out of date, incomplete, irrelevant or misleading. You may also contact us if you believe we have handled your personal information improperly. Please describe your concern and provide enough information for us to investigate.",
+              "We will review requests and complaints and respond within a reasonable period. Some requests may be subject to lawful exceptions or limitations. If dissatisfied with our response and Australian privacy law applies to your circumstances, you may be able to complain to the Office of the Australian Information Commissioner (OAIC)."
+            ]
+          },
+          {
+            "id": "cookies-and-analytics",
+            "heading": "Cookies and analytics",
+            "paragraphs": [
+              "The website may use cookies or similar technologies to support essential functionality, remember preferences, measure performance or understand how visitors use the platform, if these features are enabled. You can manage cookies through your browser settings, though blocking certain cookies may affect website functionality."
+            ]
+          },
+          {
+            "id": "marketing-communications",
+            "heading": "Marketing communications",
+            "paragraphs": [
+              "We may send updates or promotional communications where permitted by law and where any required consent has been obtained. You can ask to stop receiving marketing communications by following unsubscribe instructions provided or contacting us. Requests will be handled in accordance with applicable requirements."
+            ]
+          },
+          {
+            "id": "changes-to-this-policy",
+            "heading": "Changes to this Policy",
+            "paragraphs": [
+              "We may update this Privacy Policy when our practices, website features or legal obligations change. The latest approved version will be made available on the website with its version information."
+            ]
+          },
+          {
+            "id": "contact-details",
+            "heading": "Contact details",
+            "paragraphs": [
+              "For privacy enquiries, access or correction requests, or complaints, contact TechPro Consulting Pty Ltd, Suite 304A, Level 3, 167–169 Queen Street, Melbourne VIC 3000, Australia. Email: editor-in-chief@thebuilderau.com.",
+              "Contact: editor-in-chief@thebuilderau.com"
+            ]
+          }
+        ]
+      },
+      "sponsored": {
+        "title": "Sponsored Content Policy",
+        "status": "approved",
+        "version": "1.0",
+        "approvedBy": "MD",
+        "approvedAt": "2026-10-28T00:00:00Z",
+        "sections": [
+          {
+            "id": "purpose-and-scope",
+            "heading": "Purpose and scope",
+            "paragraphs": [
+              "This policy explains how The Builder Australia identifies and handles sponsored content, advertising, partnerships and other commercially supported material. The Builder Australia is published by TechPro Consulting Pty Ltd, Suite 304A, Level 3, 167–169 Queen Street, Melbourne VIC 3000, Australia."
+            ]
+          },
+          {
+            "id": "what-counts-as-sponsored-content",
+            "heading": "What counts as sponsored content",
+            "paragraphs": [
+              "Sponsored content is any article, profile, video, listing, placement or promotion that is paid for, supported in kind, or otherwise commercially arranged with a third party. Advertising and partnership placements are also covered by this policy."
+            ]
+          },
+          {
+            "id": "labelling-and-disclosure",
+            "heading": "Labelling and disclosure",
+            "paragraphs": [
+              "Sponsored material will be clearly labelled as sponsored, advertising or partnership content so that readers can distinguish it from independent editorial coverage. Labels will appear where the content is displayed and, where practical, wherever it is shared by The Builder."
+            ]
+          },
+          {
+            "id": "editorial-independence",
+            "heading": "Editorial independence",
+            "paragraphs": [
+              "Payment or sponsorship does not buy editorial coverage, favourable treatment or influence over independent reporting. Editorial decisions on non-sponsored content are made independently of commercial arrangements."
+            ]
+          },
+          {
+            "id": "standards-for-sponsors",
+            "heading": "Standards for sponsors",
+            "paragraphs": [
+              "We may decline, edit, suspend or remove sponsored material that is unlawful, misleading, deceptive, discriminatory, harmful or inconsistent with our editorial standards. Sponsors are responsible for the accuracy of claims they supply and for holding any rights or permissions needed for the material."
+            ]
+          },
+          {
+            "id": "enquiries",
+            "heading": "Enquiries",
+            "paragraphs": [
+              "Questions about sponsored content or advertising may be sent to editor-in-chief@thebuilderau.com, TechPro Consulting Pty Ltd, Suite 304A, Level 3, 167–169 Queen Street, Melbourne VIC 3000, Australia.",
+              "Contact: editor-in-chief@thebuilderau.com"
+            ]
+          }
+        ]
+      }
     }
   }
 }
