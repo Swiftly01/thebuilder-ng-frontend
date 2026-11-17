@@ -5,7 +5,7 @@ import SectionTitle from "../ui/SectionTitle";
 export default function HomeMostRead({ loading }: { loading?: boolean }) {
   const records = usePublicData()?.home?.mostRead;
   const mostRead = records?.map((s) => s.title) || [
-    "From the Mountains of Tigray to an Australian Record",
+    "From the Mountains of Tigray to a National Record",
     "Q3 2026: where African venture money went",
     "From Sudan to the Mayor's Office",
     "The engineers who stayed",

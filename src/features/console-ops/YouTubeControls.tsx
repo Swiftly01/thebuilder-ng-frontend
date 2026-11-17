@@ -229,7 +229,7 @@ export function YouTubeControls() {
                 setDraft({ ...draft, edition: event.target.value })
               }
             >
-              {["both", "Nigeria", "Australia"].map((edition) => (
+              {["both", "Nigeria"].map((edition) => (
                 <option key={edition}>{edition}</option>
               ))}
             </select>

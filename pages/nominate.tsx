@@ -22,7 +22,6 @@ const industries = [
 ];
 const countries = [
   "Nigeria",
-  "Australia",
   "United Kingdom",
   "United States",
   "Canada",

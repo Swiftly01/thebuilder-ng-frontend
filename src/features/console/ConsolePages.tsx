@@ -638,7 +638,6 @@ export function ContentPage({ state }: { state?: State }) {
             >
               <option value="" className="bg-[var(--surface-card)] text-[var(--text-body)]">All editions</option>
               <option className="bg-[var(--surface-card)] text-[var(--text-body)]">Nigeria</option>
-              <option className="bg-[var(--surface-card)] text-[var(--text-body)]">Australia</option>
               <option className="bg-[var(--surface-card)] text-[var(--text-body)]">both</option>
             </select>
             <button

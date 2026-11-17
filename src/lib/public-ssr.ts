@@ -6,10 +6,7 @@ import { storyRedirect } from "./story-redirect";
 export function publicPageProps(path: string): GetServerSideProps {
   return async (context) => {
     if (process.env.NEXT_PUBLIC_DESIGN_PREVIEW === "true") return { props: {} };
-    const edition =
-      context.req.cookies["tb-edition"] === "Australia"
-        ? "Australia"
-        : "Nigeria";
+    const edition = "Nigeria" as const;
     const publicKey = JSON.stringify([path, context.query, edition]);
     try {
       const [publicData, settings] = await Promise.all([

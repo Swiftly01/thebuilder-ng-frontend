@@ -168,12 +168,11 @@ export function ConsoleLayout({ children }: { children: React.ReactNode }) {
               aria-label="Public edition"
               value={edition}
               onChange={(event) =>
-                setEdition(event.target.value as "Nigeria" | "Australia")
+                setEdition(event.target.value as "Nigeria")
               }
               className="hidden h-[36px] rounded-lg border border-[var(--border)] bg-[var(--surface-page)] px-2.5 font-ui text-[13px] font-semibold text-[var(--text-heading)] outline-none transition-colors hover:bg-[var(--surface-hover)] md:block"
             >
               <option value="Nigeria" className="bg-[var(--surface-card)] text-[var(--text-body)]">🇳🇬 Nigeria</option>
-              <option value="Australia" className="bg-[var(--surface-card)] text-[var(--text-body)]">🇦🇺 Australia</option>
             </select>
 
             {/* Console Dedicated Theme Toggle */}

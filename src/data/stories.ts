@@ -4,14 +4,14 @@ export const stories: Story[] = [
   {
     kicker: "Founder Stories",
     title:
-      "Selling More Than Food: How Moses Musioka is Building a Kenyan Brand in Melbourne",
+      "Selling More Than Food: How Moses Musioka is Building a Kenyan Brand in Lagos",
     summary:
       "From a single market stall to supermarket shelves, without losing the taste of home.",
     author: "Grace Ochieng",
     date: "6 Oct 2026",
     readTime: "6 min read",
     industry: "Consumer",
-    country: "Australia",
+    country: "Nigeria",
     views: 9200,
     type: "Founder Stories",
     slug: "moses-musioka-kenyan-brand",
@@ -37,12 +37,12 @@ export const stories: Story[] = [
     kicker: "Interviews",
     title: "Selba-Gondoza Luka on building a care network for new arrivals",
     summary:
-      "The South Sudanese-Australian nurse turned founder on scale without losing warmth.",
+      "The South Sudanese-born nurse turned founder on scale without losing warmth.",
     author: "Grace Ochieng",
     date: "5 Oct 2026",
     readTime: "10 min read",
     industry: "HealthTech",
-    country: "Australia",
+    country: "Nigeria",
     views: 6100,
     type: "Interviews",
     slug: "selba-gondoza-luka-care-network",
@@ -67,9 +67,9 @@ export const stories: Story[] = [
   {
     kicker: "Diaspora",
     title:
-      "From Sudan to the Mayor's Office: Mohamed Semra and a New Generation of African-Australian Leadership",
+      "From Sudan to the Mayor's Office: Mohamed Semra and a New Generation of African Diaspora Leadership",
     summary:
-      "How a legal-aid lawyer became one of Melbourne’s most visible new councillors.",
+      "How a legal-aid lawyer became one of Lagos’ most visible new councillors.",
     author: "Adaeze Nwosu",
     date: "5 Oct 2026",
     readTime: "8 min read",
@@ -81,13 +81,13 @@ export const stories: Story[] = [
   {
     kicker: "Diaspora",
     title:
-      "From the Mountains of Tigray to an Australian Record: Haftu Strintzos",
+      "From the Mountains of Tigray to a National Record: Haftu Strintzos",
     summary:
-      "The record-holder on Tigray, Broadmeadows and the exercise book he still trains from.",
+      "The record-holder on Tigray, Lagos and the exercise book he still trains from.",
     author: "Grace Ochieng",
     date: "6 Oct 2026",
     readTime: "12 min read",
-    slug: "haftu-strintzos-australian-record",
+    slug: "haftu-strintzos-national-record",
     image:
       "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80",
   },
@@ -97,33 +97,33 @@ export const builders: Builder[] = [
   {
     name: "Haftu Strintzos",
     classification: "Professional",
-    location: "Based in Melbourne, AU",
-    flag: "🇦🇺",
-    headline: "From Tigray to an Australian marathon record",
+    location: "Based in Lagos, NG",
+    flag: "🇳🇬",
+    headline: "From Tigray to an national marathon record",
     industry: "Sport",
-    country: "Australia",
+    country: "Nigeria",
     image:
       "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80",
   },
   {
     name: "Mohamed Semra",
     classification: "Community Leader",
-    location: "Based in Melbourne, AU",
-    flag: "🇦🇺",
+    location: "Based in Lagos, NG",
+    flag: "🇳🇬",
     headline: "From Sudan to the Mayor's Office",
     industry: "Civic",
-    country: "Australia",
+    country: "Nigeria",
     image:
       "https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=800&q=80",
   },
   {
     name: "Moses Musioka",
     classification: "Entrepreneur",
-    location: "Based in Melbourne, AU",
-    flag: "🇦🇺",
-    headline: "Building a Kenyan food brand down under",
+    location: "Based in Lagos, NG",
+    flag: "🇳🇬",
+    headline: "Building a Kenyan food brand in Lagos",
     industry: "Consumer",
-    country: "Australia",
+    country: "Nigeria",
     image:
       "https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=800&q=80",
   },
@@ -153,11 +153,11 @@ export const startups: Startup[] = [
 
 export const opportunities: Opportunity[] = [
   {
-    slug: "catalysr",
-    organisation: "Catalysr",
+    slug: "builders-accelerator",
+    organisation: "Builders Accelerator",
     title: "Migrant Entrepreneurship Program",
     type: "Accelerator",
-    location: "Melbourne, AU",
+    location: "Lagos, NG",
     daysLeft: 12,
   } as any,
 ];

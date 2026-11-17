@@ -105,7 +105,7 @@ export default function Footer() {
           {footerForEdition(settings, edition)}
         </p>
         <div className="flex flex-wrap items-center gap-3">
-          {(["Nigeria", "Australia"] as const).map((name) => (
+          {(["Nigeria"] as const).map((name) => (
             <span
               key={name}
               className={

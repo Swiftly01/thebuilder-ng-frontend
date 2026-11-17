@@ -28,7 +28,7 @@ export default function HomePicks({ loading, edition }: any) {
       },
       {
         kicker: "ANALYSIS",
-        title: "What the Australia edition means for the diaspora story",
+        title: "What the Nigeria edition means for the diaspora story",
         date: "30 Sep",
         readTime: "5 min read",
       },

@@ -17,7 +17,7 @@ export default function HomeLatest({
       kicker: "Interviews",
       title: "Selba-Gondoza Luka on building a care network for new arrivals",
       summary:
-        "The South Sudanese-Australian nurse turned founder on scale without losing warmth.",
+        "The South Sudanese-born nurse turned founder on scale without losing warmth.",
       author: "Grace Ochieng",
       date: "6 Oct",
       readTime: "10 min read",
@@ -52,7 +52,7 @@ export default function HomeLatest({
       kicker: "Business",
       title: "The Blue Nile Business Masterclass graduates its first cohort",
       summary:
-        "Forty African-Australian founders, twelve weeks, one shared goal.",
+        "Forty African founders, twelve weeks, one shared goal.",
       author: "Liam Okoro",
       date: "4 Oct",
       readTime: "4 min read",
@@ -77,7 +77,7 @@ export default function HomeLatest({
     {
       kicker: "Fintech",
       title: "Pesa Bridge wants to make sending money home boring",
-      summary: "A Melbourne startup cutting remittance fees to East Africa.",
+      summary: "A Lagos startup cutting remittance fees to East Africa.",
       author: "Liam Okoro",
       date: "2 Oct",
       readTime: "6 min read",

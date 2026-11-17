@@ -343,7 +343,7 @@ export function BuildersScreen() {
                   Selba-Gondoza Luka
                 </h2>
                 <p className="mt-3 text-sm text-[var(--text-meta)]">
-                  🇦🇺 Melbourne, Australia · Founder, Haven Care
+                  🇳🇬 Lagos, Nigeria · Founder, Haven Care
                 </p>
                 <blockquote className="mt-5 border-l-4 border-[var(--accent)] pl-5 font-serif text-xl italic leading-8 text-[var(--text-heading)]">
                   “New arrivals don’t need a hundred services. They need one
@@ -882,7 +882,6 @@ export function DiasporaScreen() {
                 </div>
               )}
               {[
-                ["Australia", "78%", "72%"],
                 ["United Kingdom", "47%", "32%"],
                 ["US", "20%", "40%"],
                 ["Canada", "20%", "20%"],
@@ -939,7 +938,7 @@ export function DiasporaScreen() {
 export function DiasporaRegionScreen() {
   const router = useRouter();
   const region =
-    diasporaRegions[String(router.query.region)]?.label || "Australia";
+    diasporaRegions[String(router.query.region)]?.label || "United Kingdom";
   const live = usePublicData();
   const builders = live?.builders ?? fixtureBuilders;
   const opportunities = live?.opportunities ?? fixtureOpportunities;
@@ -1222,7 +1221,6 @@ export function OpportunitiesScreen() {
               <option>Anywhere</option>
               <option>Remote</option>
               <option>Nigeria</option>
-              <option>Australia</option>
               <option>Africa</option>
             </select>
           </label>
@@ -1510,7 +1508,7 @@ export function SearchScreen() {
             }
           >
             Check the spelling, use fewer words, or try Diaspora, Fintech,
-            Melbourne, Grants or AgriTech.
+            Lagos, Grants or AgriTech.
           </Empty>
         ) : (
           <div className="mt-10 space-y-12">
@@ -1684,7 +1682,7 @@ export function AboutScreen() {
           <div className="space-y-6 font-serif text-xl leading-9 md:col-span-7">
             The Builder documents African entrepreneurs, startups, professionals
             and diaspora builders with the care of long-form journalism. We
-            publish from Lagos and Melbourne, and measure ourselves by whether
+            publish from Lagos and Abuja, and measure ourselves by whether
             people can do more because of it.
           </div>
         </section>
@@ -1723,7 +1721,7 @@ export function AboutScreen() {
               Partner or advertise with us
             </h2>
             <p className="mt-3 text-sm leading-6 text-[var(--text-meta)]">
-              Reach founders, operators and investors across Nigeria, Australia
+              Reach founders, operators and investors across Nigeria
               and the diaspora.
             </p>
           </div>
@@ -1797,7 +1795,7 @@ const events = [
     "Oct",
     "Masterclass",
     "Blue Nile Business Masterclass: Pricing and cash flow",
-    "Melbourne, AU",
+    "Abuja, NG",
   ],
   [
     "29",
@@ -1817,8 +1815,8 @@ const events = [
     "03",
     "Dec",
     "Meet-up",
-    "African-Australian builders’ end-of-year gathering",
-    "Footscray, Melbourne",
+    "African builders’ end-of-year gathering",
+    "Ikeja, Lagos",
   ],
 ] as const;
 export function EventsScreen() {

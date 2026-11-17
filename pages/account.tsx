@@ -42,7 +42,7 @@ const nav = [
 ] as const;
 const stories = [
   "How a Lagos founder made credit work for market traders",
-  "The marathon record-holder running a new race in Melbourne",
+  "The marathon record-holder running a new race in Lagos",
   "A diaspora founder building care around culture",
   "The agritech platform betting on small farms",
   "Why African fintech is entering its patient era",

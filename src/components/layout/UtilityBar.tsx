@@ -1,35 +1,11 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { useEdition } from "@/context/EditionContext";
 import { Laptop, Moon, Sun } from "lucide-react";
 import { SocialLinks } from "../ui/SocialLinks";
 import { useTheme } from "@/context/ThemeContext";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { storyCategories, categorySlug } from "@/lib/editorial-policy";
 
 export default function UtilityBar() {
-  const { edition, setEdition } = useEdition();
-  const router = useRouter();
-  const chooseEdition = (next: "Nigeria" | "Australia") => {
-    setEdition(next);
-    if (router.pathname === "/stories") {
-      const category =
-        typeof router.query.category === "string"
-          ? router.query.category
-          : undefined;
-      const allowed = storyCategories(next).map(categorySlug);
-      void router.push({
-        pathname: router.pathname,
-        query: {
-          ...router.query,
-          page: 1,
-          category:
-            category && allowed.includes(category) ? category : undefined,
-        },
-      });
-    }
-  };
   const { theme, setTheme } = useTheme();
   const d = new Date().toLocaleDateString("en-GB", {
     weekday: "long",
@@ -41,23 +17,9 @@ export default function UtilityBar() {
   return (
     <div className="utility-bar h-utility bg-[var(--surface-inverse-deep)] flex items-center justify-between px-4 md:px-6 text-[12px] font-ui text-[var(--text-meta-on-inverse)]">
       <div className="utility-editions flex items-center gap-4">
-        <div className="flex gap-[2px]">
-          {["Nigeria", "Australia"].map((e) => (
-            <button
-              key={e}
-              onClick={() => chooseEdition(e as "Nigeria" | "Australia")}
-              aria-pressed={edition === e}
-              className={cn(
-                "h-6 px-2 rounded font-semibold whitespace-nowrap",
-                edition === e
-                  ? "bg-[color:color-mix(in_srgb,var(--text-on-inverse)_15%,transparent)] text-[var(--text-on-inverse)]"
-                  : "text-[var(--text-meta-on-inverse)]",
-              )}
-            >
-              {e}
-            </button>
-          ))}
-        </div>
+        <span className="h-6 px-2 rounded font-semibold whitespace-nowrap inline-flex items-center bg-[color:color-mix(in_srgb,var(--text-on-inverse)_15%,transparent)] text-[var(--text-on-inverse)]">
+          Nigeria
+        </span>
         <span suppressHydrationWarning className="hidden lg:inline">
           {d}
         </span>
